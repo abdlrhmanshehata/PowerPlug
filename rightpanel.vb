@@ -5,7 +5,7 @@ Imports System.Drawing
 Imports System.Windows
 
 Public Class rightpanel
-    Dim objapp As PowerPoint.Application = Globals.ThisAddIn.Application
+    Dim WithEvents objapp As PowerPoint.Application = Globals.ThisAddIn.Application
     Dim i As Integer
     Dim notesshape As PowerPoint.Shape
     Dim shapename As String
@@ -81,56 +81,6 @@ Public Class rightpanel
         End If
         
 
-    End Sub
-    
-    Private Sub generalscroll(sender As Object, e As ScrollEventArgs) Handles Scroll_General.Scroll
-        Select Case Scroll_General.Value
-            Case 0
-                setloc(TextBoxPage, 3, TopPanel.Height, 0)
-            Case 10
-                setloc(TextBoxPage, 3, TopPanel.Height, 1)
-            Case 20
-                setloc(TextBoxPage, 3, TopPanel.Height, 2)
-            Case 30
-                setloc(TextBoxPage, 3, TopPanel.Height, 3)
-            Case 40
-                setloc(TextBoxPage, 3, TopPanel.Height, 4)
-            Case 50
-                setloc(TextBoxPage, 3, TopPanel.Height, 5)
-        End Select
-    End Sub
-    Sub setloc(ByVal page As TableLayoutPanel, ByVal start As Integer, ByVal contOutside As Integer, ByVal caseindex As Integer)
-        Dim y, portion As Integer
-        Dim contInside As Integer
-
-        If TextBoxPage.Visible = True Then
-            page = TextBoxPage
-            contInside = TextBoxPage.Height
-        ElseIf SizePage.Visible = True Then
-            page = SizePage
-            contInside = SizePage.Height
-        End If
-
-        portion = (contInside - contOutside) / 4.9
-        y = start - (caseindex * portion)
-        If page.Visible = True Then
-            page.Location = New Drawing.Point(page.Location.X, y)
-        End If
-    End Sub
-    Private Sub rightpanel_Load(sender As Object, e As EventArgs) Handles Me.Load
-        cboxFormatShape.SelectedIndex = 0
-    End Sub
-
-    Private Sub rightpanel_SizeChanged(sender As Object, e As EventArgs) Handles Me.SizeChanged
-        TextBoxPage.Width = Me.Width - 28
-        SCont_A.Height = Me.Height - 12
-    End Sub
-    Private Sub TopPanel_SizeChanged(sender As Object, e As EventArgs) Handles TopPanel.SizeChanged
-        If TopPanel.Height > TextBoxPage.Height Then
-            Scroll_General.Enabled = False
-        Else
-            Scroll_General.Enabled = True
-        End If
     End Sub
 #End Region
     '=======================================NOTES NOTES NOTES NOTES NOTES NOTES NOTES NOTES NOTES============================================='
@@ -499,31 +449,6 @@ Public Class rightpanel
     '=======================================FORMAT SHAPE FORMAT SHAPE FORMAT SHAPE FORMAT SHAPE ====================================='
     '=======================================FORMAT SHAPE FORMAT SHAPE FORMAT SHAPE FORMAT SHAPE ====================================='
 #Region "Format Shape"
-    Sub resetall()
-        TextBoxPage.Visible = False
-
-    End Sub
-    Sub adjustpage(ByVal control As TableLayoutPanel, ByVal length As Integer)    ' width : 288 , height :315    X:4 , Y:3
-        Try
-            resetall()
-            control.Location = New Drawing.Point(4, 3)
-            control.Size = New Drawing.Size(Me.Width - 28, length)
-            control.BringToFront()
-            control.Visible = True
-        Catch ex As Exception
-        End Try
-    End Sub
-    Private Sub cboxFormatShape_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboxFormatShape.SelectedIndexChanged
-        Select Case cboxFormatShape.SelectedIndex
-            Case 0
-                adjustpage(TextBoxPage, 330)
-                Scroll_General.Value = 0
-            Case 1
-                adjustpage(SizePage, 337)
-                Scroll_General.Value = 0
-        End Select
-    End Sub
-
     '-----------------------------------TEXTBOX TEXTBOX TEXTBOX TEXTBOX TEXTBOX TEXTBOX ------------------------------------'
     Sub gettextpage()
         selectshape()
