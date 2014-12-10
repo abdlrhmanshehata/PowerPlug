@@ -60,27 +60,13 @@ Public Class rightpanel
         Catch ex As Exception
         End Try
     End Sub
-    Private Sub Fixedtimer_Tick(sender As Object, e As EventArgs) Handles Fixedtimer.Tick
+    Private Sub objapp_WindowSelectionChange(Sel As Selection) Handles objapp.WindowSelectionChange
         getcurrentindex()
         getnoteshape()
         selectshape()
-        Dim location As System.Drawing.Point
-        Dim critical As System.Drawing.Point
-        critical.X = Screen.PrimaryScreen.WorkingArea.Width - Me.Width
-        location.X = MousePosition.X
-        location.Y = MousePosition.Y
-        '===============================Mouse In the Plug_IN=============================================
-        If location.X > critical.X Then
-            settextPage()
-            setnotespage()
-            '===============================Mouse Out the Plug_IN=============================================
-        Else
-            gettextpage()
-            getsizepage()
-            getnotespage()
-        End If
-        
-
+        gettextpage()
+        getsizepage()
+        getnotespage()
     End Sub
 #End Region
     '=======================================NOTES NOTES NOTES NOTES NOTES NOTES NOTES NOTES NOTES============================================='
@@ -147,18 +133,7 @@ Public Class rightpanel
         Catch ex As Exception
         End Try
     End Sub
-    Sub disable()
-        txtNotes.Enabled = False
-        cboxFontFamily.Enabled = False
-        cboxFontSize.Enabled = False
-        btnBold.Enabled = False
-        btnitalic.Enabled = False
-        btnunderline.Enabled = False
-    End Sub
     '--------------------------------------------------------Set methods-------------------------------------------------'
-    Sub setnotespage()
-        enable()
-    End Sub
     Sub settext()
         If notesshape.TextFrame.TextRange.Text <> txtNotes.Text Then
             notesshape.TextFrame.TextRange.Text = txtNotes.Text
@@ -242,14 +217,6 @@ Public Class rightpanel
             Next
         Catch ex As Exception
         End Try
-    End Sub
-    Sub enable()
-        txtNotes.Enabled = True
-        cboxFontFamily.Enabled = True
-        cboxFontSize.Enabled = True
-        btnBold.Enabled = True
-        btnitalic.Enabled = True
-        btnunderline.Enabled = True
     End Sub
     '--------------------------------------------------------General methods-------------------------------------------------'
     Sub B_I_U() 'controls PowerPlug Font_Style
@@ -427,22 +394,21 @@ Public Class rightpanel
         txtNotes.SelectionAlignment = HorizontalAlignment.Center
         setalignment()
     End Sub
+
+    Private Sub txtNotes_MouseLeave(sender As Object, e As EventArgs) Handles txtNotes.MouseLeave, txtNotes.Leave
+        settext()
+        setfont()
+    End Sub
     'general
     Private Sub txtNotes_SelectionChanged(sender As Object, e As EventArgs) Handles txtNotes.SelectionChanged
         check_B_I_U()
         check_name_size()
         checkbullets()
     End Sub
-    Private Sub txtNotes_TextChanged(sender As Object, e As EventArgs) Handles txtNotes.TextChanged
-        settext()
-        B_I_U()
-        setfont()
-    End Sub
+ 
     Private Sub btn_Reset_Click(sender As Object, e As EventArgs) Handles btn_Reset.Click
         txtNotes.SelectionFont = New Drawing.Font("Calibri", 12, FontStyle.Regular)
     End Sub
-
-
 #End Region
 
 #End Region
@@ -510,8 +476,6 @@ Public Class rightpanel
                             .Orientation = MsoTextOrientation.msoTextOrientationUpward
                     End Select
                 End With
-
-
                 '======================================================TEXT ALIGNMENT==========================================================='
                 With selectedshape.TextFrame
                     Select Case cboxtextalignment.SelectedIndex
@@ -535,6 +499,54 @@ Public Class rightpanel
         Catch
 
         End Try
+    End Sub
+    Private Sub cboxtextalignment_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboxtextalignment.SelectedIndexChanged
+        Try
+            With selectedshape.TextFrame
+                Select Case cboxtextalignment.SelectedIndex
+                    Case 0
+                        .VerticalAnchor = MsoVerticalAnchor.msoAnchorTop
+                    Case 1
+                        .VerticalAnchor = MsoVerticalAnchor.msoAnchorMiddle
+                    Case 2
+                        .VerticalAnchor = MsoVerticalAnchor.msoAnchorBottom
+                End Select
+            End With
+        Catch ex As Exception
+        End Try
+    End Sub
+    Private Sub cboxtextdirection_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboxtextdirection.SelectedIndexChanged
+        Try
+            With selectedshape.TextFrame
+                Select Case cboxtextdirection.SelectedIndex
+                    Case 0
+                        .Orientation = MsoTextOrientation.msoTextOrientationHorizontal
+                    Case 1
+                        .Orientation = MsoTextOrientation.msoTextOrientationDownward
+                    Case 2
+                        .Orientation = MsoTextOrientation.msoTextOrientationUpward
+                End Select
+            End With
+        Catch ex As Exception
+        End Try
+    End Sub
+    Public Sub AutoFitAdjustment()
+        If Donnotautofit.Checked Then
+            selectedshape.TextFrame.AutoSize = PpAutoSize.ppAutoSizeNone
+        ElseIf ResizeShape.Checked Then
+            selectedshape.TextFrame2.AutoSize = MsoAutoSize.msoAutoSizeShapeToFitText
+        ElseIf Shrinktext.Checked Then
+            selectedshape.TextFrame2.AutoSize = MsoAutoSize.msoAutoSizeTextToFitShape
+        End If
+    End Sub
+    Private Sub Donnotautofit_CheckedChanged(sender As Object, e As EventArgs) Handles Donnotautofit.CheckedChanged
+        AutoFitAdjustment()
+    End Sub
+    Private Sub Shrinktext_CheckedChanged(sender As Object, e As EventArgs) Handles Shrinktext.CheckedChanged
+        AutoFitAdjustment()
+    End Sub
+    Private Sub ResizeShape_CheckedChanged(sender As Object, e As EventArgs) Handles ResizeShape.CheckedChanged
+        AutoFitAdjustment()
     End Sub
     Private Sub chkboxWrap_CheckedChanged(sender As Object, e As EventArgs) Handles chkboxWrap.CheckedChanged
         If chkboxWrap.Checked Then
@@ -706,9 +718,7 @@ Public Class rightpanel
     Private Sub cbox_Resolution_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbox_Resolution.SelectedIndexChanged
         resolutioncontrol()
     End Sub
-
     '----------------------------------LINE LINE LINE LINE LINE LINE LINE LINE LINE LINE LINE  ---------------------------------------'
-
 #End Region
     '=======================================ALIGNMENT ALIGNMENT ALIGNMENT ALIGNMENT ALIGNMENT ALIGNMENT ==================================='
     '=======================================ALIGNMENT ALIGNMENT ALIGNMENT ALIGNMENT ALIGNMENT ALIGNMENT ==================================='
@@ -775,5 +785,4 @@ Public Class rightpanel
     End Sub
 #End Region
   
-    
 End Class

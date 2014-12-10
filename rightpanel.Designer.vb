@@ -22,8 +22,6 @@ Partial Class rightpanel
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container()
-        Me.Fixedtimer = New System.Windows.Forms.Timer(Me.components)
         Me.AutoFit = New System.Windows.Forms.GroupBox()
         Me.ContentAutofit = New System.Windows.Forms.TableLayoutPanel()
         Me.Donnotautofit = New System.Windows.Forms.RadioButton()
@@ -101,13 +99,25 @@ Partial Class rightpanel
         Me.btn_BringForward = New System.Windows.Forms.Button()
         Me.btn_DistColumns = New System.Windows.Forms.Button()
         Me.btn_SendtoBack = New System.Windows.Forms.Button()
+        Me.btn_AlignCenter = New System.Windows.Forms.Button()
         Me.btn_BorderTop = New System.Windows.Forms.Button()
         Me.btn_BorderBottom = New System.Windows.Forms.Button()
         Me.btn_Borderleft = New System.Windows.Forms.Button()
         Me.btn_BorderRight = New System.Windows.Forms.Button()
         Me.btn_BorderAll = New System.Windows.Forms.Button()
+        Me.btn_FormatShape = New System.Windows.Forms.Button()
+        Me.btn_AlignBottom = New System.Windows.Forms.Button()
+        Me.btn_AlignRight = New System.Windows.Forms.Button()
+        Me.btn_AlignTop = New System.Windows.Forms.Button()
+        Me.btn_AlignLeft = New System.Windows.Forms.Button()
+        Me.btn_DistVer = New System.Windows.Forms.Button()
+        Me.btn_DistHor = New System.Windows.Forms.Button()
+        Me.btn_AlignMiddle = New System.Windows.Forms.Button()
+        Me.btn_Paragraph = New System.Windows.Forms.Button()
+        Me.btn_PasteText = New System.Windows.Forms.Button()
         Me.SCont_A = New System.Windows.Forms.SplitContainer()
         Me.Scont_B = New System.Windows.Forms.SplitContainer()
+        Me.Panel_Total = New System.Windows.Forms.Panel()
         Me.BottomPanel = New System.Windows.Forms.Panel()
         Me.NotesTableLayout = New System.Windows.Forms.TableLayoutPanel()
         Me.txtNotes = New System.Windows.Forms.RichTextBox()
@@ -132,23 +142,12 @@ Partial Class rightpanel
         Me.btnAlignLeft = New System.Windows.Forms.Button()
         Me.btnAlignRight = New System.Windows.Forms.Button()
         Me.btnAlignCenter = New System.Windows.Forms.Button()
-        Me.ColorDialog1 = New System.Windows.Forms.ColorDialog()
-        Me.EventsTimer = New System.Windows.Forms.Timer(Me.components)
         Me.Panel_FormatShape = New System.Windows.Forms.Panel()
         Me.Panel_FormatText = New System.Windows.Forms.Panel()
-        Me.btn_AlignMiddle = New System.Windows.Forms.Button()
-        Me.btn_DistHor = New System.Windows.Forms.Button()
-        Me.btn_DistVer = New System.Windows.Forms.Button()
-        Me.btn_AlignLeft = New System.Windows.Forms.Button()
-        Me.btn_AlignTop = New System.Windows.Forms.Button()
-        Me.btn_AlignRight = New System.Windows.Forms.Button()
-        Me.btn_AlignBottom = New System.Windows.Forms.Button()
-        Me.btn_FormatShape = New System.Windows.Forms.Button()
-        Me.btn_Paragraph = New System.Windows.Forms.Button()
-        Me.btn_PasteText = New System.Windows.Forms.Button()
-        Me.btn_AlignCenter = New System.Windows.Forms.Button()
         Me.Scont_ShapeFormat = New System.Windows.Forms.SplitContainer()
         Me.chkbx_ShapeFormat = New System.Windows.Forms.CheckBox()
+        Me.Scont_TextFormat = New System.Windows.Forms.SplitContainer()
+        Me.chkbx_TextFormat = New System.Windows.Forms.CheckBox()
         Me.AutoFit.SuspendLayout()
         Me.ContentAutofit.SuspendLayout()
         Me.InternalMargin.SuspendLayout()
@@ -193,8 +192,10 @@ Partial Class rightpanel
         Me.SCont_A.Panel2.SuspendLayout()
         Me.SCont_A.SuspendLayout()
         CType(Me.Scont_B, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Scont_B.Panel1.SuspendLayout()
         Me.Scont_B.Panel2.SuspendLayout()
         Me.Scont_B.SuspendLayout()
+        Me.Panel_Total.SuspendLayout()
         Me.BottomPanel.SuspendLayout()
         Me.NotesTableLayout.SuspendLayout()
         Me.Part1_notes.SuspendLayout()
@@ -209,11 +210,11 @@ Partial Class rightpanel
         Me.Scont_ShapeFormat.Panel1.SuspendLayout()
         Me.Scont_ShapeFormat.Panel2.SuspendLayout()
         Me.Scont_ShapeFormat.SuspendLayout()
+        CType(Me.Scont_TextFormat, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Scont_TextFormat.Panel1.SuspendLayout()
+        Me.Scont_TextFormat.Panel2.SuspendLayout()
+        Me.Scont_TextFormat.SuspendLayout()
         Me.SuspendLayout()
-        '
-        'Fixedtimer
-        '
-        Me.Fixedtimer.Enabled = True
         '
         'AutoFit
         '
@@ -221,7 +222,7 @@ Partial Class rightpanel
         Me.AutoFit.Dock = System.Windows.Forms.DockStyle.Fill
         Me.AutoFit.Location = New System.Drawing.Point(3, 89)
         Me.AutoFit.Name = "AutoFit"
-        Me.AutoFit.Size = New System.Drawing.Size(148, 115)
+        Me.AutoFit.Size = New System.Drawing.Size(207, 115)
         Me.AutoFit.TabIndex = 0
         Me.AutoFit.TabStop = False
         Me.AutoFit.Text = "AutoFit"
@@ -240,7 +241,7 @@ Partial Class rightpanel
         Me.ContentAutofit.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
         Me.ContentAutofit.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
         Me.ContentAutofit.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
-        Me.ContentAutofit.Size = New System.Drawing.Size(142, 96)
+        Me.ContentAutofit.Size = New System.Drawing.Size(201, 96)
         Me.ContentAutofit.TabIndex = 0
         '
         'Donnotautofit
@@ -282,7 +283,7 @@ Partial Class rightpanel
         Me.InternalMargin.Dock = System.Windows.Forms.DockStyle.Fill
         Me.InternalMargin.Location = New System.Drawing.Point(3, 210)
         Me.InternalMargin.Name = "InternalMargin"
-        Me.InternalMargin.Size = New System.Drawing.Size(148, 87)
+        Me.InternalMargin.Size = New System.Drawing.Size(207, 87)
         Me.InternalMargin.TabIndex = 0
         Me.InternalMargin.TabStop = False
         Me.InternalMargin.Text = "InternalMargin"
@@ -302,7 +303,7 @@ Partial Class rightpanel
         Me.contentInternalMargin.RowCount = 2
         Me.contentInternalMargin.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.contentInternalMargin.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.contentInternalMargin.Size = New System.Drawing.Size(142, 68)
+        Me.contentInternalMargin.Size = New System.Drawing.Size(201, 68)
         Me.contentInternalMargin.TabIndex = 2
         '
         'paneltopmargin
@@ -317,7 +318,7 @@ Partial Class rightpanel
         Me.paneltopmargin.Name = "paneltopmargin"
         Me.paneltopmargin.RowCount = 1
         Me.paneltopmargin.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.paneltopmargin.Size = New System.Drawing.Size(65, 28)
+        Me.paneltopmargin.Size = New System.Drawing.Size(94, 28)
         Me.paneltopmargin.TabIndex = 2
         '
         'txttopmargin
@@ -325,9 +326,9 @@ Partial Class rightpanel
         Me.txttopmargin.DecimalPlaces = 2
         Me.txttopmargin.Dock = System.Windows.Forms.DockStyle.Fill
         Me.txttopmargin.Increment = New Decimal(New Integer() {1, 0, 0, 65536})
-        Me.txttopmargin.Location = New System.Drawing.Point(29, 3)
+        Me.txttopmargin.Location = New System.Drawing.Point(40, 3)
         Me.txttopmargin.Name = "txttopmargin"
-        Me.txttopmargin.Size = New System.Drawing.Size(33, 20)
+        Me.txttopmargin.Size = New System.Drawing.Size(51, 20)
         Me.txttopmargin.TabIndex = 25
         '
         'Label2
@@ -336,7 +337,7 @@ Partial Class rightpanel
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.Location = New System.Drawing.Point(3, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(20, 28)
+        Me.Label2.Size = New System.Drawing.Size(31, 28)
         Me.Label2.TabIndex = 0
         Me.Label2.Text = "&Top :"
         Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -353,7 +354,7 @@ Partial Class rightpanel
         Me.panelleftmargin.Name = "panelleftmargin"
         Me.panelleftmargin.RowCount = 1
         Me.panelleftmargin.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.panelleftmargin.Size = New System.Drawing.Size(65, 28)
+        Me.panelleftmargin.Size = New System.Drawing.Size(94, 28)
         Me.panelleftmargin.TabIndex = 0
         '
         'txtleftmargin
@@ -361,9 +362,9 @@ Partial Class rightpanel
         Me.txtleftmargin.DecimalPlaces = 2
         Me.txtleftmargin.Dock = System.Windows.Forms.DockStyle.Fill
         Me.txtleftmargin.Increment = New Decimal(New Integer() {1, 0, 0, 65536})
-        Me.txtleftmargin.Location = New System.Drawing.Point(28, 3)
+        Me.txtleftmargin.Location = New System.Drawing.Point(40, 3)
         Me.txtleftmargin.Name = "txtleftmargin"
-        Me.txtleftmargin.Size = New System.Drawing.Size(34, 20)
+        Me.txtleftmargin.Size = New System.Drawing.Size(51, 20)
         Me.txtleftmargin.TabIndex = 22
         '
         'Label1
@@ -372,7 +373,7 @@ Partial Class rightpanel
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.Location = New System.Drawing.Point(3, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(19, 28)
+        Me.Label1.Size = New System.Drawing.Size(31, 28)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "&Left :"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -385,11 +386,11 @@ Partial Class rightpanel
         Me.panelrightmargin.Controls.Add(Me.txtrightmargin, 1, 0)
         Me.panelrightmargin.Controls.Add(Me.Label3, 0, 0)
         Me.panelrightmargin.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.panelrightmargin.Location = New System.Drawing.Point(74, 3)
+        Me.panelrightmargin.Location = New System.Drawing.Point(103, 3)
         Me.panelrightmargin.Name = "panelrightmargin"
         Me.panelrightmargin.RowCount = 1
         Me.panelrightmargin.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.panelrightmargin.Size = New System.Drawing.Size(65, 28)
+        Me.panelrightmargin.Size = New System.Drawing.Size(95, 28)
         Me.panelrightmargin.TabIndex = 3
         '
         'txtrightmargin
@@ -397,9 +398,9 @@ Partial Class rightpanel
         Me.txtrightmargin.DecimalPlaces = 2
         Me.txtrightmargin.Dock = System.Windows.Forms.DockStyle.Fill
         Me.txtrightmargin.Increment = New Decimal(New Integer() {1, 0, 0, 65536})
-        Me.txtrightmargin.Location = New System.Drawing.Point(29, 3)
+        Me.txtrightmargin.Location = New System.Drawing.Point(42, 3)
         Me.txtrightmargin.Name = "txtrightmargin"
-        Me.txtrightmargin.Size = New System.Drawing.Size(33, 20)
+        Me.txtrightmargin.Size = New System.Drawing.Size(50, 20)
         Me.txtrightmargin.TabIndex = 24
         '
         'Label3
@@ -408,7 +409,7 @@ Partial Class rightpanel
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.Location = New System.Drawing.Point(3, 0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(20, 28)
+        Me.Label3.Size = New System.Drawing.Size(33, 28)
         Me.Label3.TabIndex = 0
         Me.Label3.Text = "&Right :"
         Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -421,11 +422,11 @@ Partial Class rightpanel
         Me.panelbottommargin.Controls.Add(Me.txtbottommargin, 1, 0)
         Me.panelbottommargin.Controls.Add(Me.Label4, 0, 0)
         Me.panelbottommargin.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.panelbottommargin.Location = New System.Drawing.Point(74, 37)
+        Me.panelbottommargin.Location = New System.Drawing.Point(103, 37)
         Me.panelbottommargin.Name = "panelbottommargin"
         Me.panelbottommargin.RowCount = 1
         Me.panelbottommargin.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.panelbottommargin.Size = New System.Drawing.Size(65, 28)
+        Me.panelbottommargin.Size = New System.Drawing.Size(95, 28)
         Me.panelbottommargin.TabIndex = 4
         '
         'txtbottommargin
@@ -433,9 +434,9 @@ Partial Class rightpanel
         Me.txtbottommargin.DecimalPlaces = 2
         Me.txtbottommargin.Dock = System.Windows.Forms.DockStyle.Fill
         Me.txtbottommargin.Increment = New Decimal(New Integer() {1, 0, 0, 65536})
-        Me.txtbottommargin.Location = New System.Drawing.Point(29, 3)
+        Me.txtbottommargin.Location = New System.Drawing.Point(41, 3)
         Me.txtbottommargin.Name = "txtbottommargin"
-        Me.txtbottommargin.Size = New System.Drawing.Size(33, 20)
+        Me.txtbottommargin.Size = New System.Drawing.Size(51, 20)
         Me.txtbottommargin.TabIndex = 23
         '
         'Label4
@@ -444,7 +445,7 @@ Partial Class rightpanel
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.Location = New System.Drawing.Point(3, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(20, 28)
+        Me.Label4.Size = New System.Drawing.Size(32, 28)
         Me.Label4.TabIndex = 0
         Me.Label4.Text = "&Bot :"
         Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -465,7 +466,7 @@ Partial Class rightpanel
         Me.TextLayout.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TextLayout.Location = New System.Drawing.Point(3, 3)
         Me.TextLayout.Name = "TextLayout"
-        Me.TextLayout.Size = New System.Drawing.Size(148, 80)
+        Me.TextLayout.Size = New System.Drawing.Size(207, 80)
         Me.TextLayout.TabIndex = 0
         Me.TextLayout.TabStop = False
         Me.TextLayout.Text = "TextLayout"
@@ -474,7 +475,7 @@ Partial Class rightpanel
         '
         Me.contenttextlayout.ColumnCount = 2
         Me.contenttextlayout.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.contenttextlayout.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 153.0!))
+        Me.contenttextlayout.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 123.0!))
         Me.contenttextlayout.Controls.Add(Me.Label5, 0, 1)
         Me.contenttextlayout.Controls.Add(Me.Label6, 0, 0)
         Me.contenttextlayout.Controls.Add(Me.cboxtextdirection, 1, 1)
@@ -485,7 +486,7 @@ Partial Class rightpanel
         Me.contenttextlayout.RowCount = 2
         Me.contenttextlayout.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 49.18033!))
         Me.contenttextlayout.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.81967!))
-        Me.contenttextlayout.Size = New System.Drawing.Size(142, 61)
+        Me.contenttextlayout.Size = New System.Drawing.Size(201, 61)
         Me.contenttextlayout.TabIndex = 0
         '
         'Label5
@@ -493,7 +494,7 @@ Partial Class rightpanel
         Me.Label5.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label5.Location = New System.Drawing.Point(3, 30)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(1, 31)
+        Me.Label5.Size = New System.Drawing.Size(72, 31)
         Me.Label5.TabIndex = 0
         Me.Label5.Text = "Te&xt Direction :    "
         Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -503,7 +504,7 @@ Partial Class rightpanel
         Me.Label6.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label6.Location = New System.Drawing.Point(3, 0)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(1, 30)
+        Me.Label6.Size = New System.Drawing.Size(72, 30)
         Me.Label6.TabIndex = 2
         Me.Label6.Text = "Vertical Alignment : "
         Me.Label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -513,9 +514,9 @@ Partial Class rightpanel
         Me.cboxtextdirection.Dock = System.Windows.Forms.DockStyle.Fill
         Me.cboxtextdirection.FormattingEnabled = True
         Me.cboxtextdirection.Items.AddRange(New Object() {"Horizontal", "Rotate all text 90*", "Rotate all text 270*", "Stacked"})
-        Me.cboxtextdirection.Location = New System.Drawing.Point(-8, 33)
+        Me.cboxtextdirection.Location = New System.Drawing.Point(81, 33)
         Me.cboxtextdirection.Name = "cboxtextdirection"
-        Me.cboxtextdirection.Size = New System.Drawing.Size(147, 21)
+        Me.cboxtextdirection.Size = New System.Drawing.Size(117, 21)
         Me.cboxtextdirection.TabIndex = 1
         '
         'cboxtextalignment
@@ -523,14 +524,14 @@ Partial Class rightpanel
         Me.cboxtextalignment.Dock = System.Windows.Forms.DockStyle.Fill
         Me.cboxtextalignment.FormattingEnabled = True
         Me.cboxtextalignment.Items.AddRange(New Object() {"Top", "Middle", "Bottom"})
-        Me.cboxtextalignment.Location = New System.Drawing.Point(-8, 3)
+        Me.cboxtextalignment.Location = New System.Drawing.Point(81, 3)
         Me.cboxtextalignment.Name = "cboxtextalignment"
-        Me.cboxtextalignment.Size = New System.Drawing.Size(147, 21)
+        Me.cboxtextalignment.Size = New System.Drawing.Size(117, 21)
         Me.cboxtextalignment.TabIndex = 3
         '
         'TextBoxPage
         '
-        Me.TextBoxPage.BackColor = System.Drawing.Color.White
+        Me.TextBoxPage.BackColor = System.Drawing.SystemColors.Control
         Me.TextBoxPage.ColumnCount = 1
         Me.TextBoxPage.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.TextBoxPage.Controls.Add(Me.chkboxWrap, 0, 3)
@@ -546,7 +547,7 @@ Partial Class rightpanel
         Me.TextBoxPage.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 27.61905!))
         Me.TextBoxPage.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.52632!))
         Me.TextBoxPage.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TextBoxPage.Size = New System.Drawing.Size(154, 337)
+        Me.TextBoxPage.Size = New System.Drawing.Size(213, 337)
         Me.TextBoxPage.TabIndex = 21
         Me.TextBoxPage.Visible = False
         '
@@ -565,7 +566,7 @@ Partial Class rightpanel
         Me.SizePage.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 26.9697!))
         Me.SizePage.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 47.87879!))
         Me.SizePage.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 24.84848!))
-        Me.SizePage.Size = New System.Drawing.Size(188, 337)
+        Me.SizePage.Size = New System.Drawing.Size(251, 337)
         Me.SizePage.TabIndex = 28
         Me.SizePage.Visible = False
         '
@@ -575,7 +576,7 @@ Partial Class rightpanel
         Me.Gbox_Scale.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Gbox_Scale.Location = New System.Drawing.Point(3, 94)
         Me.Gbox_Scale.Name = "Gbox_Scale"
-        Me.Gbox_Scale.Size = New System.Drawing.Size(182, 155)
+        Me.Gbox_Scale.Size = New System.Drawing.Size(245, 155)
         Me.Gbox_Scale.TabIndex = 1
         Me.Gbox_Scale.TabStop = False
         Me.Gbox_Scale.Text = "Scale"
@@ -592,7 +593,7 @@ Partial Class rightpanel
         Me.TLP_Scale.RowCount = 2
         Me.TLP_Scale.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 26.81159!))
         Me.TLP_Scale.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 73.18841!))
-        Me.TLP_Scale.Size = New System.Drawing.Size(176, 136)
+        Me.TLP_Scale.Size = New System.Drawing.Size(239, 136)
         Me.TLP_Scale.TabIndex = 0
         '
         'TLP_Scale1
@@ -607,7 +608,7 @@ Partial Class rightpanel
         Me.TLP_Scale1.Name = "TLP_Scale1"
         Me.TLP_Scale1.RowCount = 1
         Me.TLP_Scale1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 21.76471!))
-        Me.TLP_Scale1.Size = New System.Drawing.Size(170, 30)
+        Me.TLP_Scale1.Size = New System.Drawing.Size(233, 30)
         Me.TLP_Scale1.TabIndex = 0
         '
         'TLP_ScaleHeight
@@ -624,7 +625,7 @@ Partial Class rightpanel
         Me.TLP_ScaleHeight.Name = "TLP_ScaleHeight"
         Me.TLP_ScaleHeight.RowCount = 1
         Me.TLP_ScaleHeight.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TLP_ScaleHeight.Size = New System.Drawing.Size(81, 24)
+        Me.TLP_ScaleHeight.Size = New System.Drawing.Size(113, 24)
         Me.TLP_ScaleHeight.TabIndex = 0
         '
         'Label12
@@ -632,9 +633,9 @@ Partial Class rightpanel
         Me.Label12.AutoSize = True
         Me.Label12.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label12.Location = New System.Drawing.Point(68, 0)
+        Me.Label12.Location = New System.Drawing.Point(94, 0)
         Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(10, 24)
+        Me.Label12.Size = New System.Drawing.Size(16, 24)
         Me.Label12.TabIndex = 26
         Me.Label12.Text = "%"
         Me.Label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -645,7 +646,7 @@ Partial Class rightpanel
         Me.lbl_H.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lbl_H.Location = New System.Drawing.Point(3, 0)
         Me.lbl_H.Name = "lbl_H"
-        Me.lbl_H.Size = New System.Drawing.Size(27, 24)
+        Me.lbl_H.Size = New System.Drawing.Size(40, 24)
         Me.lbl_H.TabIndex = 0
         Me.lbl_H.Text = "Height:"
         Me.lbl_H.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -653,10 +654,10 @@ Partial Class rightpanel
         'num_ScaleHeight
         '
         Me.num_ScaleHeight.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.num_ScaleHeight.Location = New System.Drawing.Point(36, 3)
+        Me.num_ScaleHeight.Location = New System.Drawing.Point(49, 3)
         Me.num_ScaleHeight.Maximum = New Decimal(New Integer() {1000, 0, 0, 0})
         Me.num_ScaleHeight.Name = "num_ScaleHeight"
-        Me.num_ScaleHeight.Size = New System.Drawing.Size(26, 20)
+        Me.num_ScaleHeight.Size = New System.Drawing.Size(39, 20)
         Me.num_ScaleHeight.TabIndex = 1
         Me.num_ScaleHeight.Value = New Decimal(New Integer() {100, 0, 0, 0})
         '
@@ -670,11 +671,11 @@ Partial Class rightpanel
         Me.TLP_ScaleWidth.Controls.Add(Me.lbl_W, 0, 0)
         Me.TLP_ScaleWidth.Controls.Add(Me.num_ScaleWidth, 1, 0)
         Me.TLP_ScaleWidth.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TLP_ScaleWidth.Location = New System.Drawing.Point(90, 3)
+        Me.TLP_ScaleWidth.Location = New System.Drawing.Point(122, 3)
         Me.TLP_ScaleWidth.Name = "TLP_ScaleWidth"
         Me.TLP_ScaleWidth.RowCount = 1
         Me.TLP_ScaleWidth.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TLP_ScaleWidth.Size = New System.Drawing.Size(77, 24)
+        Me.TLP_ScaleWidth.Size = New System.Drawing.Size(108, 24)
         Me.TLP_ScaleWidth.TabIndex = 1
         '
         'Label13
@@ -682,9 +683,9 @@ Partial Class rightpanel
         Me.Label13.AutoSize = True
         Me.Label13.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label13.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label13.Location = New System.Drawing.Point(65, 0)
+        Me.Label13.Location = New System.Drawing.Point(90, 0)
         Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(9, 24)
+        Me.Label13.Size = New System.Drawing.Size(15, 24)
         Me.Label13.TabIndex = 26
         Me.Label13.Text = "%"
         Me.Label13.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -695,7 +696,7 @@ Partial Class rightpanel
         Me.lbl_W.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lbl_W.Location = New System.Drawing.Point(3, 0)
         Me.lbl_W.Name = "lbl_W"
-        Me.lbl_W.Size = New System.Drawing.Size(24, 24)
+        Me.lbl_W.Size = New System.Drawing.Size(36, 24)
         Me.lbl_W.TabIndex = 1
         Me.lbl_W.Text = "Width:"
         Me.lbl_W.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -703,10 +704,10 @@ Partial Class rightpanel
         'num_ScaleWidth
         '
         Me.num_ScaleWidth.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.num_ScaleWidth.Location = New System.Drawing.Point(33, 3)
+        Me.num_ScaleWidth.Location = New System.Drawing.Point(45, 3)
         Me.num_ScaleWidth.Maximum = New Decimal(New Integer() {1000, 0, 0, 0})
         Me.num_ScaleWidth.Name = "num_ScaleWidth"
-        Me.num_ScaleWidth.Size = New System.Drawing.Size(26, 20)
+        Me.num_ScaleWidth.Size = New System.Drawing.Size(39, 20)
         Me.num_ScaleWidth.TabIndex = 2
         Me.num_ScaleWidth.Value = New Decimal(New Integer() {100, 0, 0, 0})
         '
@@ -726,7 +727,7 @@ Partial Class rightpanel
         Me.TLP_Scale2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
         Me.TLP_Scale2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
         Me.TLP_Scale2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30.0!))
-        Me.TLP_Scale2.Size = New System.Drawing.Size(170, 94)
+        Me.TLP_Scale2.Size = New System.Drawing.Size(233, 94)
         Me.TLP_Scale2.TabIndex = 1
         '
         'chkbox_Scale3
@@ -746,7 +747,7 @@ Partial Class rightpanel
         Me.chkbox_Scale2.Enabled = False
         Me.chkbox_Scale2.Location = New System.Drawing.Point(3, 24)
         Me.chkbox_Scale2.Name = "chkbox_Scale2"
-        Me.chkbox_Scale2.Size = New System.Drawing.Size(164, 15)
+        Me.chkbox_Scale2.Size = New System.Drawing.Size(171, 15)
         Me.chkbox_Scale2.TabIndex = 1
         Me.chkbox_Scale2.Text = "Relative to original picture Size"
         Me.chkbox_Scale2.UseVisualStyleBackColor = True
@@ -773,7 +774,7 @@ Partial Class rightpanel
         Me.TLP_Scale2_1.Name = "TLP_Scale2_1"
         Me.TLP_Scale2_1.RowCount = 1
         Me.TLP_Scale2_1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TLP_Scale2_1.Size = New System.Drawing.Size(164, 25)
+        Me.TLP_Scale2_1.Size = New System.Drawing.Size(227, 25)
         Me.TLP_Scale2_1.TabIndex = 3
         '
         'lblResolution
@@ -782,7 +783,7 @@ Partial Class rightpanel
         Me.lblResolution.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblResolution.Location = New System.Drawing.Point(3, 0)
         Me.lblResolution.Name = "lblResolution"
-        Me.lblResolution.Size = New System.Drawing.Size(46, 25)
+        Me.lblResolution.Size = New System.Drawing.Size(66, 25)
         Me.lblResolution.TabIndex = 0
         Me.lblResolution.Text = "Resolution: "
         Me.lblResolution.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -793,9 +794,9 @@ Partial Class rightpanel
         Me.cbox_Resolution.Enabled = False
         Me.cbox_Resolution.FormattingEnabled = True
         Me.cbox_Resolution.Items.AddRange(New Object() {"640 x 480", "720 x 512", "800 x 600", "1024 x 768", "1280 x 1024"})
-        Me.cbox_Resolution.Location = New System.Drawing.Point(55, 3)
+        Me.cbox_Resolution.Location = New System.Drawing.Point(75, 3)
         Me.cbox_Resolution.Name = "cbox_Resolution"
-        Me.cbox_Resolution.Size = New System.Drawing.Size(106, 21)
+        Me.cbox_Resolution.Size = New System.Drawing.Size(149, 21)
         Me.cbox_Resolution.TabIndex = 1
         '
         'Gbox_SizeandRotate
@@ -804,7 +805,7 @@ Partial Class rightpanel
         Me.Gbox_SizeandRotate.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Gbox_SizeandRotate.Location = New System.Drawing.Point(3, 3)
         Me.Gbox_SizeandRotate.Name = "Gbox_SizeandRotate"
-        Me.Gbox_SizeandRotate.Size = New System.Drawing.Size(182, 85)
+        Me.Gbox_SizeandRotate.Size = New System.Drawing.Size(245, 85)
         Me.Gbox_SizeandRotate.TabIndex = 0
         Me.Gbox_SizeandRotate.TabStop = False
         Me.Gbox_SizeandRotate.Text = "Size and rotate"
@@ -823,7 +824,7 @@ Partial Class rightpanel
         Me.TLP_Sizeandrotate.RowCount = 2
         Me.TLP_Sizeandrotate.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 49.33333!))
         Me.TLP_Sizeandrotate.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.66667!))
-        Me.TLP_Sizeandrotate.Size = New System.Drawing.Size(176, 66)
+        Me.TLP_Sizeandrotate.Size = New System.Drawing.Size(239, 66)
         Me.TLP_Sizeandrotate.TabIndex = 0
         '
         'TLP_Rotation
@@ -840,7 +841,7 @@ Partial Class rightpanel
         Me.TLP_Rotation.Name = "TLP_Rotation"
         Me.TLP_Rotation.RowCount = 1
         Me.TLP_Rotation.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TLP_Rotation.Size = New System.Drawing.Size(85, 28)
+        Me.TLP_Rotation.Size = New System.Drawing.Size(117, 28)
         Me.TLP_Rotation.TabIndex = 1
         '
         'lblRotation
@@ -849,7 +850,7 @@ Partial Class rightpanel
         Me.lblRotation.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblRotation.Location = New System.Drawing.Point(3, 0)
         Me.lblRotation.Name = "lblRotation"
-        Me.lblRotation.Size = New System.Drawing.Size(32, 28)
+        Me.lblRotation.Size = New System.Drawing.Size(46, 28)
         Me.lblRotation.TabIndex = 1
         Me.lblRotation.Text = "Roation:"
         Me.lblRotation.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -857,9 +858,9 @@ Partial Class rightpanel
         'num_Rot
         '
         Me.num_Rot.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.num_Rot.Location = New System.Drawing.Point(41, 3)
+        Me.num_Rot.Location = New System.Drawing.Point(55, 3)
         Me.num_Rot.Name = "num_Rot"
-        Me.num_Rot.Size = New System.Drawing.Size(29, 20)
+        Me.num_Rot.Size = New System.Drawing.Size(43, 20)
         Me.num_Rot.TabIndex = 2
         '
         'Label11
@@ -867,9 +868,9 @@ Partial Class rightpanel
         Me.Label11.AutoSize = True
         Me.Label11.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label11.Font = New System.Drawing.Font("Minion Pro", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.Location = New System.Drawing.Point(76, 0)
+        Me.Label11.Location = New System.Drawing.Point(104, 0)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(6, 28)
+        Me.Label11.Size = New System.Drawing.Size(10, 28)
         Me.Label11.TabIndex = 2
         Me.Label11.Text = "o"
         '
@@ -883,11 +884,11 @@ Partial Class rightpanel
         Me.TLP_Width.Controls.Add(Me.num_Width, 1, 0)
         Me.TLP_Width.Controls.Add(Me.Label10, 2, 0)
         Me.TLP_Width.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TLP_Width.Location = New System.Drawing.Point(94, 3)
+        Me.TLP_Width.Location = New System.Drawing.Point(126, 3)
         Me.TLP_Width.Name = "TLP_Width"
         Me.TLP_Width.RowCount = 1
         Me.TLP_Width.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TLP_Width.Size = New System.Drawing.Size(79, 26)
+        Me.TLP_Width.Size = New System.Drawing.Size(110, 26)
         Me.TLP_Width.TabIndex = 1
         '
         'lblWidth
@@ -896,7 +897,7 @@ Partial Class rightpanel
         Me.lblWidth.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblWidth.Location = New System.Drawing.Point(3, 0)
         Me.lblWidth.Name = "lblWidth"
-        Me.lblWidth.Size = New System.Drawing.Size(26, 26)
+        Me.lblWidth.Size = New System.Drawing.Size(39, 26)
         Me.lblWidth.TabIndex = 1
         Me.lblWidth.Text = "Width:"
         Me.lblWidth.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -906,9 +907,9 @@ Partial Class rightpanel
         Me.num_Width.DecimalPlaces = 2
         Me.num_Width.Dock = System.Windows.Forms.DockStyle.Fill
         Me.num_Width.Increment = New Decimal(New Integer() {1, 0, 0, 65536})
-        Me.num_Width.Location = New System.Drawing.Point(35, 3)
+        Me.num_Width.Location = New System.Drawing.Point(48, 3)
         Me.num_Width.Name = "num_Width"
-        Me.num_Width.Size = New System.Drawing.Size(29, 20)
+        Me.num_Width.Size = New System.Drawing.Size(43, 20)
         Me.num_Width.TabIndex = 2
         '
         'Label10
@@ -916,9 +917,9 @@ Partial Class rightpanel
         Me.Label10.AutoSize = True
         Me.Label10.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.Location = New System.Drawing.Point(70, 0)
+        Me.Label10.Location = New System.Drawing.Point(97, 0)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(6, 26)
+        Me.Label10.Size = New System.Drawing.Size(10, 26)
         Me.Label10.TabIndex = 2
         Me.Label10.Text = """"
         '
@@ -936,7 +937,7 @@ Partial Class rightpanel
         Me.TLP_Height.Name = "TLP_Height"
         Me.TLP_Height.RowCount = 1
         Me.TLP_Height.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TLP_Height.Size = New System.Drawing.Size(85, 26)
+        Me.TLP_Height.Size = New System.Drawing.Size(117, 26)
         Me.TLP_Height.TabIndex = 0
         '
         'lblHeight
@@ -945,7 +946,7 @@ Partial Class rightpanel
         Me.lblHeight.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblHeight.Location = New System.Drawing.Point(3, 0)
         Me.lblHeight.Name = "lblHeight"
-        Me.lblHeight.Size = New System.Drawing.Size(28, 26)
+        Me.lblHeight.Size = New System.Drawing.Size(41, 26)
         Me.lblHeight.TabIndex = 0
         Me.lblHeight.Text = "Height:"
         Me.lblHeight.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -955,9 +956,9 @@ Partial Class rightpanel
         Me.num_Height.DecimalPlaces = 2
         Me.num_Height.Dock = System.Windows.Forms.DockStyle.Fill
         Me.num_Height.Increment = New Decimal(New Integer() {1, 0, 0, 65536})
-        Me.num_Height.Location = New System.Drawing.Point(37, 3)
+        Me.num_Height.Location = New System.Drawing.Point(50, 3)
         Me.num_Height.Name = "num_Height"
-        Me.num_Height.Size = New System.Drawing.Size(33, 20)
+        Me.num_Height.Size = New System.Drawing.Size(48, 20)
         Me.num_Height.TabIndex = 1
         '
         'Label9
@@ -965,9 +966,9 @@ Partial Class rightpanel
         Me.Label9.AutoSize = True
         Me.Label9.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(76, 0)
+        Me.Label9.Location = New System.Drawing.Point(104, 0)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(6, 26)
+        Me.Label9.Size = New System.Drawing.Size(10, 26)
         Me.Label9.TabIndex = 2
         Me.Label9.Text = """"
         '
@@ -977,7 +978,7 @@ Partial Class rightpanel
         Me.Gbox_OriginalSize.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Gbox_OriginalSize.Location = New System.Drawing.Point(3, 255)
         Me.Gbox_OriginalSize.Name = "Gbox_OriginalSize"
-        Me.Gbox_OriginalSize.Size = New System.Drawing.Size(182, 79)
+        Me.Gbox_OriginalSize.Size = New System.Drawing.Size(245, 79)
         Me.Gbox_OriginalSize.TabIndex = 2
         Me.Gbox_OriginalSize.TabStop = False
         Me.Gbox_OriginalSize.Text = "Original size"
@@ -994,7 +995,7 @@ Partial Class rightpanel
         Me.TLP_OriginalSize.RowCount = 2
         Me.TLP_OriginalSize.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TLP_OriginalSize.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TLP_OriginalSize.Size = New System.Drawing.Size(176, 60)
+        Me.TLP_OriginalSize.Size = New System.Drawing.Size(239, 60)
         Me.TLP_OriginalSize.TabIndex = 0
         '
         'btnReset
@@ -1002,7 +1003,7 @@ Partial Class rightpanel
         Me.btnReset.Dock = System.Windows.Forms.DockStyle.Fill
         Me.btnReset.Location = New System.Drawing.Point(3, 33)
         Me.btnReset.Name = "btnReset"
-        Me.btnReset.Size = New System.Drawing.Size(170, 24)
+        Me.btnReset.Size = New System.Drawing.Size(233, 24)
         Me.btnReset.TabIndex = 0
         Me.btnReset.Text = "Reset"
         Me.btnReset.UseVisualStyleBackColor = True
@@ -1019,7 +1020,7 @@ Partial Class rightpanel
         Me.TLP_OriginalSize1.Name = "TLP_OriginalSize1"
         Me.TLP_OriginalSize1.RowCount = 1
         Me.TLP_OriginalSize1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TLP_OriginalSize1.Size = New System.Drawing.Size(170, 24)
+        Me.TLP_OriginalSize1.Size = New System.Drawing.Size(233, 24)
         Me.TLP_OriginalSize1.TabIndex = 1
         '
         'TLP_OriginalSize1_2
@@ -1032,18 +1033,18 @@ Partial Class rightpanel
         Me.TLP_OriginalSize1_2.Controls.Add(Me.lbl_Width, 0, 0)
         Me.TLP_OriginalSize1_2.Controls.Add(Me.Label8, 2, 0)
         Me.TLP_OriginalSize1_2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TLP_OriginalSize1_2.Location = New System.Drawing.Point(88, 3)
+        Me.TLP_OriginalSize1_2.Location = New System.Drawing.Point(119, 3)
         Me.TLP_OriginalSize1_2.Name = "TLP_OriginalSize1_2"
         Me.TLP_OriginalSize1_2.RowCount = 1
         Me.TLP_OriginalSize1_2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TLP_OriginalSize1_2.Size = New System.Drawing.Size(79, 18)
+        Me.TLP_OriginalSize1_2.Size = New System.Drawing.Size(111, 18)
         Me.TLP_OriginalSize1_2.TabIndex = 27
         '
         'lbl_OriginalSizeWidth
         '
         Me.lbl_OriginalSizeWidth.AutoSize = True
         Me.lbl_OriginalSizeWidth.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.lbl_OriginalSizeWidth.Location = New System.Drawing.Point(34, 0)
+        Me.lbl_OriginalSizeWidth.Location = New System.Drawing.Point(47, 0)
         Me.lbl_OriginalSizeWidth.Name = "lbl_OriginalSizeWidth"
         Me.lbl_OriginalSizeWidth.Size = New System.Drawing.Size(12, 15)
         Me.lbl_OriginalSizeWidth.TabIndex = 28
@@ -1056,7 +1057,7 @@ Partial Class rightpanel
         Me.lbl_Width.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lbl_Width.Location = New System.Drawing.Point(3, 0)
         Me.lbl_Width.Name = "lbl_Width"
-        Me.lbl_Width.Size = New System.Drawing.Size(25, 18)
+        Me.lbl_Width.Size = New System.Drawing.Size(38, 18)
         Me.lbl_Width.TabIndex = 27
         Me.lbl_Width.Text = "Width: "
         '
@@ -1064,9 +1065,9 @@ Partial Class rightpanel
         '
         Me.Label8.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(68, 0)
+        Me.Label8.Location = New System.Drawing.Point(94, 0)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(8, 18)
+        Me.Label8.Size = New System.Drawing.Size(14, 18)
         Me.Label8.TabIndex = 28
         Me.Label8.Text = """"
         '
@@ -1084,7 +1085,7 @@ Partial Class rightpanel
         Me.TLP_OriginalSize1_1.Name = "TLP_OriginalSize1_1"
         Me.TLP_OriginalSize1_1.RowCount = 1
         Me.TLP_OriginalSize1_1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TLP_OriginalSize1_1.Size = New System.Drawing.Size(79, 18)
+        Me.TLP_OriginalSize1_1.Size = New System.Drawing.Size(110, 18)
         Me.TLP_OriginalSize1_1.TabIndex = 26
         '
         'lbl_height
@@ -1093,7 +1094,7 @@ Partial Class rightpanel
         Me.lbl_height.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lbl_height.Location = New System.Drawing.Point(3, 0)
         Me.lbl_height.Name = "lbl_height"
-        Me.lbl_height.Size = New System.Drawing.Size(31, 18)
+        Me.lbl_height.Size = New System.Drawing.Size(46, 18)
         Me.lbl_height.TabIndex = 26
         Me.lbl_height.Text = "Height: "
         '
@@ -1101,7 +1102,7 @@ Partial Class rightpanel
         '
         Me.lbl_OriginalSizeHeight.AutoSize = True
         Me.lbl_OriginalSizeHeight.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.lbl_OriginalSizeHeight.Location = New System.Drawing.Point(40, 0)
+        Me.lbl_OriginalSizeHeight.Location = New System.Drawing.Point(55, 0)
         Me.lbl_OriginalSizeHeight.Name = "lbl_OriginalSizeHeight"
         Me.lbl_OriginalSizeHeight.Size = New System.Drawing.Size(12, 15)
         Me.lbl_OriginalSizeHeight.TabIndex = 27
@@ -1111,9 +1112,9 @@ Partial Class rightpanel
         '
         Me.Label7.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(69, 0)
+        Me.Label7.Location = New System.Drawing.Point(96, 0)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(7, 18)
+        Me.Label7.Size = New System.Drawing.Size(11, 18)
         Me.Label7.TabIndex = 28
         Me.Label7.Text = """"
         '
@@ -1161,7 +1162,7 @@ Partial Class rightpanel
         Me.TLP_Alignment.RowCount = 2
         Me.TLP_Alignment.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TLP_Alignment.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TLP_Alignment.Size = New System.Drawing.Size(311, 45)
+        Me.TLP_Alignment.Size = New System.Drawing.Size(297, 45)
         Me.TLP_Alignment.TabIndex = 0
         '
         'btn_DistRows
@@ -1174,10 +1175,10 @@ Partial Class rightpanel
         Me.btn_DistRows.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.btn_DistRows.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.btn_DistRows.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_DistRows.Location = New System.Drawing.Point(224, 0)
+        Me.btn_DistRows.Location = New System.Drawing.Point(208, 0)
         Me.btn_DistRows.Margin = New System.Windows.Forms.Padding(0)
         Me.btn_DistRows.Name = "btn_DistRows"
-        Me.btn_DistRows.Size = New System.Drawing.Size(28, 22)
+        Me.btn_DistRows.Size = New System.Drawing.Size(26, 22)
         Me.btn_DistRows.TabIndex = 9
         Me.btn_DistRows.Text = " "
         Me.btn_DistRows.UseVisualStyleBackColor = True
@@ -1195,7 +1196,7 @@ Partial Class rightpanel
         Me.btn_BringForward.Location = New System.Drawing.Point(0, 0)
         Me.btn_BringForward.Margin = New System.Windows.Forms.Padding(0)
         Me.btn_BringForward.Name = "btn_BringForward"
-        Me.btn_BringForward.Size = New System.Drawing.Size(28, 22)
+        Me.btn_BringForward.Size = New System.Drawing.Size(26, 22)
         Me.btn_BringForward.TabIndex = 9
         Me.btn_BringForward.Text = " "
         Me.btn_BringForward.UseVisualStyleBackColor = True
@@ -1210,10 +1211,10 @@ Partial Class rightpanel
         Me.btn_DistColumns.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.btn_DistColumns.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.btn_DistColumns.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_DistColumns.Location = New System.Drawing.Point(196, 0)
+        Me.btn_DistColumns.Location = New System.Drawing.Point(182, 0)
         Me.btn_DistColumns.Margin = New System.Windows.Forms.Padding(0)
         Me.btn_DistColumns.Name = "btn_DistColumns"
-        Me.btn_DistColumns.Size = New System.Drawing.Size(28, 22)
+        Me.btn_DistColumns.Size = New System.Drawing.Size(26, 22)
         Me.btn_DistColumns.TabIndex = 9
         Me.btn_DistColumns.Text = " "
         Me.btn_DistColumns.UseVisualStyleBackColor = True
@@ -1228,13 +1229,31 @@ Partial Class rightpanel
         Me.btn_SendtoBack.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.btn_SendtoBack.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.btn_SendtoBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_SendtoBack.Location = New System.Drawing.Point(28, 0)
+        Me.btn_SendtoBack.Location = New System.Drawing.Point(26, 0)
         Me.btn_SendtoBack.Margin = New System.Windows.Forms.Padding(0)
         Me.btn_SendtoBack.Name = "btn_SendtoBack"
-        Me.btn_SendtoBack.Size = New System.Drawing.Size(28, 22)
+        Me.btn_SendtoBack.Size = New System.Drawing.Size(26, 22)
         Me.btn_SendtoBack.TabIndex = 8
         Me.btn_SendtoBack.Text = " "
         Me.btn_SendtoBack.UseVisualStyleBackColor = True
+        '
+        'btn_AlignCenter
+        '
+        Me.btn_AlignCenter.BackgroundImage = Global.SemiFinalApproach.My.Resources.Resources._2_
+        Me.btn_AlignCenter.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.btn_AlignCenter.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.btn_AlignCenter.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.btn_AlignCenter.FlatAppearance.BorderSize = 0
+        Me.btn_AlignCenter.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.btn_AlignCenter.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.btn_AlignCenter.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_AlignCenter.Location = New System.Drawing.Point(0, 22)
+        Me.btn_AlignCenter.Margin = New System.Windows.Forms.Padding(0)
+        Me.btn_AlignCenter.Name = "btn_AlignCenter"
+        Me.btn_AlignCenter.Size = New System.Drawing.Size(26, 23)
+        Me.btn_AlignCenter.TabIndex = 4
+        Me.btn_AlignCenter.Text = " "
+        Me.btn_AlignCenter.UseVisualStyleBackColor = True
         '
         'btn_BorderTop
         '
@@ -1246,10 +1265,10 @@ Partial Class rightpanel
         Me.btn_BorderTop.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.btn_BorderTop.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.btn_BorderTop.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_BorderTop.Location = New System.Drawing.Point(56, 0)
+        Me.btn_BorderTop.Location = New System.Drawing.Point(52, 0)
         Me.btn_BorderTop.Margin = New System.Windows.Forms.Padding(0)
         Me.btn_BorderTop.Name = "btn_BorderTop"
-        Me.btn_BorderTop.Size = New System.Drawing.Size(28, 22)
+        Me.btn_BorderTop.Size = New System.Drawing.Size(26, 22)
         Me.btn_BorderTop.TabIndex = 9
         Me.btn_BorderTop.Text = " "
         Me.btn_BorderTop.UseVisualStyleBackColor = True
@@ -1264,10 +1283,10 @@ Partial Class rightpanel
         Me.btn_BorderBottom.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.btn_BorderBottom.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.btn_BorderBottom.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_BorderBottom.Location = New System.Drawing.Point(84, 0)
+        Me.btn_BorderBottom.Location = New System.Drawing.Point(78, 0)
         Me.btn_BorderBottom.Margin = New System.Windows.Forms.Padding(0)
         Me.btn_BorderBottom.Name = "btn_BorderBottom"
-        Me.btn_BorderBottom.Size = New System.Drawing.Size(28, 22)
+        Me.btn_BorderBottom.Size = New System.Drawing.Size(26, 22)
         Me.btn_BorderBottom.TabIndex = 9
         Me.btn_BorderBottom.Text = " "
         Me.btn_BorderBottom.UseVisualStyleBackColor = True
@@ -1282,10 +1301,10 @@ Partial Class rightpanel
         Me.btn_Borderleft.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.btn_Borderleft.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.btn_Borderleft.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_Borderleft.Location = New System.Drawing.Point(112, 0)
+        Me.btn_Borderleft.Location = New System.Drawing.Point(104, 0)
         Me.btn_Borderleft.Margin = New System.Windows.Forms.Padding(0)
         Me.btn_Borderleft.Name = "btn_Borderleft"
-        Me.btn_Borderleft.Size = New System.Drawing.Size(28, 22)
+        Me.btn_Borderleft.Size = New System.Drawing.Size(26, 22)
         Me.btn_Borderleft.TabIndex = 9
         Me.btn_Borderleft.Text = " "
         Me.btn_Borderleft.UseVisualStyleBackColor = True
@@ -1300,10 +1319,10 @@ Partial Class rightpanel
         Me.btn_BorderRight.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.btn_BorderRight.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.btn_BorderRight.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_BorderRight.Location = New System.Drawing.Point(140, 0)
+        Me.btn_BorderRight.Location = New System.Drawing.Point(130, 0)
         Me.btn_BorderRight.Margin = New System.Windows.Forms.Padding(0)
         Me.btn_BorderRight.Name = "btn_BorderRight"
-        Me.btn_BorderRight.Size = New System.Drawing.Size(28, 22)
+        Me.btn_BorderRight.Size = New System.Drawing.Size(26, 22)
         Me.btn_BorderRight.TabIndex = 9
         Me.btn_BorderRight.Text = " "
         Me.btn_BorderRight.UseVisualStyleBackColor = True
@@ -1318,18 +1337,200 @@ Partial Class rightpanel
         Me.btn_BorderAll.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.btn_BorderAll.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.btn_BorderAll.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_BorderAll.Location = New System.Drawing.Point(168, 0)
+        Me.btn_BorderAll.Location = New System.Drawing.Point(156, 0)
         Me.btn_BorderAll.Margin = New System.Windows.Forms.Padding(0)
         Me.btn_BorderAll.Name = "btn_BorderAll"
-        Me.btn_BorderAll.Size = New System.Drawing.Size(28, 22)
+        Me.btn_BorderAll.Size = New System.Drawing.Size(26, 22)
         Me.btn_BorderAll.TabIndex = 9
         Me.btn_BorderAll.Text = " "
         Me.btn_BorderAll.UseVisualStyleBackColor = True
+        '
+        'btn_FormatShape
+        '
+        Me.btn_FormatShape.BackgroundImage = Global.SemiFinalApproach.My.Resources.Resources._32
+        Me.btn_FormatShape.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.btn_FormatShape.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.btn_FormatShape.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.btn_FormatShape.FlatAppearance.BorderSize = 0
+        Me.btn_FormatShape.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.btn_FormatShape.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.btn_FormatShape.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_FormatShape.Location = New System.Drawing.Point(208, 22)
+        Me.btn_FormatShape.Margin = New System.Windows.Forms.Padding(0)
+        Me.btn_FormatShape.Name = "btn_FormatShape"
+        Me.btn_FormatShape.Size = New System.Drawing.Size(26, 23)
+        Me.btn_FormatShape.TabIndex = 9
+        Me.btn_FormatShape.Text = " "
+        Me.btn_FormatShape.UseVisualStyleBackColor = True
+        '
+        'btn_AlignBottom
+        '
+        Me.btn_AlignBottom.BackgroundImage = Global.SemiFinalApproach.My.Resources.Resources._9
+        Me.btn_AlignBottom.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.btn_AlignBottom.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.btn_AlignBottom.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.btn_AlignBottom.FlatAppearance.BorderSize = 0
+        Me.btn_AlignBottom.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.btn_AlignBottom.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.btn_AlignBottom.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_AlignBottom.ImageIndex = 0
+        Me.btn_AlignBottom.Location = New System.Drawing.Point(182, 22)
+        Me.btn_AlignBottom.Margin = New System.Windows.Forms.Padding(0)
+        Me.btn_AlignBottom.Name = "btn_AlignBottom"
+        Me.btn_AlignBottom.Size = New System.Drawing.Size(26, 23)
+        Me.btn_AlignBottom.TabIndex = 3
+        Me.btn_AlignBottom.Text = " "
+        Me.btn_AlignBottom.UseVisualStyleBackColor = True
+        '
+        'btn_AlignRight
+        '
+        Me.btn_AlignRight.BackgroundImage = Global.SemiFinalApproach.My.Resources.Resources._3
+        Me.btn_AlignRight.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.btn_AlignRight.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.btn_AlignRight.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.btn_AlignRight.FlatAppearance.BorderSize = 0
+        Me.btn_AlignRight.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.btn_AlignRight.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.btn_AlignRight.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_AlignRight.Location = New System.Drawing.Point(156, 22)
+        Me.btn_AlignRight.Margin = New System.Windows.Forms.Padding(0)
+        Me.btn_AlignRight.Name = "btn_AlignRight"
+        Me.btn_AlignRight.Size = New System.Drawing.Size(26, 23)
+        Me.btn_AlignRight.TabIndex = 2
+        Me.btn_AlignRight.Text = " "
+        Me.btn_AlignRight.UseVisualStyleBackColor = True
+        '
+        'btn_AlignTop
+        '
+        Me.btn_AlignTop.BackgroundImage = Global.SemiFinalApproach.My.Resources.Resources._4
+        Me.btn_AlignTop.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.btn_AlignTop.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.btn_AlignTop.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.btn_AlignTop.FlatAppearance.BorderSize = 0
+        Me.btn_AlignTop.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.btn_AlignTop.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.btn_AlignTop.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_AlignTop.Location = New System.Drawing.Point(130, 22)
+        Me.btn_AlignTop.Margin = New System.Windows.Forms.Padding(0)
+        Me.btn_AlignTop.Name = "btn_AlignTop"
+        Me.btn_AlignTop.Size = New System.Drawing.Size(26, 23)
+        Me.btn_AlignTop.TabIndex = 1
+        Me.btn_AlignTop.UseVisualStyleBackColor = True
+        '
+        'btn_AlignLeft
+        '
+        Me.btn_AlignLeft.BackgroundImage = Global.SemiFinalApproach.My.Resources.Resources._5
+        Me.btn_AlignLeft.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.btn_AlignLeft.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.btn_AlignLeft.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.btn_AlignLeft.FlatAppearance.BorderSize = 0
+        Me.btn_AlignLeft.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.btn_AlignLeft.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.btn_AlignLeft.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_AlignLeft.ImageIndex = 3
+        Me.btn_AlignLeft.Location = New System.Drawing.Point(104, 22)
+        Me.btn_AlignLeft.Margin = New System.Windows.Forms.Padding(0)
+        Me.btn_AlignLeft.Name = "btn_AlignLeft"
+        Me.btn_AlignLeft.Size = New System.Drawing.Size(26, 23)
+        Me.btn_AlignLeft.TabIndex = 0
+        Me.btn_AlignLeft.UseVisualStyleBackColor = True
+        '
+        'btn_DistVer
+        '
+        Me.btn_DistVer.BackgroundImage = Global.SemiFinalApproach.My.Resources.Resources._8
+        Me.btn_DistVer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.btn_DistVer.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.btn_DistVer.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.btn_DistVer.FlatAppearance.BorderSize = 0
+        Me.btn_DistVer.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.btn_DistVer.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.btn_DistVer.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_DistVer.Location = New System.Drawing.Point(78, 22)
+        Me.btn_DistVer.Margin = New System.Windows.Forms.Padding(0)
+        Me.btn_DistVer.Name = "btn_DistVer"
+        Me.btn_DistVer.Size = New System.Drawing.Size(26, 23)
+        Me.btn_DistVer.TabIndex = 7
+        Me.btn_DistVer.Text = " "
+        Me.btn_DistVer.UseVisualStyleBackColor = True
+        '
+        'btn_DistHor
+        '
+        Me.btn_DistHor.BackgroundImage = Global.SemiFinalApproach.My.Resources.Resources._7
+        Me.btn_DistHor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.btn_DistHor.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.btn_DistHor.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.btn_DistHor.FlatAppearance.BorderSize = 0
+        Me.btn_DistHor.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.btn_DistHor.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.btn_DistHor.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_DistHor.Location = New System.Drawing.Point(52, 22)
+        Me.btn_DistHor.Margin = New System.Windows.Forms.Padding(0)
+        Me.btn_DistHor.Name = "btn_DistHor"
+        Me.btn_DistHor.Size = New System.Drawing.Size(26, 23)
+        Me.btn_DistHor.TabIndex = 6
+        Me.btn_DistHor.Text = " "
+        Me.btn_DistHor.UseVisualStyleBackColor = True
+        '
+        'btn_AlignMiddle
+        '
+        Me.btn_AlignMiddle.BackgroundImage = Global.SemiFinalApproach.My.Resources.Resources._6
+        Me.btn_AlignMiddle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.btn_AlignMiddle.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.btn_AlignMiddle.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.btn_AlignMiddle.FlatAppearance.BorderSize = 0
+        Me.btn_AlignMiddle.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.btn_AlignMiddle.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.btn_AlignMiddle.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_AlignMiddle.Location = New System.Drawing.Point(26, 22)
+        Me.btn_AlignMiddle.Margin = New System.Windows.Forms.Padding(0)
+        Me.btn_AlignMiddle.Name = "btn_AlignMiddle"
+        Me.btn_AlignMiddle.Size = New System.Drawing.Size(26, 23)
+        Me.btn_AlignMiddle.TabIndex = 5
+        Me.btn_AlignMiddle.Text = " "
+        Me.btn_AlignMiddle.UseVisualStyleBackColor = True
+        '
+        'btn_Paragraph
+        '
+        Me.btn_Paragraph.BackgroundImage = Global.SemiFinalApproach.My.Resources.Resources._211
+        Me.btn_Paragraph.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.btn_Paragraph.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.btn_Paragraph.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.btn_Paragraph.FlatAppearance.BorderSize = 0
+        Me.btn_Paragraph.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.btn_Paragraph.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.btn_Paragraph.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_Paragraph.Location = New System.Drawing.Point(234, 0)
+        Me.btn_Paragraph.Margin = New System.Windows.Forms.Padding(0)
+        Me.btn_Paragraph.Name = "btn_Paragraph"
+        Me.btn_Paragraph.Size = New System.Drawing.Size(26, 22)
+        Me.btn_Paragraph.TabIndex = 9
+        Me.btn_Paragraph.Text = " "
+        Me.btn_Paragraph.UseVisualStyleBackColor = True
+        '
+        'btn_PasteText
+        '
+        Me.btn_PasteText.BackgroundImage = Global.SemiFinalApproach.My.Resources.Resources._20
+        Me.btn_PasteText.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.btn_PasteText.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.btn_PasteText.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.btn_PasteText.FlatAppearance.BorderSize = 0
+        Me.btn_PasteText.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.btn_PasteText.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.btn_PasteText.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_PasteText.Location = New System.Drawing.Point(260, 0)
+        Me.btn_PasteText.Margin = New System.Windows.Forms.Padding(0)
+        Me.btn_PasteText.Name = "btn_PasteText"
+        Me.btn_PasteText.Size = New System.Drawing.Size(37, 22)
+        Me.btn_PasteText.TabIndex = 9
+        Me.btn_PasteText.Text = " "
+        Me.btn_PasteText.UseVisualStyleBackColor = True
         '
         'SCont_A
         '
         Me.SCont_A.BackColor = System.Drawing.SystemColors.Control
         Me.SCont_A.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.SCont_A.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.SCont_A.FixedPanel = System.Windows.Forms.FixedPanel.Panel1
         Me.SCont_A.Location = New System.Drawing.Point(0, 0)
         Me.SCont_A.Name = "SCont_A"
         Me.SCont_A.Orientation = System.Windows.Forms.Orientation.Horizontal
@@ -1341,7 +1542,7 @@ Partial Class rightpanel
         'SCont_A.Panel2
         '
         Me.SCont_A.Panel2.Controls.Add(Me.Scont_B)
-        Me.SCont_A.Size = New System.Drawing.Size(313, 493)
+        Me.SCont_A.Size = New System.Drawing.Size(299, 509)
         Me.SCont_A.TabIndex = 27
         '
         'Scont_B
@@ -1355,13 +1556,25 @@ Partial Class rightpanel
         'Scont_B.Panel1
         '
         Me.Scont_B.Panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.Scont_B.Panel1.Controls.Add(Me.Panel_Total)
         '
         'Scont_B.Panel2
         '
         Me.Scont_B.Panel2.Controls.Add(Me.BottomPanel)
-        Me.Scont_B.Size = New System.Drawing.Size(313, 439)
-        Me.Scont_B.SplitterDistance = 175
+        Me.Scont_B.Size = New System.Drawing.Size(299, 455)
+        Me.Scont_B.SplitterDistance = 166
         Me.Scont_B.TabIndex = 0
+        '
+        'Panel_Total
+        '
+        Me.Panel_Total.AutoScroll = True
+        Me.Panel_Total.Controls.Add(Me.Scont_TextFormat)
+        Me.Panel_Total.Controls.Add(Me.Scont_ShapeFormat)
+        Me.Panel_Total.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Panel_Total.Location = New System.Drawing.Point(0, 0)
+        Me.Panel_Total.Name = "Panel_Total"
+        Me.Panel_Total.Size = New System.Drawing.Size(297, 164)
+        Me.Panel_Total.TabIndex = 0
         '
         'BottomPanel
         '
@@ -1370,7 +1583,7 @@ Partial Class rightpanel
         Me.BottomPanel.Dock = System.Windows.Forms.DockStyle.Fill
         Me.BottomPanel.Location = New System.Drawing.Point(0, 0)
         Me.BottomPanel.Name = "BottomPanel"
-        Me.BottomPanel.Size = New System.Drawing.Size(311, 258)
+        Me.BottomPanel.Size = New System.Drawing.Size(297, 283)
         Me.BottomPanel.TabIndex = 25
         '
         'NotesTableLayout
@@ -1385,7 +1598,7 @@ Partial Class rightpanel
         Me.NotesTableLayout.RowCount = 2
         Me.NotesTableLayout.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 77.0!))
         Me.NotesTableLayout.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.NotesTableLayout.Size = New System.Drawing.Size(309, 256)
+        Me.NotesTableLayout.Size = New System.Drawing.Size(295, 281)
         Me.NotesTableLayout.TabIndex = 24
         '
         'txtNotes
@@ -1395,7 +1608,7 @@ Partial Class rightpanel
         Me.txtNotes.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtNotes.Location = New System.Drawing.Point(3, 80)
         Me.txtNotes.Name = "txtNotes"
-        Me.txtNotes.Size = New System.Drawing.Size(303, 173)
+        Me.txtNotes.Size = New System.Drawing.Size(289, 198)
         Me.txtNotes.TabIndex = 1
         Me.txtNotes.Text = ""
         Me.txtNotes.WordWrap = False
@@ -1406,7 +1619,7 @@ Partial Class rightpanel
         Me.Part1_notes.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Part1_notes.Location = New System.Drawing.Point(3, 3)
         Me.Part1_notes.Name = "Part1_notes"
-        Me.Part1_notes.Size = New System.Drawing.Size(303, 71)
+        Me.Part1_notes.Size = New System.Drawing.Size(289, 71)
         Me.Part1_notes.TabIndex = 16
         '
         'TableLayoutPanel1
@@ -1419,7 +1632,7 @@ Partial Class rightpanel
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 1
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(303, 71)
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(289, 71)
         Me.TableLayoutPanel1.TabIndex = 2
         '
         'TableLayoutPanel6
@@ -1434,7 +1647,7 @@ Partial Class rightpanel
         Me.TableLayoutPanel6.RowCount = 2
         Me.TableLayoutPanel6.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 57.57576!))
         Me.TableLayoutPanel6.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 42.42424!))
-        Me.TableLayoutPanel6.Size = New System.Drawing.Size(297, 65)
+        Me.TableLayoutPanel6.Size = New System.Drawing.Size(283, 65)
         Me.TableLayoutPanel6.TabIndex = 1
         '
         'TableLayoutPanel8
@@ -1451,7 +1664,7 @@ Partial Class rightpanel
         Me.TableLayoutPanel8.Name = "TableLayoutPanel8"
         Me.TableLayoutPanel8.RowCount = 1
         Me.TableLayoutPanel8.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel8.Size = New System.Drawing.Size(291, 31)
+        Me.TableLayoutPanel8.Size = New System.Drawing.Size(277, 31)
         Me.TableLayoutPanel8.TabIndex = 1
         '
         'cboxFontFamily
@@ -1462,7 +1675,7 @@ Partial Class rightpanel
         Me.cboxFontFamily.Items.AddRange(New Object() {"Agency FB", "Agency FB Bold", "Algerian", "Arial Narrow", "Arial Narrow Bold", "Arial Narrow Bold Italic", "Arial Narrow Italic", "Arial Rounded MT Bold", "Arial Unicode MS", "Baskerville Old Face", "Bauhaus 93", "Bell MT", "Bell MT Bold", "Bell MT Italic", "Berlin Sans FB", "Berlin Sans FB Bold", "Berlin Sans FB Demi Bold", "Bernard MT Condensed", "Blackadder ITC", "Bodoni MT", "Bodoni MT Black", "Bodoni MT Black Italic", "Bodoni MT Bold", "Bodoni MT Bold Italic", "Bodoni MT Condensed", "Bodoni MT Condensed Bold", "Bodoni MT Condensed Bold Italic", "Bodoni MT Condensed Italic", "Bodoni MT Italic", "Bodoni MT Poster Compressed", "Book Antiqua", "Book Antiqua Bold", "Book Antiqua Bold Italic", "Book Antiqua Italic", "Bookman Old Style", "Bookman Old Style Bold", "Bookman Old Style Bold Italic", "Bookman Old Style Italic", "Bradley Hand ITC", "Britannic Bold", "Broadway", "Brush Script MT Italic", "Calibri", "Calibri Bold", "Calibri Bold Italic", "Calibri Italic", "Californian FB", "Californian FB Bold", "Californian FB Italic", "Calisto MT", "Calisto MT Bold", "Calisto MT Bold Italic", "Calisto MT Italic", "Cambria & Cambria Math", "Cambria Bold", "Candara", "Candara Bold", "Candara Italic", "Candara Bold Italic", "Centaur", "Century", "Century Gothic", "Century Gothic Bold", "Century Gothic Italic", "Century Schoolbook", "Century Schoolbook Bold", "Century Schoolbook Bold Italic", "Century Schoolbook Italic", "Chiller", "Colonna MT", "Consolas", "Consolas Bold", "Consolas Bold Italic", "Consolas Italic", "Constantia", "Constantia Bold", "Constantia Bold Italic", "Constantia Italic", "Cooper Black", "Copperplate Gothic Bold", "Copperplate Gothic Light", "Corbel", "Corbel Bold", "Corbel Bold Italic", "Corbel Italic", "Curlz MT", "Edwardian Script ITC", "Elephant", "Elephant Italic", "Engraveras", "Eras Bold ITC", "Eras Demi ITC", "Eras Light ITC", "Eras Medium ITC", "Felix Titling", "Footlight MT Light", "Forte", "Franklin", "Gothic Book", "Franklin Gothic Book Italic", "Franklin Gothic Demi", "Franklin Gothic Demi Cond", "Franklin Gothic Demi Italic", "Franklin Gothic Heavy", "Franklin Gothic Heavy Italic", "Franklin Gothic Medium Cond", "Freestyle Script", "French Script MT", "Garamond", "Garamond Bold", "Garamond Italic", "Gigi", "Gill Sans MT", "Gill Sans MT Bold", "Gill Sans MT Bold Italic", "Gill Sans MT Condensed", "Gill Sans MT Ext Condensed Bold", "Gill Sans MT Italic", "Gill Sans Ultra Bold", "Gill Sans Ultra Bold Condensed", "Gloucester MT Extra Condensed", "Goudy Old Style", "Goudy Old Style Bold", "Goudy Old Style Italic", "Goudy Stout", "Haettenschweiler", "Harlow Solid Italic", "Harrington", "High Tower Text", "High Tower Text Italic", "Imprint MT Shadow", "Informal Roman", "Jokerman", "Juice ITC", "Kristen ITC", "Kunstler Script", "Lucida Bright", "Lucida Bright Demibold", "Lucida Bright Demibold Italic", "Lucida Bright Italic", "Lucida Calligraphy Italic", "Lucida Fax Demibold", "Lucida Fax Demibold Italic", "Lucida Fax Italic", "Lucida Fax Regular", "Lucida Handwriting Italic", "Lucida Sans Demibold Italic", "Lucida Sans Demibold Roman", "Lucida Sans Italic", "Lucida Sans Regular", "Lucida Sans Typewriter Bold", "Lucida Sans Typewriter Bold Oblique", "Lucida Sans Typewriter Oblique", "Lucida Sans Typewriter Regular", "Magneto Bold", "Maiandra GD", "Matura MT Script Capitals", "Mistral", "Modern No. 20", "Monotype Corsiva", "MS Mincho", "MS Outlook", "MS Reference Sans Serif", "MS Reference Specialty", "MT Extra", "Niagara Engraved", "Niagara Solid", "OCR A Extended", "Old English Text MT", "Onyx", "Palace Script MT", "Palatino Linotype", "Palatino Linotype Bold", "Palatino Linotype Bold Italic", "Palatino Linotype Italic", "Papyrus", "Parchment", "Perpetua", "Perpetua Bold", "Perpetua Bold Italic", "Perpetua Italic", "Perpetua Titling MT Bold", "Perpetua Titling MT Light", "Playbill", "Poor Richard", "Pristina", "Rage Italic", "Ravie Rockwell", "Rockwell Bold", "Rockwell Bold Italic", "Rockwell Condensed", "Rockwell Condensed Bold", "Rockwell Extra Bold", "Rockwell Italic", "Script MT Bold", "Segoe UI*", "Segoe UI Bold*", "Segoe UI Bold Italic*", "Segoe UI Italic*", "Showcard Gothic", "Snap ITC", "Stencil", "Tempus Sans ITC", "Tw Cen MT", "Tw Cen MT Bold", "Tw Cen MT Bold Italic", "Tw Cen MT Condensed", "Tw Cen MT Condensed Bold", "Tw Cen MT Condensed Extra Bold", "Tw Cen MT Italic", "Viner Hand ITC", "Vivaldi Italic", "Vladimir Script", "Wide Latin", "Wingdings 2", "Wingdings 3"})
         Me.cboxFontFamily.Location = New System.Drawing.Point(3, 3)
         Me.cboxFontFamily.Name = "cboxFontFamily"
-        Me.cboxFontFamily.Size = New System.Drawing.Size(119, 23)
+        Me.cboxFontFamily.Size = New System.Drawing.Size(113, 23)
         Me.cboxFontFamily.TabIndex = 15
         '
         'cboxFontSize
@@ -1471,9 +1684,9 @@ Partial Class rightpanel
         Me.cboxFontSize.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboxFontSize.FormattingEnabled = True
         Me.cboxFontSize.Items.AddRange(New Object() {"8", "8.25", "9", "10", "10.5", "11", "12", "14", "16", "18", "20", "24", "28", "32", "36", "40", "44", "48", "54", "60", "66", "72", "80", "88", "96", "", ""})
-        Me.cboxFontSize.Location = New System.Drawing.Point(128, 3)
+        Me.cboxFontSize.Location = New System.Drawing.Point(122, 3)
         Me.cboxFontSize.Name = "cboxFontSize"
-        Me.cboxFontSize.Size = New System.Drawing.Size(44, 23)
+        Me.cboxFontSize.Size = New System.Drawing.Size(41, 23)
         Me.cboxFontSize.TabIndex = 14
         '
         'TableLayoutPanel3
@@ -1488,11 +1701,11 @@ Partial Class rightpanel
         Me.TableLayoutPanel3.Controls.Add(Me.btn_IndentDec, 2, 0)
         Me.TableLayoutPanel3.Controls.Add(Me.btn_IndentInc, 3, 0)
         Me.TableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel3.Location = New System.Drawing.Point(178, 3)
+        Me.TableLayoutPanel3.Location = New System.Drawing.Point(169, 3)
         Me.TableLayoutPanel3.Name = "TableLayoutPanel3"
         Me.TableLayoutPanel3.RowCount = 1
         Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel3.Size = New System.Drawing.Size(110, 25)
+        Me.TableLayoutPanel3.Size = New System.Drawing.Size(105, 25)
         Me.TableLayoutPanel3.TabIndex = 16
         '
         'btn_Bullet
@@ -1508,10 +1721,10 @@ Partial Class rightpanel
         Me.btn_Bullet.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.btn_Bullet.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.btn_Bullet.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_Bullet.Location = New System.Drawing.Point(28, 1)
+        Me.btn_Bullet.Location = New System.Drawing.Point(27, 1)
         Me.btn_Bullet.Margin = New System.Windows.Forms.Padding(1)
         Me.btn_Bullet.Name = "btn_Bullet"
-        Me.btn_Bullet.Size = New System.Drawing.Size(25, 23)
+        Me.btn_Bullet.Size = New System.Drawing.Size(24, 23)
         Me.btn_Bullet.TabIndex = 28
         Me.btn_Bullet.Text = " "
         Me.btn_Bullet.UseVisualStyleBackColor = True
@@ -1529,7 +1742,7 @@ Partial Class rightpanel
         Me.btn_Reset.Location = New System.Drawing.Point(4, 4)
         Me.btn_Reset.Margin = New System.Windows.Forms.Padding(4)
         Me.btn_Reset.Name = "btn_Reset"
-        Me.btn_Reset.Size = New System.Drawing.Size(19, 17)
+        Me.btn_Reset.Size = New System.Drawing.Size(18, 17)
         Me.btn_Reset.TabIndex = 29
         Me.btn_Reset.Text = " "
         Me.btn_Reset.UseVisualStyleBackColor = True
@@ -1545,10 +1758,10 @@ Partial Class rightpanel
         Me.btn_IndentDec.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.btn_IndentDec.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.btn_IndentDec.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_IndentDec.Location = New System.Drawing.Point(55, 1)
+        Me.btn_IndentDec.Location = New System.Drawing.Point(53, 1)
         Me.btn_IndentDec.Margin = New System.Windows.Forms.Padding(1)
         Me.btn_IndentDec.Name = "btn_IndentDec"
-        Me.btn_IndentDec.Size = New System.Drawing.Size(25, 23)
+        Me.btn_IndentDec.Size = New System.Drawing.Size(24, 23)
         Me.btn_IndentDec.TabIndex = 29
         Me.btn_IndentDec.Text = " "
         Me.btn_IndentDec.UseVisualStyleBackColor = True
@@ -1564,10 +1777,10 @@ Partial Class rightpanel
         Me.btn_IndentInc.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.btn_IndentInc.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.btn_IndentInc.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_IndentInc.Location = New System.Drawing.Point(82, 1)
+        Me.btn_IndentInc.Location = New System.Drawing.Point(79, 1)
         Me.btn_IndentInc.Margin = New System.Windows.Forms.Padding(1)
         Me.btn_IndentInc.Name = "btn_IndentInc"
-        Me.btn_IndentInc.Size = New System.Drawing.Size(27, 23)
+        Me.btn_IndentInc.Size = New System.Drawing.Size(25, 23)
         Me.btn_IndentInc.TabIndex = 29
         Me.btn_IndentInc.Text = " "
         Me.btn_IndentInc.UseVisualStyleBackColor = True
@@ -1598,7 +1811,7 @@ Partial Class rightpanel
         Me.TableLayoutPanel7.Name = "TableLayoutPanel7"
         Me.TableLayoutPanel7.RowCount = 1
         Me.TableLayoutPanel7.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel7.Size = New System.Drawing.Size(291, 22)
+        Me.TableLayoutPanel7.Size = New System.Drawing.Size(277, 22)
         Me.TableLayoutPanel7.TabIndex = 0
         '
         'btnBold
@@ -1617,7 +1830,7 @@ Partial Class rightpanel
         Me.btnBold.Location = New System.Drawing.Point(0, 0)
         Me.btnBold.Margin = New System.Windows.Forms.Padding(0)
         Me.btnBold.Name = "btnBold"
-        Me.btnBold.Size = New System.Drawing.Size(32, 22)
+        Me.btnBold.Size = New System.Drawing.Size(30, 22)
         Me.btnBold.TabIndex = 19
         Me.btnBold.Text = " "
         Me.btnBold.UseVisualStyleBackColor = True
@@ -1634,10 +1847,10 @@ Partial Class rightpanel
         Me.btnPaste.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.btnPaste.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnPaste.ImageIndex = 6
-        Me.btnPaste.Location = New System.Drawing.Point(256, 0)
+        Me.btnPaste.Location = New System.Drawing.Point(240, 0)
         Me.btnPaste.Margin = New System.Windows.Forms.Padding(0)
         Me.btnPaste.Name = "btnPaste"
-        Me.btnPaste.Size = New System.Drawing.Size(35, 22)
+        Me.btnPaste.Size = New System.Drawing.Size(37, 22)
         Me.btnPaste.TabIndex = 17
         Me.btnPaste.Text = " "
         Me.btnPaste.UseVisualStyleBackColor = True
@@ -1655,10 +1868,10 @@ Partial Class rightpanel
         Me.btnitalic.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.btnitalic.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnitalic.ImageKey = "Italic.jpg"
-        Me.btnitalic.Location = New System.Drawing.Point(32, 0)
+        Me.btnitalic.Location = New System.Drawing.Point(30, 0)
         Me.btnitalic.Margin = New System.Windows.Forms.Padding(0)
         Me.btnitalic.Name = "btnitalic"
-        Me.btnitalic.Size = New System.Drawing.Size(32, 22)
+        Me.btnitalic.Size = New System.Drawing.Size(30, 22)
         Me.btnitalic.TabIndex = 3
         Me.btnitalic.Text = " "
         Me.btnitalic.UseVisualStyleBackColor = True
@@ -1675,10 +1888,10 @@ Partial Class rightpanel
         Me.btnCopy.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.btnCopy.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnCopy.ImageIndex = 2
-        Me.btnCopy.Location = New System.Drawing.Point(224, 0)
+        Me.btnCopy.Location = New System.Drawing.Point(210, 0)
         Me.btnCopy.Margin = New System.Windows.Forms.Padding(0)
         Me.btnCopy.Name = "btnCopy"
-        Me.btnCopy.Size = New System.Drawing.Size(32, 22)
+        Me.btnCopy.Size = New System.Drawing.Size(30, 22)
         Me.btnCopy.TabIndex = 5
         Me.btnCopy.Text = " "
         Me.btnCopy.UseVisualStyleBackColor = True
@@ -1695,10 +1908,10 @@ Partial Class rightpanel
         Me.btnCut.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.btnCut.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnCut.ImageIndex = 1
-        Me.btnCut.Location = New System.Drawing.Point(192, 0)
+        Me.btnCut.Location = New System.Drawing.Point(180, 0)
         Me.btnCut.Margin = New System.Windows.Forms.Padding(0)
         Me.btnCut.Name = "btnCut"
-        Me.btnCut.Size = New System.Drawing.Size(32, 22)
+        Me.btnCut.Size = New System.Drawing.Size(30, 22)
         Me.btnCut.TabIndex = 18
         Me.btnCut.Text = " "
         Me.btnCut.UseVisualStyleBackColor = True
@@ -1716,10 +1929,10 @@ Partial Class rightpanel
         Me.btnunderline.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.btnunderline.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnunderline.ImageKey = "Underline.jpg"
-        Me.btnunderline.Location = New System.Drawing.Point(64, 0)
+        Me.btnunderline.Location = New System.Drawing.Point(60, 0)
         Me.btnunderline.Margin = New System.Windows.Forms.Padding(0)
         Me.btnunderline.Name = "btnunderline"
-        Me.btnunderline.Size = New System.Drawing.Size(32, 22)
+        Me.btnunderline.Size = New System.Drawing.Size(30, 22)
         Me.btnunderline.TabIndex = 2
         Me.btnunderline.Text = " "
         Me.btnunderline.UseVisualStyleBackColor = True
@@ -1735,10 +1948,10 @@ Partial Class rightpanel
         Me.btnAlignLeft.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.btnAlignLeft.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.btnAlignLeft.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnAlignLeft.Location = New System.Drawing.Point(96, 0)
+        Me.btnAlignLeft.Location = New System.Drawing.Point(90, 0)
         Me.btnAlignLeft.Margin = New System.Windows.Forms.Padding(0)
         Me.btnAlignLeft.Name = "btnAlignLeft"
-        Me.btnAlignLeft.Size = New System.Drawing.Size(32, 22)
+        Me.btnAlignLeft.Size = New System.Drawing.Size(30, 22)
         Me.btnAlignLeft.TabIndex = 3
         Me.btnAlignLeft.Text = " "
         Me.btnAlignLeft.UseVisualStyleBackColor = True
@@ -1756,10 +1969,10 @@ Partial Class rightpanel
         Me.btnAlignRight.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnAlignRight.ForeColor = System.Drawing.SystemColors.ControlText
         Me.btnAlignRight.ImageIndex = 9
-        Me.btnAlignRight.Location = New System.Drawing.Point(160, 0)
+        Me.btnAlignRight.Location = New System.Drawing.Point(150, 0)
         Me.btnAlignRight.Margin = New System.Windows.Forms.Padding(0)
         Me.btnAlignRight.Name = "btnAlignRight"
-        Me.btnAlignRight.Size = New System.Drawing.Size(32, 22)
+        Me.btnAlignRight.Size = New System.Drawing.Size(30, 22)
         Me.btnAlignRight.TabIndex = 5
         Me.btnAlignRight.Text = " "
         Me.btnAlignRight.UseVisualStyleBackColor = True
@@ -1775,17 +1988,13 @@ Partial Class rightpanel
         Me.btnAlignCenter.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.btnAlignCenter.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.btnAlignCenter.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnAlignCenter.Location = New System.Drawing.Point(128, 0)
+        Me.btnAlignCenter.Location = New System.Drawing.Point(120, 0)
         Me.btnAlignCenter.Margin = New System.Windows.Forms.Padding(0)
         Me.btnAlignCenter.Name = "btnAlignCenter"
-        Me.btnAlignCenter.Size = New System.Drawing.Size(32, 22)
+        Me.btnAlignCenter.Size = New System.Drawing.Size(30, 22)
         Me.btnAlignCenter.TabIndex = 4
         Me.btnAlignCenter.Text = " "
         Me.btnAlignCenter.UseVisualStyleBackColor = True
-        '
-        'EventsTimer
-        '
-        Me.EventsTimer.Enabled = True
         '
         'Panel_FormatShape
         '
@@ -1794,219 +2003,24 @@ Partial Class rightpanel
         Me.Panel_FormatShape.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel_FormatShape.Location = New System.Drawing.Point(0, 0)
         Me.Panel_FormatShape.Name = "Panel_FormatShape"
-        Me.Panel_FormatShape.Size = New System.Drawing.Size(205, 166)
+        Me.Panel_FormatShape.Size = New System.Drawing.Size(268, 134)
         Me.Panel_FormatShape.TabIndex = 29
         '
         'Panel_FormatText
         '
         Me.Panel_FormatText.AutoScroll = True
         Me.Panel_FormatText.Controls.Add(Me.TextBoxPage)
-        Me.Panel_FormatText.Location = New System.Drawing.Point(385, 55)
+        Me.Panel_FormatText.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Panel_FormatText.Location = New System.Drawing.Point(0, 0)
         Me.Panel_FormatText.Name = "Panel_FormatText"
-        Me.Panel_FormatText.Size = New System.Drawing.Size(171, 96)
+        Me.Panel_FormatText.Size = New System.Drawing.Size(230, 61)
         Me.Panel_FormatText.TabIndex = 28
-        '
-        'btn_AlignMiddle
-        '
-        Me.btn_AlignMiddle.BackgroundImage = Global.SemiFinalApproach.My.Resources.Resources._6
-        Me.btn_AlignMiddle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.btn_AlignMiddle.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.btn_AlignMiddle.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.btn_AlignMiddle.FlatAppearance.BorderSize = 0
-        Me.btn_AlignMiddle.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.btn_AlignMiddle.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.btn_AlignMiddle.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_AlignMiddle.Location = New System.Drawing.Point(28, 22)
-        Me.btn_AlignMiddle.Margin = New System.Windows.Forms.Padding(0)
-        Me.btn_AlignMiddle.Name = "btn_AlignMiddle"
-        Me.btn_AlignMiddle.Size = New System.Drawing.Size(28, 23)
-        Me.btn_AlignMiddle.TabIndex = 5
-        Me.btn_AlignMiddle.Text = " "
-        Me.btn_AlignMiddle.UseVisualStyleBackColor = True
-        '
-        'btn_DistHor
-        '
-        Me.btn_DistHor.BackgroundImage = Global.SemiFinalApproach.My.Resources.Resources._7
-        Me.btn_DistHor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.btn_DistHor.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.btn_DistHor.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.btn_DistHor.FlatAppearance.BorderSize = 0
-        Me.btn_DistHor.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.btn_DistHor.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.btn_DistHor.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_DistHor.Location = New System.Drawing.Point(56, 22)
-        Me.btn_DistHor.Margin = New System.Windows.Forms.Padding(0)
-        Me.btn_DistHor.Name = "btn_DistHor"
-        Me.btn_DistHor.Size = New System.Drawing.Size(28, 23)
-        Me.btn_DistHor.TabIndex = 6
-        Me.btn_DistHor.Text = " "
-        Me.btn_DistHor.UseVisualStyleBackColor = True
-        '
-        'btn_DistVer
-        '
-        Me.btn_DistVer.BackgroundImage = Global.SemiFinalApproach.My.Resources.Resources._8
-        Me.btn_DistVer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.btn_DistVer.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.btn_DistVer.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.btn_DistVer.FlatAppearance.BorderSize = 0
-        Me.btn_DistVer.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.btn_DistVer.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.btn_DistVer.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_DistVer.Location = New System.Drawing.Point(84, 22)
-        Me.btn_DistVer.Margin = New System.Windows.Forms.Padding(0)
-        Me.btn_DistVer.Name = "btn_DistVer"
-        Me.btn_DistVer.Size = New System.Drawing.Size(28, 23)
-        Me.btn_DistVer.TabIndex = 7
-        Me.btn_DistVer.Text = " "
-        Me.btn_DistVer.UseVisualStyleBackColor = True
-        '
-        'btn_AlignLeft
-        '
-        Me.btn_AlignLeft.BackgroundImage = Global.SemiFinalApproach.My.Resources.Resources._5
-        Me.btn_AlignLeft.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.btn_AlignLeft.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.btn_AlignLeft.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.btn_AlignLeft.FlatAppearance.BorderSize = 0
-        Me.btn_AlignLeft.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.btn_AlignLeft.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.btn_AlignLeft.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_AlignLeft.ImageIndex = 3
-        Me.btn_AlignLeft.Location = New System.Drawing.Point(112, 22)
-        Me.btn_AlignLeft.Margin = New System.Windows.Forms.Padding(0)
-        Me.btn_AlignLeft.Name = "btn_AlignLeft"
-        Me.btn_AlignLeft.Size = New System.Drawing.Size(28, 23)
-        Me.btn_AlignLeft.TabIndex = 0
-        Me.btn_AlignLeft.UseVisualStyleBackColor = True
-        '
-        'btn_AlignTop
-        '
-        Me.btn_AlignTop.BackgroundImage = Global.SemiFinalApproach.My.Resources.Resources._4
-        Me.btn_AlignTop.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.btn_AlignTop.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.btn_AlignTop.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.btn_AlignTop.FlatAppearance.BorderSize = 0
-        Me.btn_AlignTop.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.btn_AlignTop.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.btn_AlignTop.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_AlignTop.Location = New System.Drawing.Point(140, 22)
-        Me.btn_AlignTop.Margin = New System.Windows.Forms.Padding(0)
-        Me.btn_AlignTop.Name = "btn_AlignTop"
-        Me.btn_AlignTop.Size = New System.Drawing.Size(28, 23)
-        Me.btn_AlignTop.TabIndex = 1
-        Me.btn_AlignTop.UseVisualStyleBackColor = True
-        '
-        'btn_AlignRight
-        '
-        Me.btn_AlignRight.BackgroundImage = Global.SemiFinalApproach.My.Resources.Resources._3
-        Me.btn_AlignRight.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.btn_AlignRight.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.btn_AlignRight.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.btn_AlignRight.FlatAppearance.BorderSize = 0
-        Me.btn_AlignRight.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.btn_AlignRight.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.btn_AlignRight.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_AlignRight.Location = New System.Drawing.Point(168, 22)
-        Me.btn_AlignRight.Margin = New System.Windows.Forms.Padding(0)
-        Me.btn_AlignRight.Name = "btn_AlignRight"
-        Me.btn_AlignRight.Size = New System.Drawing.Size(28, 23)
-        Me.btn_AlignRight.TabIndex = 2
-        Me.btn_AlignRight.Text = " "
-        Me.btn_AlignRight.UseVisualStyleBackColor = True
-        '
-        'btn_AlignBottom
-        '
-        Me.btn_AlignBottom.BackgroundImage = Global.SemiFinalApproach.My.Resources.Resources._9
-        Me.btn_AlignBottom.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.btn_AlignBottom.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.btn_AlignBottom.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.btn_AlignBottom.FlatAppearance.BorderSize = 0
-        Me.btn_AlignBottom.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.btn_AlignBottom.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.btn_AlignBottom.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_AlignBottom.ImageIndex = 0
-        Me.btn_AlignBottom.Location = New System.Drawing.Point(196, 22)
-        Me.btn_AlignBottom.Margin = New System.Windows.Forms.Padding(0)
-        Me.btn_AlignBottom.Name = "btn_AlignBottom"
-        Me.btn_AlignBottom.Size = New System.Drawing.Size(28, 23)
-        Me.btn_AlignBottom.TabIndex = 3
-        Me.btn_AlignBottom.Text = " "
-        Me.btn_AlignBottom.UseVisualStyleBackColor = True
-        '
-        'btn_FormatShape
-        '
-        Me.btn_FormatShape.BackgroundImage = Global.SemiFinalApproach.My.Resources.Resources._32
-        Me.btn_FormatShape.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.btn_FormatShape.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.btn_FormatShape.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.btn_FormatShape.FlatAppearance.BorderSize = 0
-        Me.btn_FormatShape.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.btn_FormatShape.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.btn_FormatShape.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_FormatShape.Location = New System.Drawing.Point(224, 22)
-        Me.btn_FormatShape.Margin = New System.Windows.Forms.Padding(0)
-        Me.btn_FormatShape.Name = "btn_FormatShape"
-        Me.btn_FormatShape.Size = New System.Drawing.Size(28, 23)
-        Me.btn_FormatShape.TabIndex = 9
-        Me.btn_FormatShape.Text = " "
-        Me.btn_FormatShape.UseVisualStyleBackColor = True
-        '
-        'btn_Paragraph
-        '
-        Me.btn_Paragraph.BackgroundImage = Global.SemiFinalApproach.My.Resources.Resources._211
-        Me.btn_Paragraph.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.btn_Paragraph.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.btn_Paragraph.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.btn_Paragraph.FlatAppearance.BorderSize = 0
-        Me.btn_Paragraph.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.btn_Paragraph.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.btn_Paragraph.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_Paragraph.Location = New System.Drawing.Point(252, 0)
-        Me.btn_Paragraph.Margin = New System.Windows.Forms.Padding(0)
-        Me.btn_Paragraph.Name = "btn_Paragraph"
-        Me.btn_Paragraph.Size = New System.Drawing.Size(28, 22)
-        Me.btn_Paragraph.TabIndex = 9
-        Me.btn_Paragraph.Text = " "
-        Me.btn_Paragraph.UseVisualStyleBackColor = True
-        '
-        'btn_PasteText
-        '
-        Me.btn_PasteText.BackgroundImage = Global.SemiFinalApproach.My.Resources.Resources._20
-        Me.btn_PasteText.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.btn_PasteText.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.btn_PasteText.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.btn_PasteText.FlatAppearance.BorderSize = 0
-        Me.btn_PasteText.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.btn_PasteText.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.btn_PasteText.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_PasteText.Location = New System.Drawing.Point(280, 0)
-        Me.btn_PasteText.Margin = New System.Windows.Forms.Padding(0)
-        Me.btn_PasteText.Name = "btn_PasteText"
-        Me.btn_PasteText.Size = New System.Drawing.Size(31, 22)
-        Me.btn_PasteText.TabIndex = 9
-        Me.btn_PasteText.Text = " "
-        Me.btn_PasteText.UseVisualStyleBackColor = True
-        '
-        'btn_AlignCenter
-        '
-        Me.btn_AlignCenter.BackgroundImage = Global.SemiFinalApproach.My.Resources.Resources._2_
-        Me.btn_AlignCenter.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.btn_AlignCenter.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.btn_AlignCenter.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.btn_AlignCenter.FlatAppearance.BorderSize = 0
-        Me.btn_AlignCenter.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.btn_AlignCenter.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.btn_AlignCenter.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_AlignCenter.Location = New System.Drawing.Point(0, 22)
-        Me.btn_AlignCenter.Margin = New System.Windows.Forms.Padding(0)
-        Me.btn_AlignCenter.Name = "btn_AlignCenter"
-        Me.btn_AlignCenter.Size = New System.Drawing.Size(28, 23)
-        Me.btn_AlignCenter.TabIndex = 4
-        Me.btn_AlignCenter.Text = " "
-        Me.btn_AlignCenter.UseVisualStyleBackColor = True
         '
         'Scont_ShapeFormat
         '
-        Me.Scont_ShapeFormat.Location = New System.Drawing.Point(351, 244)
+        Me.Scont_ShapeFormat.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Scont_ShapeFormat.FixedPanel = System.Windows.Forms.FixedPanel.Panel1
+        Me.Scont_ShapeFormat.Location = New System.Drawing.Point(0, 0)
         Me.Scont_ShapeFormat.Name = "Scont_ShapeFormat"
         Me.Scont_ShapeFormat.Orientation = System.Windows.Forms.Orientation.Horizontal
         '
@@ -2017,7 +2031,8 @@ Partial Class rightpanel
         'Scont_ShapeFormat.Panel2
         '
         Me.Scont_ShapeFormat.Panel2.Controls.Add(Me.Panel_FormatShape)
-        Me.Scont_ShapeFormat.Size = New System.Drawing.Size(205, 210)
+        Me.Scont_ShapeFormat.Panel2Collapsed = True
+        Me.Scont_ShapeFormat.Size = New System.Drawing.Size(297, 50)
         Me.Scont_ShapeFormat.SplitterDistance = 40
         Me.Scont_ShapeFormat.TabIndex = 30
         '
@@ -2029,21 +2044,52 @@ Partial Class rightpanel
         Me.chkbx_ShapeFormat.Font = New System.Drawing.Font("Agency FB", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.chkbx_ShapeFormat.Location = New System.Drawing.Point(0, 0)
         Me.chkbx_ShapeFormat.Name = "chkbx_ShapeFormat"
-        Me.chkbx_ShapeFormat.Size = New System.Drawing.Size(205, 40)
+        Me.chkbx_ShapeFormat.Size = New System.Drawing.Size(297, 50)
         Me.chkbx_ShapeFormat.TabIndex = 0
         Me.chkbx_ShapeFormat.Text = "Shape Format"
         Me.chkbx_ShapeFormat.UseVisualStyleBackColor = True
+        '
+        'Scont_TextFormat
+        '
+        Me.Scont_TextFormat.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Scont_TextFormat.FixedPanel = System.Windows.Forms.FixedPanel.Panel1
+        Me.Scont_TextFormat.Location = New System.Drawing.Point(0, 50)
+        Me.Scont_TextFormat.Name = "Scont_TextFormat"
+        Me.Scont_TextFormat.Orientation = System.Windows.Forms.Orientation.Horizontal
+        '
+        'Scont_TextFormat.Panel1
+        '
+        Me.Scont_TextFormat.Panel1.Controls.Add(Me.chkbx_TextFormat)
+        '
+        'Scont_TextFormat.Panel2
+        '
+        Me.Scont_TextFormat.Panel2.Controls.Add(Me.Panel_FormatText)
+        Me.Scont_TextFormat.Panel2Collapsed = True
+        Me.Scont_TextFormat.Size = New System.Drawing.Size(297, 50)
+        Me.Scont_TextFormat.SplitterDistance = 40
+        Me.Scont_TextFormat.TabIndex = 31
+        '
+        'chkbx_TextFormat
+        '
+        Me.chkbx_TextFormat.Appearance = System.Windows.Forms.Appearance.Button
+        Me.chkbx_TextFormat.AutoSize = True
+        Me.chkbx_TextFormat.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.chkbx_TextFormat.Font = New System.Drawing.Font("Agency FB", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.chkbx_TextFormat.Location = New System.Drawing.Point(0, 0)
+        Me.chkbx_TextFormat.Name = "chkbx_TextFormat"
+        Me.chkbx_TextFormat.Size = New System.Drawing.Size(297, 50)
+        Me.chkbx_TextFormat.TabIndex = 0
+        Me.chkbx_TextFormat.Text = "Text Format"
+        Me.chkbx_TextFormat.UseVisualStyleBackColor = True
         '
         'rightpanel
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
-        Me.Controls.Add(Me.Scont_ShapeFormat)
-        Me.Controls.Add(Me.Panel_FormatText)
         Me.Controls.Add(Me.SCont_A)
         Me.Name = "rightpanel"
-        Me.Size = New System.Drawing.Size(784, 493)
+        Me.Size = New System.Drawing.Size(299, 509)
         Me.AutoFit.ResumeLayout(False)
         Me.ContentAutofit.ResumeLayout(False)
         Me.ContentAutofit.PerformLayout()
@@ -2098,9 +2144,11 @@ Partial Class rightpanel
         Me.SCont_A.Panel2.ResumeLayout(False)
         CType(Me.SCont_A, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SCont_A.ResumeLayout(False)
+        Me.Scont_B.Panel1.ResumeLayout(False)
         Me.Scont_B.Panel2.ResumeLayout(False)
         CType(Me.Scont_B, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Scont_B.ResumeLayout(False)
+        Me.Panel_Total.ResumeLayout(False)
         Me.BottomPanel.ResumeLayout(False)
         Me.NotesTableLayout.ResumeLayout(False)
         Me.Part1_notes.ResumeLayout(False)
@@ -2117,10 +2165,14 @@ Partial Class rightpanel
         Me.Scont_ShapeFormat.Panel2.ResumeLayout(False)
         CType(Me.Scont_ShapeFormat, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Scont_ShapeFormat.ResumeLayout(False)
+        Me.Scont_TextFormat.Panel1.ResumeLayout(False)
+        Me.Scont_TextFormat.Panel1.PerformLayout()
+        Me.Scont_TextFormat.Panel2.ResumeLayout(False)
+        CType(Me.Scont_TextFormat, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Scont_TextFormat.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
-    Friend WithEvents Fixedtimer As System.Windows.Forms.Timer
     Friend WithEvents TextLayout As System.Windows.Forms.GroupBox
     Friend WithEvents contenttextlayout As System.Windows.Forms.TableLayoutPanel
     Friend WithEvents Label5 As System.Windows.Forms.Label
@@ -2224,13 +2276,11 @@ Partial Class rightpanel
     Friend WithEvents TLP_OriginalSize1_1 As System.Windows.Forms.TableLayoutPanel
     Friend WithEvents lbl_height As System.Windows.Forms.Label
     Friend WithEvents lbl_OriginalSizeHeight As System.Windows.Forms.Label
-    Friend WithEvents ColorDialog1 As System.Windows.Forms.ColorDialog
     Friend WithEvents Label8 As System.Windows.Forms.Label
     Friend WithEvents Label7 As System.Windows.Forms.Label
     Friend WithEvents TableLayoutPanel3 As System.Windows.Forms.TableLayoutPanel
     Friend WithEvents btn_IndentDec As System.Windows.Forms.Button
     Friend WithEvents btn_IndentInc As System.Windows.Forms.Button
-    Friend WithEvents EventsTimer As System.Windows.Forms.Timer
     Friend WithEvents Panel_FormatShape As System.Windows.Forms.Panel
     Friend WithEvents Panel_FormatText As System.Windows.Forms.Panel
     Friend WithEvents btn_AlignCenter As System.Windows.Forms.Button
@@ -2246,5 +2296,8 @@ Partial Class rightpanel
     Friend WithEvents btn_PasteText As System.Windows.Forms.Button
     Friend WithEvents Scont_ShapeFormat As System.Windows.Forms.SplitContainer
     Friend WithEvents chkbx_ShapeFormat As System.Windows.Forms.CheckBox
+    Friend WithEvents Panel_Total As System.Windows.Forms.Panel
+    Friend WithEvents Scont_TextFormat As System.Windows.Forms.SplitContainer
+    Friend WithEvents chkbx_TextFormat As System.Windows.Forms.CheckBox
 
 End Class
