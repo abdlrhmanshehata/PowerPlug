@@ -1,4 +1,4 @@
-Imports Microsoft.Office.Interop.PowerPoint
+ Imports Microsoft.Office.Interop.PowerPoint
 Imports Microsoft.Office.Core
 Imports System.Windows.Forms
 Imports System.Drawing
@@ -67,6 +67,21 @@ Public Class rightpanel
         gettextpage()
         getsizepage()
         getnotespage()
+    End Sub
+    Sub ExpandCollapse(chkbx As CheckBox, scont As SplitContainer, max As Integer, min As Integer)
+        If chkbx.Checked Then
+            scont.Panel2Collapsed = False
+            scont.Height = max
+        Else
+            scont.Panel2Collapsed = True
+            scont.Height = min
+        End If
+    End Sub
+    Private Sub chkbx_ShapeFormat_CheckedChanged(sender As Object, e As EventArgs) Handles chkbx_ShapeFormat.CheckedChanged
+        ExpandCollapse(chkbx_ShapeFormat, Scont_ShapeFormat, 270, 50)
+    End Sub
+    Private Sub chkbx_TextFormat_CheckedChanged(sender As Object, e As EventArgs) Handles chkbx_TextFormat.CheckedChanged
+        ExpandCollapse(chkbx_TextFormat, Scont_TextFormat, 270, 50)
     End Sub
 #End Region
     '=======================================NOTES NOTES NOTES NOTES NOTES NOTES NOTES NOTES NOTES============================================='
@@ -405,7 +420,13 @@ Public Class rightpanel
         check_name_size()
         checkbullets()
     End Sub
- 
+    Private Sub btn_WrapText_CheckedChanged(sender As Object, e As EventArgs) Handles btn_WrapText.CheckedChanged
+        If btn_WrapText.Checked Then
+            txtNotes.WordWrap = True
+        Else
+            txtNotes.WordWrap = False
+        End If
+    End Sub
     Private Sub btn_Reset_Click(sender As Object, e As EventArgs) Handles btn_Reset.Click
         txtNotes.SelectionFont = New Drawing.Font("Calibri", 12, FontStyle.Regular)
     End Sub
@@ -784,5 +805,7 @@ Public Class rightpanel
         execute("PowerPointParagraphDialog")
     End Sub
 #End Region
-  
+    
+
+    
 End Class
