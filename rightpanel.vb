@@ -60,6 +60,24 @@ Public Class rightpanel
         Catch ex As Exception
         End Try
     End Sub
+    Sub EnableFormatButton(ButtonToEnable As CheckBox)
+        If ButtonToEnable.Checked = False Then
+            For Each scont As SplitContainer In Panel_Total.Controls.OfType(Of SplitContainer)()
+                For Each chkbx As CheckBox In scont.Panel1.Controls.OfType(Of CheckBox)()
+                    chkbx.Checked = False
+                Next
+            Next
+            ButtonToEnable.Checked = True
+        End If
+    End Sub
+    Sub SuitableFormat()
+        If selectedshape.HasTextFrame And selectedshape.TextFrame.HasText Then
+            EnableFormatButton(chkbx_TextFormat)
+        Else
+            EnableFormatButton(chkbx_ShapeFormat)
+        End If
+    End Sub
+
     Private Sub objapp_WindowSelectionChange(Sel As Selection) Handles objapp.WindowSelectionChange
         getcurrentindex()
         getnoteshape()
@@ -67,7 +85,9 @@ Public Class rightpanel
         gettextpage()
         getsizepage()
         getnotespage()
+        SuitableFormat()
     End Sub
+
     Sub ExpandCollapse(chkbx As CheckBox, scont As SplitContainer, max As Integer, min As Integer)
         If chkbx.Checked Then
             scont.Panel2Collapsed = False

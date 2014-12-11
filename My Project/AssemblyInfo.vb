@@ -12,7 +12,7 @@ Imports System.Security
 <Assembly: AssemblyTitle("PowerPlug")> 
 <Assembly: AssemblyDescription("")> 
 <Assembly: AssemblyCompany("")> 
-<Assembly: AssemblyProduct("SemiFinalApproach")> 
+<Assembly: AssemblyProduct("PowerPlug")> 
 <Assembly: AssemblyCopyright("Copyright ©  2014")> 
 <Assembly: AssemblyTrademark("")> 
 
