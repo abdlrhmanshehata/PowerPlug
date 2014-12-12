@@ -1170,7 +1170,7 @@ Partial Class rightpanel
         '
         'btn_DistRows
         '
-        Me.btn_DistRows.BackgroundImage = Global.SemiFinalApproach.My.Resources.Resources._182
+        Me.btn_DistRows.BackgroundImage = Global.SemiFinalApproach.My.Resources.Resources._18
         Me.btn_DistRows.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.btn_DistRows.Dock = System.Windows.Forms.DockStyle.Fill
         Me.btn_DistRows.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
@@ -1188,7 +1188,7 @@ Partial Class rightpanel
         '
         'btn_BringForward
         '
-        Me.btn_BringForward.BackgroundImage = Global.SemiFinalApproach.My.Resources.Resources._101
+        Me.btn_BringForward.BackgroundImage = Global.SemiFinalApproach.My.Resources.Resources._10
         Me.btn_BringForward.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.btn_BringForward.Dock = System.Windows.Forms.DockStyle.Fill
         Me.btn_BringForward.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
@@ -1278,7 +1278,7 @@ Partial Class rightpanel
         '
         'btn_BorderBottom
         '
-        Me.btn_BorderBottom.BackgroundImage = Global.SemiFinalApproach.My.Resources.Resources._121
+        Me.btn_BorderBottom.BackgroundImage = Global.SemiFinalApproach.My.Resources.Resources._12
         Me.btn_BorderBottom.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.btn_BorderBottom.Dock = System.Windows.Forms.DockStyle.Fill
         Me.btn_BorderBottom.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
@@ -1494,7 +1494,7 @@ Partial Class rightpanel
         '
         'btn_Paragraph
         '
-        Me.btn_Paragraph.BackgroundImage = Global.SemiFinalApproach.My.Resources.Resources._211
+        Me.btn_Paragraph.BackgroundImage = Global.SemiFinalApproach.My.Resources.Resources._21
         Me.btn_Paragraph.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.btn_Paragraph.Dock = System.Windows.Forms.DockStyle.Fill
         Me.btn_Paragraph.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
@@ -1829,7 +1829,7 @@ Partial Class rightpanel
         '
         Me.btn_Bullet.Appearance = System.Windows.Forms.Appearance.Button
         Me.btn_Bullet.AutoSize = True
-        Me.btn_Bullet.BackgroundImage = Global.SemiFinalApproach.My.Resources.Resources._291
+        Me.btn_Bullet.BackgroundImage = Global.SemiFinalApproach.My.Resources.Resources._29
         Me.btn_Bullet.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.btn_Bullet.Dock = System.Windows.Forms.DockStyle.Fill
         Me.btn_Bullet.FlatAppearance.BorderColor = System.Drawing.Color.Silver
@@ -1956,7 +1956,7 @@ Partial Class rightpanel
         '
         'btnPaste
         '
-        Me.btnPaste.BackgroundImage = Global.SemiFinalApproach.My.Resources.Resources._201
+        Me.btnPaste.BackgroundImage = Global.SemiFinalApproach.My.Resources.Resources._20
         Me.btnPaste.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.btnPaste.Dock = System.Windows.Forms.DockStyle.Fill
         Me.btnPaste.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
@@ -2119,7 +2119,7 @@ Partial Class rightpanel
         '
         Me.btn_WrapText.Appearance = System.Windows.Forms.Appearance.Button
         Me.btn_WrapText.AutoSize = True
-        Me.btn_WrapText.BackgroundImage = Global.SemiFinalApproach.My.Resources.Resources._702
+        Me.btn_WrapText.BackgroundImage = Global.SemiFinalApproach.My.Resources.Resources._70
         Me.btn_WrapText.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.btn_WrapText.Dock = System.Windows.Forms.DockStyle.Fill
         Me.btn_WrapText.FlatAppearance.BorderSize = 0

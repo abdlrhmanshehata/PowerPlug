@@ -272,7 +272,6 @@
     <EmbeddedResource Include="rightpanel.resx">
       <DependentUpon>rightpanel.vb</DependentUpon>
     </EmbeddedResource>
-    <None Include="ClassDiagram1.cd" />
     <None Include="SemiFinalApproach_TemporaryKey.pfx" />
     <None Include="ThisAddIn.Designer.xml">
       <DependentUpon>ThisAddIn.vb</DependentUpon>
@@ -305,6 +304,38 @@
     <None Include="Resources\Other-office-icon.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="icons_Alignment\Other-office-icon.png" />
+    <None Include="icons_Alignment\ALL.PNG" />
+    <None Include="icons_Alignment\69.PNG" />
+    <None Include="icons_Alignment\68.PNG" />
+    <None Include="icons_Alignment\67.PNG" />
+    <None Include="icons_Alignment\66.PNG" />
+    <None Include="icons_Alignment\65.PNG" />
+    <None Include="icons_Alignment\64.PNG" />
+    <None Include="icons_Alignment\63.PNG" />
+    <None Include="icons_Alignment\62.PNG" />
+    <None Include="icons_Alignment\61.PNG" />
+    <None Include="icons_Alignment\60.PNG" />
+    <None Include="icons_Alignment\59.PNG" />
+    <None Include="icons_Alignment\58.PNG" />
+    <None Include="icons_Alignment\57.PNG" />
+    <None Include="icons_Alignment\56.PNG" />
+    <None Include="icons_Alignment\55.PNG" />
+    <None Include="icons_Alignment\54.PNG" />
+    <None Include="icons_Alignment\53.PNG" />
+    <None Include="icons_Alignment\52.PNG" />
+    <None Include="icons_Alignment\51.PNG" />
+    <None Include="icons_Alignment\50.PNG" />
+    <None Include="icons_Alignment\49.PNG" />
+    <None Include="icons_Alignment\48.PNG" />
+    <None Include="icons_Alignment\47.PNG" />
+    <None Include="icons_Alignment\46.PNG" />
+    <None Include="icons_Alignment\45.PNG" />
+    <None Include="icons_Alignment\44.PNG" />
+    <None Include="icons_Alignment\43.PNG" />
+    <None Include="icons_Alignment\42.PNG" />
+    <None Include="icons_Alignment\41.PNG" />
+    <None Include="icons_Alignment\40.PNG" />
     <None Include="icons_Alignment\70.PNG" />
     <None Include="icons_Alignment\Capture.PNG" />
     <None Include="Resources\refresh2.png" />
@@ -312,7 +343,6 @@
     <None Include="Resources\refresh.png" />
     <None Include="Resources\refresh.ico" />
     <None Include="Resources\2.ico" />
-    <None Include="icons_Alignment\11.PNG" />
     <None Include="icons_Alignment\10.PNG" />
     <None Include="icons_Alignment\12.PNG" />
     <None Include="icons_Alignment\13.PNG" />
@@ -346,6 +376,11 @@
     <None Include="icons_Alignment\33.png" />
     <None Include="icons_Alignment\35.PNG" />
     <None Include="icons_Alignment\34.PNG" />
+    <None Include="icons_Alignment\31.PNG" />
+    <None Include="icons_Alignment\36.PNG" />
+    <None Include="icons_Alignment\37.PNG" />
+    <None Include="icons_Alignment\38.PNG" />
+    <None Include="icons_Alignment\39.PNG" />
     <Content Include="icons_Alignment\4.PNG" />
     <None Include="icons_Alignment\9.PNG" />
     <None Include="icons_Alignment\8.PNG" />
