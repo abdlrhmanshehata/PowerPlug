@@ -1,10 +1,10 @@
 ﻿Imports Microsoft.Office.Tools.Ribbon
 Imports Microsoft.Office.Tools
-Imports SemiFinalApproach.rightpanel
+Imports SemiFinalApproach.PowerPanel
 Public Class Ribbon1
     Dim ctp As CustomTaskPane
     Sub addtaskpane()
-        'ctp = Globals.ThisAddIn.CustomTaskPanes.Add(New rightpanel, " PowerPlug")
+        ctp = Globals.ThisAddIn.CustomTaskPanes.Add(New PowerPanel, " PowerPlug")
         ctp.Width = 335
         ctp.Visible = True
     End Sub

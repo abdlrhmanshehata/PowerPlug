@@ -263,12 +263,6 @@
     <Compile Include="Ribbon1.vb">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="rightpanel.Designer.vb">
-      <DependentUpon>rightpanel.vb</DependentUpon>
-    </Compile>
-    <Compile Include="rightpanel.vb">
-      <SubType>UserControl</SubType>
-    </Compile>
     <Compile Include="ThisAddIn.vb">
       <SubType>Code</SubType>
     </Compile>
@@ -277,9 +271,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ribbon1.resx">
       <DependentUpon>Ribbon1.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="rightpanel.resx">
-      <DependentUpon>rightpanel.vb</DependentUpon>
     </EmbeddedResource>
     <None Include="SemiFinalApproach_TemporaryKey.pfx" />
     <None Include="ThisAddIn.Designer.xml">
