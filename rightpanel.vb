@@ -1,4 +1,4 @@
- Imports Microsoft.Office.Interop.PowerPoint
+Imports Microsoft.Office.Interop.PowerPoint
 Imports Microsoft.Office.Core
 Imports System.Windows.Forms
 Imports System.Drawing
@@ -86,6 +86,7 @@ Public Class rightpanel
         getsizepage()
         getnotespage()
         SuitableFormat()
+        Scont_C.Panel1Collapsed = True
     End Sub
 
     Sub ExpandCollapse(chkbx As CheckBox, scont As SplitContainer, max As Integer, min As Integer)
@@ -170,9 +171,12 @@ Public Class rightpanel
     End Sub
     '--------------------------------------------------------Set methods-------------------------------------------------'
     Sub settext()
-        If notesshape.TextFrame.TextRange.Text <> txtNotes.Text Then
-            notesshape.TextFrame.TextRange.Text = txtNotes.Text
-        End If
+        Try
+            If notesshape.TextFrame.TextRange.Text <> txtNotes.Text Then
+                notesshape.TextFrame.TextRange.Text = txtNotes.Text
+            End If
+        Catch ex As Exception
+        End Try
     End Sub
     Sub setalignment()
         Try
@@ -450,6 +454,11 @@ Public Class rightpanel
     Private Sub btn_Reset_Click(sender As Object, e As EventArgs) Handles btn_Reset.Click
         txtNotes.SelectionFont = New Drawing.Font("Calibri", 12, FontStyle.Regular)
     End Sub
+    Private Sub txtNotes_TextChanged(sender As Object, e As EventArgs) Handles txtNotes.TextChanged
+        If Scont_C.Panel1Collapsed = True Then
+            Scont_C.Panel1Collapsed = False
+        End If
+    End Sub
 #End Region
 
 #End Region
@@ -627,17 +636,17 @@ Public Class rightpanel
         Try
 
             If selectedshape.LockAspectRatio = MsoTriState.msoTrue Then
-                chkbox_Scale1.Checked = True
+                chkbx_LockAspectRatio.Checked = True
             Else
-                chkbox_Scale1.Checked = False
+                chkbx_LockAspectRatio.Checked = False
             End If
             num_Height.Value = selectedshape.Height / 72
             num_Width.Value = selectedshape.Width / 72
             num_Rot.Value = selectedshape.Rotation
             If selectedshape.Type.ToString = "msoPicture" Then
-                If chkbox_Scale2.Checked Then
-                    num_ScaleHeight.Value = (selectedshape.Height * 100) / (lbl_OriginalSizeHeight.Text * 72)
-                    num_ScaleWidth.Value = (selectedshape.Width * 100) / (lbl_OriginalSizeWidth.Text * 72)
+                If chkbx_RelativeOrig.Checked Then
+                    num_ScaleHeight.Value = (selectedshape.Height * 100) / (txt_OriginalHeight.Text * 72)
+                    num_ScaleWidth.Value = (selectedshape.Width * 100) / (txt_OriginalWidth.Text * 72)
                 Else
                     num_ScaleHeight.Value = (selectedshape.Height * 100) / (originallength)
                     num_ScaleWidth.Value = (selectedshape.Width * 100) / (originalwidth)
@@ -651,45 +660,45 @@ Public Class rightpanel
         End Try
     End Sub
     Sub picturetools() ' got the original width and height of the picture
-        chkbox_Scale2.Enabled = True
-        chkbox_Scale3.Enabled = True
-        btnReset.Enabled = True
+        chkbx_relativeorig.Enabled = True
+        chkbx_BestScale.Enabled = True
+        btn_ResetOriginalSize.Enabled = True
 
         Dim currentlength = selectedshape.Height
         Dim currentwidth = selectedshape.Width
         selectedshape.ScaleHeight(1, MsoTriState.msoTrue)
         selectedshape.ScaleWidth(1, MsoTriState.msoTrue)
-        lbl_OriginalSizeHeight.Text = selectedshape.Height / 72
-        lbl_OriginalSizeWidth.Text = selectedshape.Width / 72
+        txt_OriginalHeight.Text = selectedshape.Height / 72
+        txt_OriginalWidth.Text = selectedshape.Width / 72
 
-        selectedshape.ScaleHeight(currentlength / (lbl_OriginalSizeHeight.Text * 72), MsoTriState.msoTrue)
-        selectedshape.ScaleWidth(currentwidth / (lbl_OriginalSizeWidth.Text * 72), MsoTriState.msoTrue)
+        selectedshape.ScaleHeight(currentlength / (txt_OriginalHeight.Text * 72), MsoTriState.msoTrue)
+        selectedshape.ScaleWidth(currentwidth / (txt_OriginalWidth.Text * 72), MsoTriState.msoTrue)
 
 
     End Sub
     Sub textboxtools()
-        chkbox_Scale2.Enabled = False
-        chkbox_Scale3.Enabled = False
-        cbox_Resolution.Enabled = False
-        lbl_OriginalSizeHeight.Text = ""
-        lbl_OriginalSizeWidth.Text = ""
-        btnReset.Enabled = False
+        chkbx_relativeorig.Enabled = False
+        chkbx_BestScale.Enabled = False
+        'cbox_Resolution.Enabled = False
+        txt_OriginalHeight.Text = ""
+        txt_OriginalWidth.Text = ""
+        btn_ResetOriginalSize.Enabled = False
     End Sub
     Sub changedimensions(ByVal height As Integer, ByVal width As Integer)
         selectedshape.Height = height
         selectedshape.Width = width
     End Sub
     Sub resolutioncontrol()
-        Select Case cbox_Resolution.SelectedIndex
-            Case 0
-                changedimensions(72 * 48.71, 72 * 35.42)
-            Case 1
+        'Select Case cbox_Resolution.SelectedIndex
+        '    Case 0
+        '        changedimensions(72 * 48.71, 72 * 35.42)
+        '    Case 1
 
-            Case 2
+        '    Case 2
 
-            Case 3
+        '    Case 3
 
-        End Select
+        'End Select
     End Sub
 
     Private Sub num_Height_ValueChanged(sender As Object, e As EventArgs) Handles num_Height.ValueChanged
@@ -714,8 +723,8 @@ Public Class rightpanel
         End Try
     End Sub
 
-    Private Sub chkbox_Scale1_CheckedChanged(sender As Object, e As EventArgs) Handles chkbox_Scale1.CheckedChanged
-        If chkbox_Scale1.Checked Then
+    Private Sub chkbx_LockAspectRatio_CheckedChanged(sender As Object, e As EventArgs) Handles chkbx_LockAspectRatio.CheckedChanged
+        If chkbx_LockAspectRatio.Checked Then
             selectshape()
             selectedshape.LockAspectRatio = MsoTriState.msoTrue
         Else
@@ -725,8 +734,8 @@ Public Class rightpanel
 
     Private Sub num_ScaleHeight_ValueChanged(sender As Object, e As EventArgs) Handles num_ScaleHeight.ValueChanged
         Try
-            If chkbox_Scale2.Checked Then
-                selectedshape.Height = (num_ScaleHeight.Value / 100) * (lbl_OriginalSizeHeight.Text * 72)
+            If chkbx_RelativeOrig.Checked Then
+                selectedshape.Height = (num_ScaleHeight.Value / 100) * (txt_OriginalHeight.Text * 72)
                 getsizepage()
             Else
                 selectedshape.Height = (num_ScaleHeight.Value / 100) * originallength
@@ -738,8 +747,8 @@ Public Class rightpanel
     End Sub
     Private Sub num_ScaleWidth_ValueChanged(sender As Object, e As EventArgs) Handles num_ScaleWidth.ValueChanged
         Try
-            If chkbox_Scale2.Checked Then
-                selectedshape.Width = (num_ScaleWidth.Value / 100) * (lbl_OriginalSizeWidth.Text * 72)
+            If chkbx_RelativeOrig.Checked Then
+                selectedshape.Width = (num_ScaleWidth.Value / 100) * (txt_OriginalWidth.Text * 72)
             Else
                 selectedshape.Width = (num_ScaleWidth.Value / 100) * originalwidth
                 getsizepage()
@@ -747,19 +756,15 @@ Public Class rightpanel
         Catch ex As Exception
         End Try
     End Sub
-    Private Sub chkbox_Scale2_CheckedChanged(sender As Object, e As EventArgs) Handles chkbox_Scale2.CheckedChanged
+    Private Sub chkbx_relativeorig_CheckedChanged(sender As Object, e As EventArgs) Handles chkbx_RelativeOrig.CheckedChanged
         getsizepage()
     End Sub
-    Private Sub btnReset_Click(sender As Object, e As EventArgs) Handles btnReset.Click
-        selectedshape.Height = lbl_OriginalSizeHeight.Text * 72
-        selectedshape.Width = lbl_OriginalSizeWidth.Text * 72
-    End Sub
-    Private Sub chkbox_Scale3_CheckedChanged(sender As Object, e As EventArgs) Handles chkbox_Scale3.CheckedChanged
-    End Sub
-    Private Sub cbox_Resolution_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbox_Resolution.SelectedIndexChanged
-        resolutioncontrol()
+    Private Sub btn_ResetOriginalSize_Click(sender As Object, e As EventArgs) Handles btn_ResetOriginalSize.Click
+        selectedshape.Height = txt_OriginalHeight.Text * 72
+        selectedshape.Width = txt_OriginalWidth.Text * 72
     End Sub
     '----------------------------------LINE LINE LINE LINE LINE LINE LINE LINE LINE LINE LINE  ---------------------------------------'
+
 #End Region
     '=======================================ALIGNMENT ALIGNMENT ALIGNMENT ALIGNMENT ALIGNMENT ALIGNMENT ==================================='
     '=======================================ALIGNMENT ALIGNMENT ALIGNMENT ALIGNMENT ALIGNMENT ALIGNMENT ==================================='
@@ -825,7 +830,9 @@ Public Class rightpanel
         execute("PowerPointParagraphDialog")
     End Sub
 #End Region
-    
 
-    
+
+
+
+
 End Class

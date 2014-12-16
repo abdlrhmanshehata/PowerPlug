@@ -12,5 +12,3 @@ F:\Programming\O-Desk Projects\Microsoft Plug-in (Mr.Robert)\PowerPlug\PowerPlug
 F:\Programming\O-Desk Projects\Microsoft Plug-in (Mr.Robert)\PowerPlug\PowerPlug\obj\Debug\PowerPlug.xml
 F:\Programming\O-Desk Projects\Microsoft Plug-in (Mr.Robert)\PowerPlug\PowerPlug\obj\Debug\PowerPlug.pdb
 F:\Programming\O-Desk Projects\Microsoft Plug-in (Mr.Robert)\PowerPlug\PowerPlug\obj\Debug\SemiFinalApproach.rightpanel.resources
-F:\Programming\O-Desk Projects\Microsoft Plug-in (Mr.Robert)\PowerPlug\PowerPlug\bin\Debug\PowerPlug.dll.CodeAnalysisLog.xml
-F:\Programming\O-Desk Projects\Microsoft Plug-in (Mr.Robert)\PowerPlug\PowerPlug\bin\Debug\PowerPlug.dll.lastcodeanalysissucceeded

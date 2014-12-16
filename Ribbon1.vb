@@ -5,7 +5,7 @@ Public Class Ribbon1
     Dim ctp As CustomTaskPane
     Sub addtaskpane()
         ctp = Globals.ThisAddIn.CustomTaskPanes.Add(New rightpanel, " PowerPlug")
-        ctp.Width = 310
+        ctp.Width = 335
         ctp.Visible = True
     End Sub
     Sub removetaskpane()

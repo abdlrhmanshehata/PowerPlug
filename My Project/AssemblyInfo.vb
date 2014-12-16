@@ -11,7 +11,7 @@ Imports System.Security
 
 <Assembly: AssemblyTitle("PowerPlug")> 
 <Assembly: AssemblyDescription("")> 
-<Assembly: AssemblyCompany("")> 
+<Assembly: AssemblyCompany("UIBLUEPRINT INC.")> 
 <Assembly: AssemblyProduct("PowerPlug")> 
 <Assembly: AssemblyCopyright("Copyright ©  2014")> 
 <Assembly: AssemblyTrademark("")> 
