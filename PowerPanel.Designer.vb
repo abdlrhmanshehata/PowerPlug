@@ -24,15 +24,6 @@ Partial Class PowerPanel
     Private Sub InitializeComponent()
         Me.Scont_A = New System.Windows.Forms.SplitContainer()
         Me.TLP_Alignment = New System.Windows.Forms.TableLayoutPanel()
-        Me.Scont_B = New System.Windows.Forms.SplitContainer()
-        Me.Scont_C = New System.Windows.Forms.SplitContainer()
-        Me.txtNotes = New System.Windows.Forms.RichTextBox()
-        Me.TLP_Notes = New System.Windows.Forms.TableLayoutPanel()
-        Me.TLP_NotesTools2 = New System.Windows.Forms.TableLayoutPanel()
-        Me.cboxFontFamily = New System.Windows.Forms.ComboBox()
-        Me.cboxFontSize = New System.Windows.Forms.ComboBox()
-        Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
-        Me.TLP_NotesTools1 = New System.Windows.Forms.TableLayoutPanel()
         Me.btn_FormatShape = New System.Windows.Forms.Button()
         Me.btn_AlignBottom = New System.Windows.Forms.Button()
         Me.btn_AlignRight = New System.Windows.Forms.Button()
@@ -53,10 +44,18 @@ Partial Class PowerPanel
         Me.btn_BringForward = New System.Windows.Forms.Button()
         Me.btn_SendtoBack = New System.Windows.Forms.Button()
         Me.btn_PasteText = New System.Windows.Forms.Button()
+        Me.Scont_B = New System.Windows.Forms.SplitContainer()
+        Me.Scont_C = New System.Windows.Forms.SplitContainer()
+        Me.TLP_Notes = New System.Windows.Forms.TableLayoutPanel()
+        Me.TLP_NotesTools1 = New System.Windows.Forms.TableLayoutPanel()
+        Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.btn_IndentInc = New System.Windows.Forms.Button()
-        Me.btn_Bullet = New System.Windows.Forms.CheckBox()
         Me.btn_Reset = New System.Windows.Forms.Button()
         Me.btn_IndentDec = New System.Windows.Forms.Button()
+        Me.btn_Bullet = New System.Windows.Forms.CheckBox()
+        Me.cboxFontSize = New System.Windows.Forms.ComboBox()
+        Me.cboxFontFamily = New System.Windows.Forms.ComboBox()
+        Me.TLP_NotesTools2 = New System.Windows.Forms.TableLayoutPanel()
         Me.btn_WrapText = New System.Windows.Forms.CheckBox()
         Me.btnPaste = New System.Windows.Forms.Button()
         Me.btnCopy = New System.Windows.Forms.Button()
@@ -67,12 +66,24 @@ Partial Class PowerPanel
         Me.btnunderline = New System.Windows.Forms.Button()
         Me.btnAlignLeft = New System.Windows.Forms.CheckBox()
         Me.btnBold = New System.Windows.Forms.Button()
+        Me.txtNotes = New System.Windows.Forms.RichTextBox()
+        Me.Scont_TextFormat = New System.Windows.Forms.SplitContainer()
+        Me.chkbx_TextFormat = New System.Windows.Forms.CheckBox()
+        Me.chkbx_ShapeFormat = New System.Windows.Forms.CheckBox()
+        Me.Scont_ShapeFormat = New System.Windows.Forms.SplitContainer()
+        Me.Panel_TextFormat = New System.Windows.Forms.Panel()
+        Me.Panel_ShapeFormat = New System.Windows.Forms.Panel()
+        Me.Panel_total = New System.Windows.Forms.Panel()
+        Me.TLP_FormatText = New System.Windows.Forms.TableLayoutPanel()
+        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
+        Me.Gbox_InternalMargin = New System.Windows.Forms.GroupBox()
         CType(Me.Scont_A, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Scont_A.Panel1.SuspendLayout()
         Me.Scont_A.Panel2.SuspendLayout()
         Me.Scont_A.SuspendLayout()
         Me.TLP_Alignment.SuspendLayout()
         CType(Me.Scont_B, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Scont_B.Panel1.SuspendLayout()
         Me.Scont_B.Panel2.SuspendLayout()
         Me.Scont_B.SuspendLayout()
         CType(Me.Scont_C, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -80,9 +91,19 @@ Partial Class PowerPanel
         Me.Scont_C.Panel2.SuspendLayout()
         Me.Scont_C.SuspendLayout()
         Me.TLP_Notes.SuspendLayout()
-        Me.TLP_NotesTools2.SuspendLayout()
-        Me.TableLayoutPanel1.SuspendLayout()
         Me.TLP_NotesTools1.SuspendLayout()
+        Me.TableLayoutPanel1.SuspendLayout()
+        Me.TLP_NotesTools2.SuspendLayout()
+        CType(Me.Scont_TextFormat, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Scont_TextFormat.Panel1.SuspendLayout()
+        Me.Scont_TextFormat.Panel2.SuspendLayout()
+        Me.Scont_TextFormat.SuspendLayout()
+        CType(Me.Scont_ShapeFormat, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Scont_ShapeFormat.Panel1.SuspendLayout()
+        Me.Scont_ShapeFormat.Panel2.SuspendLayout()
+        Me.Scont_ShapeFormat.SuspendLayout()
+        Me.Panel_total.SuspendLayout()
+        Me.TLP_FormatText.SuspendLayout()
         Me.SuspendLayout()
         '
         'Scont_A
@@ -146,149 +167,6 @@ Partial Class PowerPanel
         Me.TLP_Alignment.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TLP_Alignment.Size = New System.Drawing.Size(293, 60)
         Me.TLP_Alignment.TabIndex = 1
-        '
-        'Scont_B
-        '
-        Me.Scont_B.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Scont_B.Location = New System.Drawing.Point(0, 0)
-        Me.Scont_B.Name = "Scont_B"
-        Me.Scont_B.Orientation = System.Windows.Forms.Orientation.Horizontal
-        '
-        'Scont_B.Panel2
-        '
-        Me.Scont_B.Panel2.Controls.Add(Me.Scont_C)
-        Me.Scont_B.Size = New System.Drawing.Size(293, 489)
-        Me.Scont_B.SplitterDistance = 249
-        Me.Scont_B.TabIndex = 0
-        '
-        'Scont_C
-        '
-        Me.Scont_C.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Scont_C.Location = New System.Drawing.Point(0, 0)
-        Me.Scont_C.Name = "Scont_C"
-        Me.Scont_C.Orientation = System.Windows.Forms.Orientation.Horizontal
-        '
-        'Scont_C.Panel1
-        '
-        Me.Scont_C.Panel1.Controls.Add(Me.TLP_Notes)
-        '
-        'Scont_C.Panel2
-        '
-        Me.Scont_C.Panel2.Controls.Add(Me.txtNotes)
-        Me.Scont_C.Size = New System.Drawing.Size(293, 236)
-        Me.Scont_C.SplitterDistance = 75
-        Me.Scont_C.TabIndex = 0
-        '
-        'txtNotes
-        '
-        Me.txtNotes.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.txtNotes.Location = New System.Drawing.Point(0, 0)
-        Me.txtNotes.Name = "txtNotes"
-        Me.txtNotes.Size = New System.Drawing.Size(293, 157)
-        Me.txtNotes.TabIndex = 0
-        Me.txtNotes.Text = ""
-        '
-        'TLP_Notes
-        '
-        Me.TLP_Notes.ColumnCount = 1
-        Me.TLP_Notes.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TLP_Notes.Controls.Add(Me.TLP_NotesTools1, 0, 0)
-        Me.TLP_Notes.Controls.Add(Me.TLP_NotesTools2, 0, 1)
-        Me.TLP_Notes.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TLP_Notes.Location = New System.Drawing.Point(0, 0)
-        Me.TLP_Notes.Name = "TLP_Notes"
-        Me.TLP_Notes.RowCount = 2
-        Me.TLP_Notes.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.66667!))
-        Me.TLP_Notes.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 49.33333!))
-        Me.TLP_Notes.Size = New System.Drawing.Size(293, 75)
-        Me.TLP_Notes.TabIndex = 1
-        '
-        'TLP_NotesTools2
-        '
-        Me.TLP_NotesTools2.ColumnCount = 10
-        Me.TLP_NotesTools2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.0!))
-        Me.TLP_NotesTools2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.0!))
-        Me.TLP_NotesTools2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.0!))
-        Me.TLP_NotesTools2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.0!))
-        Me.TLP_NotesTools2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.0!))
-        Me.TLP_NotesTools2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.0!))
-        Me.TLP_NotesTools2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.0!))
-        Me.TLP_NotesTools2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.0!))
-        Me.TLP_NotesTools2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.0!))
-        Me.TLP_NotesTools2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.0!))
-        Me.TLP_NotesTools2.Controls.Add(Me.btn_WrapText, 9, 0)
-        Me.TLP_NotesTools2.Controls.Add(Me.btnPaste, 8, 0)
-        Me.TLP_NotesTools2.Controls.Add(Me.btnCopy, 7, 0)
-        Me.TLP_NotesTools2.Controls.Add(Me.btnCut, 6, 0)
-        Me.TLP_NotesTools2.Controls.Add(Me.btnAlignRight, 5, 0)
-        Me.TLP_NotesTools2.Controls.Add(Me.btnAlignCenter, 4, 0)
-        Me.TLP_NotesTools2.Controls.Add(Me.btnitalic, 1, 0)
-        Me.TLP_NotesTools2.Controls.Add(Me.btnunderline, 2, 0)
-        Me.TLP_NotesTools2.Controls.Add(Me.btnAlignLeft, 3, 0)
-        Me.TLP_NotesTools2.Controls.Add(Me.btnBold, 0, 0)
-        Me.TLP_NotesTools2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TLP_NotesTools2.Location = New System.Drawing.Point(3, 41)
-        Me.TLP_NotesTools2.Name = "TLP_NotesTools2"
-        Me.TLP_NotesTools2.RowCount = 1
-        Me.TLP_NotesTools2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TLP_NotesTools2.Size = New System.Drawing.Size(287, 31)
-        Me.TLP_NotesTools2.TabIndex = 0
-        '
-        'cboxFontFamily
-        '
-        Me.cboxFontFamily.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.cboxFontFamily.Font = New System.Drawing.Font("Agency FB", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cboxFontFamily.FormattingEnabled = True
-        Me.cboxFontFamily.Location = New System.Drawing.Point(3, 3)
-        Me.cboxFontFamily.Name = "cboxFontFamily"
-        Me.cboxFontFamily.Size = New System.Drawing.Size(115, 25)
-        Me.cboxFontFamily.TabIndex = 0
-        '
-        'cboxFontSize
-        '
-        Me.cboxFontSize.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.cboxFontSize.Font = New System.Drawing.Font("Agency FB", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cboxFontSize.FormattingEnabled = True
-        Me.cboxFontSize.Location = New System.Drawing.Point(124, 3)
-        Me.cboxFontSize.Name = "cboxFontSize"
-        Me.cboxFontSize.Size = New System.Drawing.Size(55, 25)
-        Me.cboxFontSize.TabIndex = 1
-        '
-        'TableLayoutPanel1
-        '
-        Me.TableLayoutPanel1.ColumnCount = 4
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
-        Me.TableLayoutPanel1.Controls.Add(Me.btn_IndentInc, 3, 0)
-        Me.TableLayoutPanel1.Controls.Add(Me.btn_Reset, 0, 0)
-        Me.TableLayoutPanel1.Controls.Add(Me.btn_IndentDec, 2, 0)
-        Me.TableLayoutPanel1.Controls.Add(Me.btn_Bullet, 1, 0)
-        Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel1.Location = New System.Drawing.Point(185, 3)
-        Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
-        Me.TableLayoutPanel1.RowCount = 1
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(99, 26)
-        Me.TableLayoutPanel1.TabIndex = 2
-        '
-        'TLP_NotesTools1
-        '
-        Me.TLP_NotesTools1.ColumnCount = 3
-        Me.TLP_NotesTools1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 42.20184!))
-        Me.TLP_NotesTools1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 21.60279!))
-        Me.TLP_NotesTools1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 36.23693!))
-        Me.TLP_NotesTools1.Controls.Add(Me.TableLayoutPanel1, 2, 0)
-        Me.TLP_NotesTools1.Controls.Add(Me.cboxFontSize, 1, 0)
-        Me.TLP_NotesTools1.Controls.Add(Me.cboxFontFamily, 0, 0)
-        Me.TLP_NotesTools1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TLP_NotesTools1.Location = New System.Drawing.Point(3, 3)
-        Me.TLP_NotesTools1.Name = "TLP_NotesTools1"
-        Me.TLP_NotesTools1.RowCount = 1
-        Me.TLP_NotesTools1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TLP_NotesTools1.Size = New System.Drawing.Size(287, 32)
-        Me.TLP_NotesTools1.TabIndex = 2
         '
         'btn_FormatShape
         '
@@ -610,6 +488,93 @@ Partial Class PowerPanel
         Me.btn_PasteText.TabIndex = 12
         Me.btn_PasteText.UseVisualStyleBackColor = True
         '
+        'Scont_B
+        '
+        Me.Scont_B.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Scont_B.Location = New System.Drawing.Point(0, 0)
+        Me.Scont_B.Name = "Scont_B"
+        Me.Scont_B.Orientation = System.Windows.Forms.Orientation.Horizontal
+        '
+        'Scont_B.Panel1
+        '
+        Me.Scont_B.Panel1.Controls.Add(Me.Panel_total)
+        '
+        'Scont_B.Panel2
+        '
+        Me.Scont_B.Panel2.Controls.Add(Me.Scont_C)
+        Me.Scont_B.Size = New System.Drawing.Size(293, 489)
+        Me.Scont_B.SplitterDistance = 249
+        Me.Scont_B.TabIndex = 0
+        '
+        'Scont_C
+        '
+        Me.Scont_C.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Scont_C.Location = New System.Drawing.Point(0, 0)
+        Me.Scont_C.Name = "Scont_C"
+        Me.Scont_C.Orientation = System.Windows.Forms.Orientation.Horizontal
+        '
+        'Scont_C.Panel1
+        '
+        Me.Scont_C.Panel1.Controls.Add(Me.TLP_Notes)
+        '
+        'Scont_C.Panel2
+        '
+        Me.Scont_C.Panel2.Controls.Add(Me.txtNotes)
+        Me.Scont_C.Size = New System.Drawing.Size(293, 236)
+        Me.Scont_C.SplitterDistance = 75
+        Me.Scont_C.TabIndex = 0
+        '
+        'TLP_Notes
+        '
+        Me.TLP_Notes.ColumnCount = 1
+        Me.TLP_Notes.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TLP_Notes.Controls.Add(Me.TLP_NotesTools1, 0, 0)
+        Me.TLP_Notes.Controls.Add(Me.TLP_NotesTools2, 0, 1)
+        Me.TLP_Notes.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TLP_Notes.Location = New System.Drawing.Point(0, 0)
+        Me.TLP_Notes.Name = "TLP_Notes"
+        Me.TLP_Notes.RowCount = 2
+        Me.TLP_Notes.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.66667!))
+        Me.TLP_Notes.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 49.33333!))
+        Me.TLP_Notes.Size = New System.Drawing.Size(293, 75)
+        Me.TLP_Notes.TabIndex = 1
+        '
+        'TLP_NotesTools1
+        '
+        Me.TLP_NotesTools1.ColumnCount = 3
+        Me.TLP_NotesTools1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 42.20184!))
+        Me.TLP_NotesTools1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 21.60279!))
+        Me.TLP_NotesTools1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 36.23693!))
+        Me.TLP_NotesTools1.Controls.Add(Me.TableLayoutPanel1, 2, 0)
+        Me.TLP_NotesTools1.Controls.Add(Me.cboxFontSize, 1, 0)
+        Me.TLP_NotesTools1.Controls.Add(Me.cboxFontFamily, 0, 0)
+        Me.TLP_NotesTools1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TLP_NotesTools1.Location = New System.Drawing.Point(3, 3)
+        Me.TLP_NotesTools1.Name = "TLP_NotesTools1"
+        Me.TLP_NotesTools1.RowCount = 1
+        Me.TLP_NotesTools1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.TLP_NotesTools1.Size = New System.Drawing.Size(287, 32)
+        Me.TLP_NotesTools1.TabIndex = 2
+        '
+        'TableLayoutPanel1
+        '
+        Me.TableLayoutPanel1.ColumnCount = 4
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
+        Me.TableLayoutPanel1.Controls.Add(Me.btn_IndentInc, 3, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.btn_Reset, 0, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.btn_IndentDec, 2, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.btn_Bullet, 1, 0)
+        Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TableLayoutPanel1.Location = New System.Drawing.Point(185, 3)
+        Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
+        Me.TableLayoutPanel1.RowCount = 1
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(99, 26)
+        Me.TableLayoutPanel1.TabIndex = 2
+        '
         'btn_IndentInc
         '
         Me.btn_IndentInc.BackgroundImage = Global.SemiFinalApproach.My.Resources.Resources._34
@@ -625,24 +590,6 @@ Partial Class PowerPanel
         Me.btn_IndentInc.Size = New System.Drawing.Size(27, 26)
         Me.btn_IndentInc.TabIndex = 9
         Me.btn_IndentInc.UseVisualStyleBackColor = True
-        '
-        'btn_Bullet
-        '
-        Me.btn_Bullet.Appearance = System.Windows.Forms.Appearance.Button
-        Me.btn_Bullet.BackgroundImage = Global.SemiFinalApproach.My.Resources.Resources._29
-        Me.btn_Bullet.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.btn_Bullet.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.btn_Bullet.FlatAppearance.BorderSize = 0
-        Me.btn_Bullet.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.btn_Bullet.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.btn_Bullet.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.btn_Bullet.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_Bullet.Location = New System.Drawing.Point(24, 0)
-        Me.btn_Bullet.Margin = New System.Windows.Forms.Padding(0)
-        Me.btn_Bullet.Name = "btn_Bullet"
-        Me.btn_Bullet.Size = New System.Drawing.Size(24, 26)
-        Me.btn_Bullet.TabIndex = 8
-        Me.btn_Bullet.UseVisualStyleBackColor = True
         '
         'btn_Reset
         '
@@ -675,6 +622,75 @@ Partial Class PowerPanel
         Me.btn_IndentDec.Size = New System.Drawing.Size(24, 26)
         Me.btn_IndentDec.TabIndex = 6
         Me.btn_IndentDec.UseVisualStyleBackColor = True
+        '
+        'btn_Bullet
+        '
+        Me.btn_Bullet.Appearance = System.Windows.Forms.Appearance.Button
+        Me.btn_Bullet.BackgroundImage = Global.SemiFinalApproach.My.Resources.Resources._29
+        Me.btn_Bullet.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.btn_Bullet.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.btn_Bullet.FlatAppearance.BorderSize = 0
+        Me.btn_Bullet.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.btn_Bullet.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btn_Bullet.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.btn_Bullet.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_Bullet.Location = New System.Drawing.Point(24, 0)
+        Me.btn_Bullet.Margin = New System.Windows.Forms.Padding(0)
+        Me.btn_Bullet.Name = "btn_Bullet"
+        Me.btn_Bullet.Size = New System.Drawing.Size(24, 26)
+        Me.btn_Bullet.TabIndex = 8
+        Me.btn_Bullet.UseVisualStyleBackColor = True
+        '
+        'cboxFontSize
+        '
+        Me.cboxFontSize.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.cboxFontSize.Font = New System.Drawing.Font("Agency FB", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cboxFontSize.FormattingEnabled = True
+        Me.cboxFontSize.Location = New System.Drawing.Point(124, 3)
+        Me.cboxFontSize.Name = "cboxFontSize"
+        Me.cboxFontSize.Size = New System.Drawing.Size(55, 25)
+        Me.cboxFontSize.TabIndex = 1
+        '
+        'cboxFontFamily
+        '
+        Me.cboxFontFamily.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.cboxFontFamily.Font = New System.Drawing.Font("Agency FB", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cboxFontFamily.FormattingEnabled = True
+        Me.cboxFontFamily.Location = New System.Drawing.Point(3, 3)
+        Me.cboxFontFamily.Name = "cboxFontFamily"
+        Me.cboxFontFamily.Size = New System.Drawing.Size(115, 25)
+        Me.cboxFontFamily.TabIndex = 0
+        '
+        'TLP_NotesTools2
+        '
+        Me.TLP_NotesTools2.ColumnCount = 10
+        Me.TLP_NotesTools2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.0!))
+        Me.TLP_NotesTools2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.0!))
+        Me.TLP_NotesTools2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.0!))
+        Me.TLP_NotesTools2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.0!))
+        Me.TLP_NotesTools2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.0!))
+        Me.TLP_NotesTools2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.0!))
+        Me.TLP_NotesTools2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.0!))
+        Me.TLP_NotesTools2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.0!))
+        Me.TLP_NotesTools2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.0!))
+        Me.TLP_NotesTools2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.0!))
+        Me.TLP_NotesTools2.Controls.Add(Me.btn_WrapText, 9, 0)
+        Me.TLP_NotesTools2.Controls.Add(Me.btnPaste, 8, 0)
+        Me.TLP_NotesTools2.Controls.Add(Me.btnCopy, 7, 0)
+        Me.TLP_NotesTools2.Controls.Add(Me.btnCut, 6, 0)
+        Me.TLP_NotesTools2.Controls.Add(Me.btnAlignRight, 5, 0)
+        Me.TLP_NotesTools2.Controls.Add(Me.btnAlignCenter, 4, 0)
+        Me.TLP_NotesTools2.Controls.Add(Me.btnitalic, 1, 0)
+        Me.TLP_NotesTools2.Controls.Add(Me.btnunderline, 2, 0)
+        Me.TLP_NotesTools2.Controls.Add(Me.btnAlignLeft, 3, 0)
+        Me.TLP_NotesTools2.Controls.Add(Me.btnBold, 0, 0)
+        Me.TLP_NotesTools2.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TLP_NotesTools2.Location = New System.Drawing.Point(3, 41)
+        Me.TLP_NotesTools2.Name = "TLP_NotesTools2"
+        Me.TLP_NotesTools2.RowCount = 1
+        Me.TLP_NotesTools2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.TLP_NotesTools2.Size = New System.Drawing.Size(287, 31)
+        Me.TLP_NotesTools2.TabIndex = 0
         '
         'btn_WrapText
         '
@@ -844,18 +860,156 @@ Partial Class PowerPanel
         Me.btnBold.TabIndex = 5
         Me.btnBold.UseVisualStyleBackColor = True
         '
+        'txtNotes
+        '
+        Me.txtNotes.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.txtNotes.Location = New System.Drawing.Point(0, 0)
+        Me.txtNotes.Name = "txtNotes"
+        Me.txtNotes.Size = New System.Drawing.Size(293, 157)
+        Me.txtNotes.TabIndex = 0
+        Me.txtNotes.Text = ""
+        '
+        'Scont_TextFormat
+        '
+        Me.Scont_TextFormat.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Scont_TextFormat.FixedPanel = System.Windows.Forms.FixedPanel.Panel1
+        Me.Scont_TextFormat.Location = New System.Drawing.Point(0, 0)
+        Me.Scont_TextFormat.Name = "Scont_TextFormat"
+        Me.Scont_TextFormat.Orientation = System.Windows.Forms.Orientation.Horizontal
+        '
+        'Scont_TextFormat.Panel1
+        '
+        Me.Scont_TextFormat.Panel1.Controls.Add(Me.chkbx_TextFormat)
+        '
+        'Scont_TextFormat.Panel2
+        '
+        Me.Scont_TextFormat.Panel2.Controls.Add(Me.Panel_TextFormat)
+        Me.Scont_TextFormat.Size = New System.Drawing.Size(276, 130)
+        Me.Scont_TextFormat.TabIndex = 1
+        '
+        'chkbx_TextFormat
+        '
+        Me.chkbx_TextFormat.Appearance = System.Windows.Forms.Appearance.Button
+        Me.chkbx_TextFormat.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.chkbx_TextFormat.Font = New System.Drawing.Font("Agency FB", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.chkbx_TextFormat.Location = New System.Drawing.Point(0, 0)
+        Me.chkbx_TextFormat.Name = "chkbx_TextFormat"
+        Me.chkbx_TextFormat.Size = New System.Drawing.Size(276, 50)
+        Me.chkbx_TextFormat.TabIndex = 2
+        Me.chkbx_TextFormat.Text = "Text Format"
+        Me.chkbx_TextFormat.UseVisualStyleBackColor = True
+        '
+        'chkbx_ShapeFormat
+        '
+        Me.chkbx_ShapeFormat.Appearance = System.Windows.Forms.Appearance.Button
+        Me.chkbx_ShapeFormat.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.chkbx_ShapeFormat.Font = New System.Drawing.Font("Agency FB", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.chkbx_ShapeFormat.Location = New System.Drawing.Point(0, 0)
+        Me.chkbx_ShapeFormat.Name = "chkbx_ShapeFormat"
+        Me.chkbx_ShapeFormat.Size = New System.Drawing.Size(276, 50)
+        Me.chkbx_ShapeFormat.TabIndex = 3
+        Me.chkbx_ShapeFormat.Text = "Shape Format"
+        Me.chkbx_ShapeFormat.UseVisualStyleBackColor = True
+        '
+        'Scont_ShapeFormat
+        '
+        Me.Scont_ShapeFormat.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Scont_ShapeFormat.FixedPanel = System.Windows.Forms.FixedPanel.Panel1
+        Me.Scont_ShapeFormat.Location = New System.Drawing.Point(0, 130)
+        Me.Scont_ShapeFormat.Name = "Scont_ShapeFormat"
+        Me.Scont_ShapeFormat.Orientation = System.Windows.Forms.Orientation.Horizontal
+        '
+        'Scont_ShapeFormat.Panel1
+        '
+        Me.Scont_ShapeFormat.Panel1.Controls.Add(Me.chkbx_ShapeFormat)
+        '
+        'Scont_ShapeFormat.Panel2
+        '
+        Me.Scont_ShapeFormat.Panel2.Controls.Add(Me.Panel_ShapeFormat)
+        Me.Scont_ShapeFormat.Size = New System.Drawing.Size(276, 207)
+        Me.Scont_ShapeFormat.TabIndex = 4
+        '
+        'Panel_TextFormat
+        '
+        Me.Panel_TextFormat.AutoScroll = True
+        Me.Panel_TextFormat.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Panel_TextFormat.Location = New System.Drawing.Point(0, 0)
+        Me.Panel_TextFormat.Name = "Panel_TextFormat"
+        Me.Panel_TextFormat.Size = New System.Drawing.Size(276, 76)
+        Me.Panel_TextFormat.TabIndex = 0
+        '
+        'Panel_ShapeFormat
+        '
+        Me.Panel_ShapeFormat.AutoScroll = True
+        Me.Panel_ShapeFormat.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Panel_ShapeFormat.Location = New System.Drawing.Point(0, 0)
+        Me.Panel_ShapeFormat.Name = "Panel_ShapeFormat"
+        Me.Panel_ShapeFormat.Size = New System.Drawing.Size(276, 153)
+        Me.Panel_ShapeFormat.TabIndex = 0
+        '
+        'Panel_total
+        '
+        Me.Panel_total.AutoScroll = True
+        Me.Panel_total.Controls.Add(Me.Scont_ShapeFormat)
+        Me.Panel_total.Controls.Add(Me.Scont_TextFormat)
+        Me.Panel_total.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Panel_total.Location = New System.Drawing.Point(0, 0)
+        Me.Panel_total.Name = "Panel_total"
+        Me.Panel_total.Size = New System.Drawing.Size(293, 249)
+        Me.Panel_total.TabIndex = 0
+        '
+        'TLP_FormatText
+        '
+        Me.TLP_FormatText.ColumnCount = 1
+        Me.TLP_FormatText.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.TLP_FormatText.Controls.Add(Me.CheckBox1, 0, 3)
+        Me.TLP_FormatText.Controls.Add(Me.Gbox_InternalMargin, 0, 2)
+        Me.TLP_FormatText.Font = New System.Drawing.Font("Agency FB", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TLP_FormatText.Location = New System.Drawing.Point(339, 30)
+        Me.TLP_FormatText.Name = "TLP_FormatText"
+        Me.TLP_FormatText.RowCount = 4
+        Me.TLP_FormatText.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TLP_FormatText.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.TLP_FormatText.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 101.0!))
+        Me.TLP_FormatText.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32.0!))
+        Me.TLP_FormatText.Size = New System.Drawing.Size(290, 380)
+        Me.TLP_FormatText.TabIndex = 1
+        '
+        'CheckBox1
+        '
+        Me.CheckBox1.AutoSize = True
+        Me.CheckBox1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.CheckBox1.Location = New System.Drawing.Point(3, 351)
+        Me.CheckBox1.Name = "CheckBox1"
+        Me.CheckBox1.Size = New System.Drawing.Size(284, 26)
+        Me.CheckBox1.TabIndex = 0
+        Me.CheckBox1.Text = "Wrap text in shape"
+        Me.CheckBox1.UseVisualStyleBackColor = True
+        '
+        'Gbox_InternalMargin
+        '
+        Me.Gbox_InternalMargin.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Gbox_InternalMargin.Location = New System.Drawing.Point(3, 250)
+        Me.Gbox_InternalMargin.Name = "Gbox_InternalMargin"
+        Me.Gbox_InternalMargin.Size = New System.Drawing.Size(284, 95)
+        Me.Gbox_InternalMargin.TabIndex = 1
+        Me.Gbox_InternalMargin.TabStop = False
+        Me.Gbox_InternalMargin.Text = "Internal Margin"
+        '
         'PowerPanel
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.Controls.Add(Me.TLP_FormatText)
         Me.Controls.Add(Me.Scont_A)
         Me.Name = "PowerPanel"
-        Me.Size = New System.Drawing.Size(300, 553)
+        Me.Size = New System.Drawing.Size(820, 553)
         Me.Scont_A.Panel1.ResumeLayout(False)
         Me.Scont_A.Panel2.ResumeLayout(False)
         CType(Me.Scont_A, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Scont_A.ResumeLayout(False)
         Me.TLP_Alignment.ResumeLayout(False)
+        Me.Scont_B.Panel1.ResumeLayout(False)
         Me.Scont_B.Panel2.ResumeLayout(False)
         CType(Me.Scont_B, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Scont_B.ResumeLayout(False)
@@ -864,9 +1018,20 @@ Partial Class PowerPanel
         CType(Me.Scont_C, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Scont_C.ResumeLayout(False)
         Me.TLP_Notes.ResumeLayout(False)
-        Me.TLP_NotesTools2.ResumeLayout(False)
-        Me.TableLayoutPanel1.ResumeLayout(False)
         Me.TLP_NotesTools1.ResumeLayout(False)
+        Me.TableLayoutPanel1.ResumeLayout(False)
+        Me.TLP_NotesTools2.ResumeLayout(False)
+        Me.Scont_TextFormat.Panel1.ResumeLayout(False)
+        Me.Scont_TextFormat.Panel2.ResumeLayout(False)
+        CType(Me.Scont_TextFormat, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Scont_TextFormat.ResumeLayout(False)
+        Me.Scont_ShapeFormat.Panel1.ResumeLayout(False)
+        Me.Scont_ShapeFormat.Panel2.ResumeLayout(False)
+        CType(Me.Scont_ShapeFormat, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Scont_ShapeFormat.ResumeLayout(False)
+        Me.Panel_total.ResumeLayout(False)
+        Me.TLP_FormatText.ResumeLayout(False)
+        Me.TLP_FormatText.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -915,5 +1080,15 @@ Partial Class PowerPanel
     Friend WithEvents btn_Bullet As System.Windows.Forms.CheckBox
     Friend WithEvents btn_IndentInc As System.Windows.Forms.Button
     Friend WithEvents btn_Reset As System.Windows.Forms.Button
+    Friend WithEvents Scont_TextFormat As System.Windows.Forms.SplitContainer
+    Friend WithEvents chkbx_TextFormat As System.Windows.Forms.CheckBox
+    Friend WithEvents chkbx_ShapeFormat As System.Windows.Forms.CheckBox
+    Friend WithEvents Scont_ShapeFormat As System.Windows.Forms.SplitContainer
+    Friend WithEvents Panel_TextFormat As System.Windows.Forms.Panel
+    Friend WithEvents Panel_ShapeFormat As System.Windows.Forms.Panel
+    Friend WithEvents Panel_total As System.Windows.Forms.Panel
+    Friend WithEvents TLP_FormatText As System.Windows.Forms.TableLayoutPanel
+    Friend WithEvents CheckBox1 As System.Windows.Forms.CheckBox
+    Friend WithEvents Gbox_InternalMargin As System.Windows.Forms.GroupBox
 
 End Class
