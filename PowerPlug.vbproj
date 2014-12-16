@@ -251,6 +251,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="PowerPanel.Designer.vb">
+      <DependentUpon>PowerPanel.vb</DependentUpon>
+    </Compile>
+    <Compile Include="PowerPanel.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Ribbon1.Designer.vb">
       <DependentUpon>Ribbon1.vb</DependentUpon>
     </Compile>
@@ -266,6 +272,9 @@
     <Compile Include="ThisAddIn.vb">
       <SubType>Code</SubType>
     </Compile>
+    <EmbeddedResource Include="PowerPanel.resx">
+      <DependentUpon>PowerPanel.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Ribbon1.resx">
       <DependentUpon>Ribbon1.vb</DependentUpon>
     </EmbeddedResource>
