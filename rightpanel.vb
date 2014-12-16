@@ -466,53 +466,60 @@ Public Class rightpanel
     '=======================================FORMAT SHAPE FORMAT SHAPE FORMAT SHAPE FORMAT SHAPE ====================================='
 #Region "Format Shape"
     '-----------------------------------TEXTBOX TEXTBOX TEXTBOX TEXTBOX TEXTBOX TEXTBOX ------------------------------------'
+    Sub cboxselection(cbox As ComboBox, index As Integer)
+        If cbox.SelectedIndex <> index Then
+            cbox.SelectedIndex = index
+            cbox.SelectedText = ""
+        End If
+
+    End Sub
     Sub gettextpage()
-        selectshape()
         Try
             If selectedshape.HasTextFrame Then
                 '========================================TEXT DIRECTION============================'
-                With cboxtextdirection
-                    Select Case selectedshape.TextFrame.Orientation
-                        Case MsoTextOrientation.msoTextOrientationHorizontal
-                            .SelectedIndex = 0
-                        Case MsoTextOrientation.msoTextOrientationDownward
-                            .SelectedIndex = 1
-                        Case MsoTextOrientation.msoTextOrientationUpward
-                            .SelectedIndex = 2
-                    End Select
-                End With
+                Select Case selectedshape.TextFrame.Orientation
+                    Case MsoTextOrientation.msoTextOrientationHorizontal
+                        cboxselection(cboxtextalignment, 0)
+                    Case MsoTextOrientation.msoTextOrientationDownward
+                        cboxselection(cboxtextalignment, 1)
+                    Case MsoTextOrientation.msoTextOrientationUpward
+                        cboxselection(cboxtextalignment, 2)
+                End Select
                 '========================================TEXT ALIGNMENT============================'
                 With cboxtextalignment
                     Select Case selectedshape.TextFrame.VerticalAnchor
                         Case MsoVerticalAnchor.msoAnchorTop
-                            .SelectedIndex = 0
+                            cboxselection(cboxtextdirection, 0)
                         Case MsoVerticalAnchor.msoAnchorMiddle
-                            .SelectedIndex = 1
+                            cboxselection(cboxtextdirection, 1)
                         Case MsoVerticalAnchor.msoAnchorBottom
-                            .SelectedIndex = 2
+                            cboxselection(cboxtextdirection, 2)
                     End Select
                 End With
                 '========================================AutoFit=================================='
+                Dim RbtnCheck = Sub(rbtn As RadioButton)
+                                    If rbtn.Checked = False Then
+                                        rbtn.Checked = True
+                                    End If
+                                End Sub
                 Select Case selectedshape.TextFrame2.AutoSize
                     Case MsoAutoSize.msoAutoSizeShapeToFitText
-                        ResizeShape.Checked = True
+                        RbtnCheck(ResizeShape)
                     Case MsoAutoSize.msoAutoSizeTextToFitShape
-                        Shrinktext.Checked = True
+                        RbtnCheck(ShrinkText)
                     Case MsoAutoSize.msoAutoSizeNone
-                        Donnotautofit.Checked = True
+                        RbtnCheck(Donotautofit)
                 End Select
                 '========================================Margin=================================='
-                txtleftmargin.Value = selectedshape.TextFrame.MarginLeft / 72
-                txtrightmargin.Value = selectedshape.TextFrame.MarginRight / 72
-                txttopmargin.Value = selectedshape.TextFrame.MarginTop / 72
-                txtbottommargin.Value = selectedshape.TextFrame.MarginBottom / 72
-
+                num_LeftMargin.Value = selectedshape.TextFrame.MarginLeft / 72
+                Num_Rightmargin.Value = selectedshape.TextFrame.MarginRight / 72
+                num_Topmargin.Value = selectedshape.TextFrame.MarginTop / 72
+                num_botmargin.Value = selectedshape.TextFrame.MarginBottom / 72
             End If
         Catch ex As Exception
         End Try
     End Sub
     Sub settextPage()
-        selectshape()
         Try
             If selectedshape.HasTextFrame Then
                 '======================================================TEXT DIRECTION==========================================================='
@@ -538,11 +545,11 @@ Public Class rightpanel
                     End Select
                 End With
                 '================================================== AUTOFIT================================================================='
-                If Donnotautofit.Checked Then
+                If Donotautofit.Checked Then
                     selectedshape.TextFrame.AutoSize = PpAutoSize.ppAutoSizeNone
                 ElseIf ResizeShape.Checked Then
                     selectedshape.TextFrame2.AutoSize = MsoAutoSize.msoAutoSizeShapeToFitText
-                ElseIf Shrinktext.Checked Then
+                ElseIf ShrinkText.Checked Then
                     selectedshape.TextFrame2.AutoSize = MsoAutoSize.msoAutoSizeTextToFitShape
                 End If
             End If
@@ -550,6 +557,16 @@ Public Class rightpanel
 
         End Try
     End Sub
+    Public Sub AutoFitAdjustment()
+        If Donotautofit.Checked Then
+            selectedshape.TextFrame.AutoSize = PpAutoSize.ppAutoSizeNone
+        ElseIf ResizeShape.Checked Then
+            selectedshape.TextFrame2.AutoSize = MsoAutoSize.msoAutoSizeShapeToFitText
+        ElseIf ShrinkText.Checked Then
+            selectedshape.TextFrame2.AutoSize = MsoAutoSize.msoAutoSizeTextToFitShape
+        End If
+    End Sub
+
     Private Sub cboxtextalignment_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboxtextalignment.SelectedIndexChanged
         Try
             With selectedshape.TextFrame
@@ -580,53 +597,46 @@ Public Class rightpanel
         Catch ex As Exception
         End Try
     End Sub
-    Public Sub AutoFitAdjustment()
-        If Donnotautofit.Checked Then
-            selectedshape.TextFrame.AutoSize = PpAutoSize.ppAutoSizeNone
-        ElseIf ResizeShape.Checked Then
-            selectedshape.TextFrame2.AutoSize = MsoAutoSize.msoAutoSizeShapeToFitText
-        ElseIf Shrinktext.Checked Then
-            selectedshape.TextFrame2.AutoSize = MsoAutoSize.msoAutoSizeTextToFitShape
-        End If
-    End Sub
-    Private Sub Donnotautofit_CheckedChanged(sender As Object, e As EventArgs) Handles Donnotautofit.CheckedChanged
+    
+
+    Private Sub Donnotautofit_CheckedChanged(sender As Object, e As EventArgs) Handles Donotautofit.CheckedChanged
         AutoFitAdjustment()
     End Sub
-    Private Sub Shrinktext_CheckedChanged(sender As Object, e As EventArgs) Handles Shrinktext.CheckedChanged
+    Private Sub Shrinktext_CheckedChanged(sender As Object, e As EventArgs) Handles ShrinkText.CheckedChanged
         AutoFitAdjustment()
     End Sub
     Private Sub ResizeShape_CheckedChanged(sender As Object, e As EventArgs) Handles ResizeShape.CheckedChanged
         AutoFitAdjustment()
     End Sub
-    Private Sub chkboxWrap_CheckedChanged(sender As Object, e As EventArgs) Handles chkboxWrap.CheckedChanged
-        If chkboxWrap.Checked Then
+    Private Sub chkbxWrap_CheckedChanged(sender As Object, e As EventArgs) Handles chkbxWrap.CheckedChanged
+        If chkbxWrap.Checked Then
             selectedshape.TextFrame.WordWrap = MsoTriState.msoCTrue
         Else
             selectedshape.TextFrame.WordWrap = MsoTriState.msoFalse
         End If
     End Sub
-    Private Sub txtleftmargin_ValueChanged(sender As Object, e As EventArgs) Handles txtleftmargin.ValueChanged
+    Private Sub num_leftmargin_ValueChanged(sender As Object, e As EventArgs) Handles num_LeftMargin.ValueChanged
         Try
-            selectedshape.TextFrame.MarginLeft = txtleftmargin.Value * 72
+            selectedshape.TextFrame.MarginLeft = num_LeftMargin.Value * 72
         Catch ex As Exception
         End Try
     End Sub
-    Private Sub txtrightmargin_ValueChanged(sender As Object, e As EventArgs) Handles txtrightmargin.ValueChanged
+    Private Sub num_rightmargin_ValueChanged(sender As Object, e As EventArgs) Handles Num_Rightmargin.ValueChanged
         Try
-            selectedshape.TextFrame.MarginRight = txtleftmargin.Value * 72
+            selectedshape.TextFrame.MarginRight = Num_Rightmargin.Value * 72
         Catch ex As Exception
         End Try
     End Sub
-    Private Sub txttopmargin_ValueChanged(sender As Object, e As EventArgs) Handles txttopmargin.ValueChanged
+    Private Sub num_topmargin_ValueChanged(sender As Object, e As EventArgs) Handles num_Topmargin.ValueChanged
         Try
-            selectedshape.TextFrame.MarginTop = txttopmargin.Value * 72
+            selectedshape.TextFrame.MarginTop = num_Topmargin.Value * 72
         Catch ex As Exception
         End Try
 
     End Sub
-    Private Sub txtbottommargin_ValueChanged(sender As Object, e As EventArgs) Handles txtbottommargin.ValueChanged
+    Private Sub num_botmargin_ValueChanged(sender As Object, e As EventArgs) Handles num_botmargin.ValueChanged
         Try
-            selectedshape.TextFrame.MarginBottom = txtbottommargin.Value * 72
+            selectedshape.TextFrame.MarginBottom = num_botmargin.Value * 72
         Catch ex As Exception
         End Try
     End Sub
