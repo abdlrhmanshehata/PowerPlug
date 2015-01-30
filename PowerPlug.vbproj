@@ -246,6 +246,7 @@
   -->
   <ItemGroup>
     <AppDesigner Include="My Project\" />
+    <Compile Include="Auxillary.vb" />
     <Compile Include="My Project\Resources.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

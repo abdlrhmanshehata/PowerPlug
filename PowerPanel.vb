@@ -13,8 +13,8 @@ Public Class PowerPanel
     Dim l As Integer
     Dim relativestate As MsoTriState
     Dim originallength, originalwidth As Integer
-    '===============================GENERAL GENERAL GENERAL GENERAL GENERAL GENERAL GENERAL GENERAL ====================================='
-    '===============================GENERAL GENERAL GENERAL GENERAL GENERAL GENERAL GENERAL GENERAL ====================================='
+    '=====================================================GENERAL GENERAL GENERAL GENERAL GENERAL GENERAL GENERAL GENERAL ================================================================================'
+    '=====================================================GENERAL GENERAL GENERAL GENERAL GENERAL GENERAL GENERAL GENERAL ==============================================================================='
 #Region "General"
     Sub getnoteshape()
         Try
@@ -70,11 +70,14 @@ Public Class PowerPanel
         End If
     End Sub
     Sub SuitableFormat()
-        If selectedshape.HasTextFrame And selectedshape.TextFrame.HasText Then
-            EnableFormatButton(chkbx_TextFormat)
-        Else
-            EnableFormatButton(chkbx_ShapeFormat)
-        End If
+        Try
+            If selectedshape.TextFrame.TextRange.Text.Length > 0 Then
+                EnableFormatButton(chkbx_TextFormat)
+            Else
+                EnableFormatButton(chkbx_ShapeFormat)
+            End If
+        Catch ex As Exception
+        End Try
     End Sub
 
     Private Sub objapp_WindowSelectionChange(Sel As Selection) Handles objapp.WindowSelectionChange
@@ -104,8 +107,8 @@ Public Class PowerPanel
         ExpandCollapse(chkbx_TextFormat, Scont_TextFormat, 270, 50)
     End Sub
 #End Region
-    '=======================================NOTES NOTES NOTES NOTES NOTES NOTES NOTES NOTES NOTES============================================='
-    '=======================================NOTES NOTES NOTES NOTES NOTES NOTES NOTES NOTES NOTES============================================='
+    '=======================================NOTES NOTES NOTES NOTES NOTES NOTES NOTES NOTES NOTES============================================================================================='
+    '=======================================NOTES NOTES NOTES NOTES NOTES NOTES NOTES NOTES NOTES======================================================================================================='
 #Region "Notes"
 
 #Region "Methods"
@@ -191,7 +194,7 @@ Public Class PowerPanel
         Catch ex As Exception
         End Try
     End Sub
-    Sub setfont() ' checks that each word in notes are exactly like the word in PowerPlug
+    Sub setfont() ' makes each word in notes exactly like the word in PowerPlug
         Try
             For Each word As TextRange In notesshape.TextFrame.TextRange.Words
                 Dim index As Integer = word.Start - 1
@@ -453,7 +456,7 @@ Public Class PowerPanel
     Private Sub btn_Reset_Click(sender As Object, e As EventArgs) Handles btn_Reset.Click
         txtNotes.SelectionFont = New Drawing.Font("Calibri", 12, FontStyle.Regular)
     End Sub
-    Private Sub txtNotes_TextChanged(sender As Object, e As EventArgs) Handles txtNotes.TextChanged
+    Private Sub txtNotes_Click(sender As Object, e As EventArgs) Handles txtNotes.Click
         If Scont_C.Panel1Collapsed = True Then
             Scont_C.Panel1Collapsed = False
         End If
@@ -461,8 +464,8 @@ Public Class PowerPanel
 #End Region
 
 #End Region
-    '=======================================FORMAT SHAPE FORMAT SHAPE FORMAT SHAPE FORMAT SHAPE ====================================='
-    '=======================================FORMAT SHAPE FORMAT SHAPE FORMAT SHAPE FORMAT SHAPE ====================================='
+    '=======================================FORMAT SHAPE FORMAT SHAPE FORMAT SHAPE FORMAT SHAPE ==================================================================================================='
+    '=======================================FORMAT SHAPE FORMAT SHAPE FORMAT SHAPE FORMAT SHAPE ================================================================================================='
 #Region "Format Shape"
     '-----------------------------------TEXTBOX TEXTBOX TEXTBOX TEXTBOX TEXTBOX TEXTBOX ------------------------------------'
     Sub cboxselection(cbox As ComboBox, index As Integer)
@@ -775,13 +778,14 @@ Public Class PowerPanel
     '----------------------------------LINE LINE LINE LINE LINE LINE LINE LINE LINE LINE LINE  ---------------------------------------'
 
 #End Region
-    '    '=======================================ALIGNMENT ALIGNMENT ALIGNMENT ALIGNMENT ALIGNMENT ALIGNMENT ==================================='
-    '    '=======================================ALIGNMENT ALIGNMENT ALIGNMENT ALIGNMENT ALIGNMENT ALIGNMENT ==================================='
+    '    '==================================================================ALIGNMENT ALIGNMENT ALIGNMENT ALIGNMENT ALIGNMENT ALIGNMENT =========================================================================='
+    '    '===================================================================ALIGNMENT ALIGNMENT ALIGNMENT ALIGNMENT ALIGNMENT ALIGNMENT ================================================================='
 #Region " Alignment"
     Sub execute(ByVal idmso As String)
         Try
             objapp.CommandBars.ExecuteMso(idmso)
         Catch ex As Exception
+            MsgBox(" An Error Occured ")
         End Try
     End Sub
     Private Sub btn_Alignleft_Click(sender As Object, e As EventArgs) Handles btn_AlignLeft.Click
@@ -839,4 +843,7 @@ Public Class PowerPanel
         execute("PowerPointParagraphDialog")
     End Sub
 #End Region
+ 
+    
+   
 End Class
