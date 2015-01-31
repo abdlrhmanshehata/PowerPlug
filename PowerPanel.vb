@@ -91,7 +91,7 @@ Public Class PowerPanel
         Scont_C.Panel1Collapsed = True
     End Sub
 
-    Sub ExpandCollapse(chkbx As CheckBox, scont As SplitContainer, max As Integer, min As Integer)
+    Public Overridable Sub ExpandCollapse(chkbx As CheckBox, scont As SplitContainer, max As Integer, min As Integer)
         If chkbx.Checked Then
             scont.Panel2Collapsed = False
             scont.Height = max
@@ -100,11 +100,20 @@ Public Class PowerPanel
             scont.Height = min
         End If
     End Sub
+    Public Overridable Sub ExpandCollapse(Rbtn As RadioButton, scont As SplitContainer, max As Integer, min As Integer)
+        If Rbtn.Checked Then
+            scont.Panel2Collapsed = False
+            scont.Height = max
+        Else
+            scont.Panel2Collapsed = True
+            scont.Height = min
+        End If
+    End Sub
     Private Sub chkbx_ShapeFormat_CheckedChanged(sender As Object, e As EventArgs) Handles chkbx_ShapeFormat.CheckedChanged
-        ExpandCollapse(chkbx_ShapeFormat, Scont_ShapeFormat, 270, 50)
+        ExpandCollapse(chkbx_ShapeFormat, Scont_ShapeFormat, 300, 50)
     End Sub
     Private Sub chkbx_TextFormat_CheckedChanged(sender As Object, e As EventArgs) Handles chkbx_TextFormat.CheckedChanged
-        ExpandCollapse(chkbx_TextFormat, Scont_TextFormat, 270, 50)
+        ExpandCollapse(chkbx_TextFormat, Scont_TextFormat, 300, 50)
     End Sub
 #End Region
     '=======================================NOTES NOTES NOTES NOTES NOTES NOTES NOTES NOTES NOTES============================================================================================='
@@ -775,7 +784,14 @@ Public Class PowerPanel
         selectedshape.Height = txt_OriginalHeight.Text * 72
         selectedshape.Width = txt_OriginalWidth.Text * 72
     End Sub
-    '----------------------------------LINE LINE LINE LINE LINE LINE LINE LINE LINE LINE LINE  ---------------------------------------'
+    '----------------------------------FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL ---------------------------------------'
+    Private Sub Rbtn_SolidFill_CheckedChanged(sender As Object, e As EventArgs) Handles Rbtn_SolidFill.CheckedChanged
+        ExpandCollapse(Rbtn_SolidFill, Scont_SolidFill, 186, 50)
+    End Sub
+
+    Private Sub chkbx_Fill_CheckedChanged(sender As Object, e As EventArgs) Handles chkbx_Fill.CheckedChanged
+        ExpandCollapse(chkbx_Fill, Scont_Fill, 250, 50)
+    End Sub
 
 #End Region
     '    '==================================================================ALIGNMENT ALIGNMENT ALIGNMENT ALIGNMENT ALIGNMENT ALIGNMENT =========================================================================='
@@ -846,4 +862,22 @@ Public Class PowerPanel
  
     
    
+    Private Sub PowerPanel_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
+
+    Private Sub Label2_Click(sender As Object, e As EventArgs) Handles Label2.Click, Label3.Click
+
+    End Sub
+
+    Private Sub NumericUpDown1_ValueChanged(sender As Object, e As EventArgs) Handles NumericUpDown1.ValueChanged
+
+    End Sub
+
+    Private Sub btn_SolidFillColor_Click(sender As Object, e As EventArgs) Handles btn_SolidFillColor.Click
+
+    End Sub
+
+    
+    
 End Class
