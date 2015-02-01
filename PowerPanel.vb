@@ -448,6 +448,7 @@ Public Class PowerPanel
     Private Sub txtNotes_MouseLeave(sender As Object, e As EventArgs) Handles txtNotes.MouseLeave, txtNotes.Leave
         settext()
         setfont()
+        txtNotes.BackColor = System.Drawing.SystemColors.ControlLight
     End Sub
     'general
     Private Sub txtNotes_SelectionChanged(sender As Object, e As EventArgs) Handles txtNotes.SelectionChanged
@@ -469,6 +470,7 @@ Public Class PowerPanel
         If Scont_C.Panel1Collapsed = True Then
             Scont_C.Panel1Collapsed = False
         End If
+        txtNotes.BackColor = Color.White
     End Sub
 #End Region
 
@@ -785,17 +787,48 @@ Public Class PowerPanel
         selectedshape.Width = txt_OriginalWidth.Text * 72
     End Sub
     '----------------------------------FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL ---------------------------------------'
-    Private Sub Rbtn_SolidFill_CheckedChanged(sender As Object, e As EventArgs) Handles Rbtn_SolidFill.CheckedChanged
-        ExpandCollapse(Rbtn_SolidFill, Scont_SolidFill, 186, 50)
-    End Sub
 
+
+
+
+    Private Sub Rbtn_SolidFill_CheckedChanged(sender As Object, e As EventArgs) Handles Rbtn_SolidFill.CheckedChanged
+        ExpandCollapse(Rbtn_SolidFill, Scont_SolidFill, 128, 50)
+        Try
+            If Not selectedshape.Fill.Type = MsoFillType.msoFillSolid Then
+                selectedshape.Fill.Solid()
+            End If
+        Catch ex As Exception
+            MsgBox("Please Select a shape")
+        End Try
+      
+    End Sub
     Private Sub chkbx_Fill_CheckedChanged(sender As Object, e As EventArgs) Handles chkbx_Fill.CheckedChanged
         ExpandCollapse(chkbx_Fill, Scont_Fill, 250, 50)
     End Sub
 
+    Private Sub btn_SolidFillColor_Click(sender As Object, e As EventArgs) Handles btn_SolidFillColor.Click
+        Try
+            Dim r, g, b As Integer
+            ColorDialog_SolidFill.ShowDialog()
+            With ColorDialog_SolidFill.Color
+                r = .R
+                g = .G
+                b = .B
+                selectedshape.Fill.ForeColor.RGB = Color.FromArgb(0, b, g, r).ToArgb
+            End With
+        Catch ex As Exception
+            MsgBox("Please Select a shape first")
+        End Try
+    End Sub
+    Private Sub num_Transparency_ValueChanged(sender As Object, e As EventArgs) Handles num_Transparency.ValueChanged
+        Dim Transp As Double
+        Transp = num_Transparency.Value / 100
+        selectedshape.Fill.Transparency = Transp
+    End Sub
+
 #End Region
-    '    '==================================================================ALIGNMENT ALIGNMENT ALIGNMENT ALIGNMENT ALIGNMENT ALIGNMENT =========================================================================='
-    '    '===================================================================ALIGNMENT ALIGNMENT ALIGNMENT ALIGNMENT ALIGNMENT ALIGNMENT ================================================================='
+    '==================================================================ALIGNMENT ALIGNMENT ALIGNMENT ALIGNMENT ALIGNMENT ALIGNMENT =========================================================================='
+    '===================================================================ALIGNMENT ALIGNMENT ALIGNMENT ALIGNMENT ALIGNMENT ALIGNMENT ================================================================='
 #Region " Alignment"
     Sub execute(ByVal idmso As String)
         Try
@@ -859,25 +892,17 @@ Public Class PowerPanel
         execute("PowerPointParagraphDialog")
     End Sub
 #End Region
- 
-    
-   
+
+
+    Private Sub Scont_Fill_Panel2_Paint(sender As Object, e As PaintEventArgs) Handles Scont_Fill.Panel2.Paint
+
+    End Sub
+
     Private Sub PowerPanel_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
     End Sub
 
-    Private Sub Label2_Click(sender As Object, e As EventArgs) Handles Label2.Click, Label3.Click
+    Private Sub TableLayoutPanel1_Paint(sender As Object, e As PaintEventArgs) Handles TableLayoutPanel1.Paint
 
     End Sub
-
-    Private Sub NumericUpDown1_ValueChanged(sender As Object, e As EventArgs) Handles NumericUpDown1.ValueChanged
-
-    End Sub
-
-    Private Sub btn_SolidFillColor_Click(sender As Object, e As EventArgs) Handles btn_SolidFillColor.Click
-
-    End Sub
-
-    
-    
 End Class
