@@ -39,10 +39,10 @@
     <OldToolsVersion>4.0</OldToolsVersion>
     <VSTO_TrustAssembliesLocation>true</VSTO_TrustAssembliesLocation>
     <BootstrapperEnabled>true</BootstrapperEnabled>
-    <PublishUrl>F:\Programming\O-Desk Projects\Microsoft Plug-in %28Mr.Robert%29\Versions\Version 9\</PublishUrl>
+    <PublishUrl>F:\Programming\O-Desk Projects\Microsoft Plug-in %28Mr.Robert%29\Versions\Version 10\</PublishUrl>
     <InstallUrl />
     <TargetCulture>en</TargetCulture>
-    <ApplicationVersion>1.0.0.13</ApplicationVersion>
+    <ApplicationVersion>1.0.0.14</ApplicationVersion>
     <AutoIncrementApplicationRevision>true</AutoIncrementApplicationRevision>
     <UpdateEnabled>true</UpdateEnabled>
     <UpdateInterval>7</UpdateInterval>
@@ -305,6 +305,7 @@
     <None Include="Resources\Other-office-icon.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Pattern_All.bmp" />
     <None Include="icons_Alignment\Other-office-icon.png" />
     <None Include="icons_Alignment\ALL.PNG" />
     <None Include="icons_Alignment\69.PNG" />
@@ -343,7 +344,6 @@
     <None Include="Resources\refresh1.png" />
     <None Include="Resources\refresh.png" />
     <None Include="Resources\refresh.ico" />
-    <None Include="Resources\2.ico" />
     <None Include="icons_Alignment\10.PNG" />
     <None Include="icons_Alignment\12.PNG" />
     <None Include="icons_Alignment\13.PNG" />
@@ -355,6 +355,7 @@
     <None Include="icons_Alignment\19.PNG" />
     <None Include="icons_Alignment\11%27.PNG" />
     <None Include="icons_Alignment\2%27.PNG" />
+    <None Include="Fill_Icons\Pattern.png" />
     <Content Include="icons_Alignment\2.PNG" />
     <None Include="icons_Alignment\21.PNG" />
     <None Include="icons_Alignment\20.PNG" />

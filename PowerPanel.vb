@@ -79,16 +79,24 @@ Public Class PowerPanel
         Catch ex As Exception
         End Try
     End Sub
-
+    Sub ShowNotes(ByVal show As Boolean)
+        If show Then
+            Scont_B.SplitterDistance = 110
+        Else
+            Scont_B.SplitterDistance = 340
+        End If
+    End Sub
     Private Sub objapp_WindowSelectionChange(Sel As Selection) Handles objapp.WindowSelectionChange
         getcurrentindex()
         getnoteshape()
         selectshape()
+
         gettextpage()
         getsizepage()
         getnotespage()
+
         SuitableFormat()
-        Scont_C.Panel1Collapsed = True
+        ShowNotes(False)
     End Sub
 
     Public Overridable Sub ExpandCollapse(chkbx As CheckBox, scont As SplitContainer, max As Integer, min As Integer)
@@ -114,6 +122,15 @@ Public Class PowerPanel
     End Sub
     Private Sub chkbx_TextFormat_CheckedChanged(sender As Object, e As EventArgs) Handles chkbx_TextFormat.CheckedChanged
         ExpandCollapse(chkbx_TextFormat, Scont_TextFormat, 300, 50)
+    End Sub
+    Private Sub btn_ShowNotes_Click(sender As Object, e As EventArgs) Handles btn_ShowNotes.Click
+        If btn_ShowNotes.Text = "Show Notes" Then
+            ShowNotes(True)
+            btn_ShowNotes.Text = "Hide Notes"
+        Else
+            ShowNotes(False)
+            btn_ShowNotes.Text = "Show Notes"
+        End If
     End Sub
 #End Region
     '=======================================NOTES NOTES NOTES NOTES NOTES NOTES NOTES NOTES NOTES============================================================================================='
@@ -444,13 +461,12 @@ Public Class PowerPanel
         txtNotes.SelectionAlignment = HorizontalAlignment.Center
         setalignment()
     End Sub
-
-    Private Sub txtNotes_MouseLeave(sender As Object, e As EventArgs) Handles txtNotes.MouseLeave, txtNotes.Leave
+     
+    'general
+    Private Sub txtNotes_MouseLeave(sender As Object, e As EventArgs) Handles txtNotes.Leave, txtNotes.MouseLeave
         settext()
         setfont()
-        txtNotes.BackColor = System.Drawing.SystemColors.ControlLight
     End Sub
-    'general
     Private Sub txtNotes_SelectionChanged(sender As Object, e As EventArgs) Handles txtNotes.SelectionChanged
         check_B_I_U()
         check_name_size()
@@ -466,12 +482,7 @@ Public Class PowerPanel
     Private Sub btn_Reset_Click(sender As Object, e As EventArgs) Handles btn_Reset.Click
         txtNotes.SelectionFont = New Drawing.Font("Calibri", 12, FontStyle.Regular)
     End Sub
-    Private Sub txtNotes_Click(sender As Object, e As EventArgs) Handles txtNotes.Click
-        If Scont_C.Panel1Collapsed = True Then
-            Scont_C.Panel1Collapsed = False
-        End If
-        txtNotes.BackColor = Color.White
-    End Sub
+
 #End Region
 
 #End Region
@@ -488,7 +499,7 @@ Public Class PowerPanel
     End Sub
     Sub gettextpage()
         Try
-            If selectedshape.HasTextFrame Then
+            If selectedshape.TextFrame.HasText Then
                 '========================================TEXT DIRECTION============================'
                 Select Case selectedshape.TextFrame.Orientation
                     Case MsoTextOrientation.msoTextOrientationHorizontal
@@ -525,9 +536,9 @@ Public Class PowerPanel
                 End Select
                 '========================================Margin=================================='
                 num_LeftMargin.Value = selectedshape.TextFrame.MarginLeft / 72
-                Num_Rightmargin.Value = selectedshape.TextFrame.MarginRight / 72
-                num_Topmargin.Value = selectedshape.TextFrame.MarginTop / 72
-                num_botmargin.Value = selectedshape.TextFrame.MarginBottom / 72
+                num_RightMargin.Value = selectedshape.TextFrame.MarginRight / 72
+                num_TopMargin.Value = selectedshape.TextFrame.MarginTop / 72
+                num_BotMargin.Value = selectedshape.TextFrame.MarginBottom / 72
             End If
         Catch ex As Exception
         End Try
@@ -786,26 +797,37 @@ Public Class PowerPanel
         selectedshape.Height = txt_OriginalHeight.Text * 72
         selectedshape.Width = txt_OriginalWidth.Text * 72
     End Sub
+
     '----------------------------------FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL ---------------------------------------'
-
-
-
-
-    Private Sub Rbtn_SolidFill_CheckedChanged(sender As Object, e As EventArgs) Handles Rbtn_SolidFill.CheckedChanged
-        ExpandCollapse(Rbtn_SolidFill, Scont_SolidFill, 128, 50)
-        Try
-            If Not selectedshape.Fill.Type = MsoFillType.msoFillSolid Then
-                selectedshape.Fill.Solid()
-            End If
-        Catch ex As Exception
-            MsgBox("Please Select a shape")
-        End Try
-      
-    End Sub
     Private Sub chkbx_Fill_CheckedChanged(sender As Object, e As EventArgs) Handles chkbx_Fill.CheckedChanged
         ExpandCollapse(chkbx_Fill, Scont_Fill, 250, 50)
     End Sub
+    Private Sub Manuallycheck(ByVal Rbtn As RadioButton)
+        Dim mycollection As New List(Of RadioButton)
+        mycollection.Add(Rbtn_Gradient)
+        mycollection.Add(Rbtn_NoFill)
+        mycollection.Add(Rbtn_SolidFill)
+        mycollection.Add(Rbtn_BackgroundFill)
+        mycollection.Add(Rbtn_PatternFilling)
+        For Each control As RadioButton In mycollection
+            control.Checked = False
+            Try
+                ExpandCollapse(control, control.Parent.Parent, 128, 50)
+            Catch ex As Exception
+            End Try
+        Next
+        Rbtn.Checked = True
+    End Sub
 
+    'Solid Fill
+    Private Sub Rbtn_SolidFill_Click(sender As Object, e As EventArgs) Handles Rbtn_SolidFill.Click
+        Manuallycheck(Rbtn_SolidFill)
+        ExpandCollapse(Rbtn_SolidFill, Scont_SolidFill, 128, 50)
+        Try
+            selectedshape.Fill.Solid()
+        Catch ex As Exception
+        End Try
+    End Sub
     Private Sub btn_SolidFillColor_Click(sender As Object, e As EventArgs) Handles btn_SolidFillColor.Click
         Try
             Dim r, g, b As Integer
@@ -824,8 +846,44 @@ Public Class PowerPanel
         Dim Transp As Double
         Transp = num_Transparency.Value / 100
         selectedshape.Fill.Transparency = Transp
-    End Sub
 
+
+    End Sub
+    'Pattern Fill
+    Private Sub Rbtn_PatternFilling_Click(sender As Object, e As EventArgs) Handles Rbtn_PatternFilling.Click
+        Try
+            Manuallycheck(Rbtn_PatternFilling)
+            ExpandCollapse(Rbtn_PatternFilling, Scont_PatternFilling, 400, 50)
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+    'No Fill
+    Private Sub Rbtn_NoFill_Click(sender As Object, e As EventArgs) Handles Rbtn_NoFill.Click
+        Manuallycheck(Rbtn_NoFill)
+        Try
+            selectedshape.Fill.Visible = MsoTriState.msoFalse
+        Catch ex As Exception
+        End Try
+    End Sub
+    'BackGround Fill
+    Private Sub Rbtn_BackgroundFill_Click(sender As Object, e As EventArgs) Handles Rbtn_BackgroundFill.Click
+        Manuallycheck(Rbtn_BackgroundFill)
+        Try
+            selectedshape.Fill.Background()
+        Catch ex As Exception
+        End Try
+    End Sub
+    'Gradient Fill
+    Private Sub Rbtn_Gradient_Click(sender As Object, e As EventArgs) Handles Rbtn_Gradient.Click
+        Try
+            Manuallycheck(Rbtn_Gradient)
+            ExpandCollapse(Rbtn_Gradient, Scont_GradentFill, 128, 50)
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+    
 #End Region
     '==================================================================ALIGNMENT ALIGNMENT ALIGNMENT ALIGNMENT ALIGNMENT ALIGNMENT =========================================================================='
     '===================================================================ALIGNMENT ALIGNMENT ALIGNMENT ALIGNMENT ALIGNMENT ALIGNMENT ================================================================='
@@ -893,16 +951,5 @@ Public Class PowerPanel
     End Sub
 #End Region
 
-
-    Private Sub Scont_Fill_Panel2_Paint(sender As Object, e As PaintEventArgs) Handles Scont_Fill.Panel2.Paint
-
-    End Sub
-
-    Private Sub PowerPanel_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
-    End Sub
-
-    Private Sub TableLayoutPanel1_Paint(sender As Object, e As PaintEventArgs) Handles TableLayoutPanel1.Paint
-
-    End Sub
+ 
 End Class

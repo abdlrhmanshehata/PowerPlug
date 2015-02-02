@@ -2,18 +2,20 @@
 Imports Microsoft.Office.Tools
 Imports SemiFinalApproach.PowerPanel
 Public Class Ribbon1
-    Dim ctp As CustomTaskPane
-    Sub addtaskpane()
+    Public Shared ctp As CustomTaskPane
+    Public Shared Sub addtaskpane()
         ctp = Globals.ThisAddIn.CustomTaskPanes.Add(New PowerPanel, " PowerPlug")
         ctp.Width = 335
         ctp.Visible = True
     End Sub
-    Sub removetaskpane()
+    Public Shared Sub removetaskpane()
         Globals.ThisAddIn.CustomTaskPanes.Remove(ctp)
     End Sub
-    Public Sub ShowPlug_Click() Handles ShowPlug.Click
+    Public Shared Sub ShowPlug_Click() Handles ShowPlug.Click
+        Dim objbtn As RibbonToggleButton
+        objbtn = Globals.Ribbons.Ribbon1.ShowPlug
         If Globals.ThisAddIn.Application.Presentations.Count <> 0 Then
-            If ShowPlug.Checked Then
+            If objbtn.Checked Then
                 addtaskpane()
             Else
                 removetaskpane()
@@ -21,7 +23,6 @@ Public Class Ribbon1
         Else
             MsgBox(" Please Open at least one presentation ")
         End If
-
     End Sub
     Private Sub timer_Tick(sender As Object, e As EventArgs) Handles timer.Tick
         Try
