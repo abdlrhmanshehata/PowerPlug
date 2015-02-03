@@ -867,6 +867,9 @@ Public Class PowerPanel
     Private Sub btn_PatternFores_Click(sender As Object, e As EventArgs) Handles btn_PatternFores.Click
         ChooseColor(selectedshape.Fill.ForeColor)
     End Sub
+#Region "RadioButtons"
+
+#End Region
     'No Fill
     Private Sub Rbtn_NoFill_Click(sender As Object, e As EventArgs) Handles Rbtn_NoFill.Click
         Manuallycheck(Rbtn_NoFill)
@@ -892,7 +895,7 @@ Public Class PowerPanel
             MsgBox(ex.Message)
         End Try
     End Sub
-    
+
 #End Region
     '==================================================================ALIGNMENT ALIGNMENT ALIGNMENT ALIGNMENT ALIGNMENT ALIGNMENT =========================================================================='
     '===================================================================ALIGNMENT ALIGNMENT ALIGNMENT ALIGNMENT ALIGNMENT ALIGNMENT ================================================================='
@@ -960,5 +963,5 @@ Public Class PowerPanel
     End Sub
 #End Region
 
- 
+
 End Class
