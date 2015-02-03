@@ -799,6 +799,16 @@ Public Class PowerPanel
     End Sub
 
     '----------------------------------FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL ---------------------------------------'
+    Sub ChooseColor(TheColor As PowerPoint.ColorFormat)
+        Dim r, g, b As Integer
+        ColorDialog_SolidFill.ShowDialog()
+        With ColorDialog_SolidFill.Color
+            r = .R
+            g = .G
+            b = .B
+            TheColor.RGB = Color.FromArgb(0, b, g, r).ToArgb
+        End With
+    End Sub
     Private Sub chkbx_Fill_CheckedChanged(sender As Object, e As EventArgs) Handles chkbx_Fill.CheckedChanged
         ExpandCollapse(chkbx_Fill, Scont_Fill, 250, 50)
     End Sub
@@ -830,33 +840,32 @@ Public Class PowerPanel
     End Sub
     Private Sub btn_SolidFillColor_Click(sender As Object, e As EventArgs) Handles btn_SolidFillColor.Click
         Try
-            Dim r, g, b As Integer
-            ColorDialog_SolidFill.ShowDialog()
-            With ColorDialog_SolidFill.Color
-                r = .R
-                g = .G
-                b = .B
-                selectedshape.Fill.ForeColor.RGB = Color.FromArgb(0, b, g, r).ToArgb
-            End With
-        Catch ex As Exception
-            MsgBox("Please Select a shape first")
+            ChooseColor(selectedshape.Fill.ForeColor)
+        Catch nullref As NullReferenceException
+            MsgBox("Please select shape first")
         End Try
     End Sub
     Private Sub num_Transparency_ValueChanged(sender As Object, e As EventArgs) Handles num_Transparency.ValueChanged
         Dim Transp As Double
         Transp = num_Transparency.Value / 100
         selectedshape.Fill.Transparency = Transp
-
-
     End Sub
     'Pattern Fill
     Private Sub Rbtn_PatternFilling_Click(sender As Object, e As EventArgs) Handles Rbtn_PatternFilling.Click
         Try
             Manuallycheck(Rbtn_PatternFilling)
             ExpandCollapse(Rbtn_PatternFilling, Scont_PatternFilling, 400, 50)
-        Catch ex As Exception
-            MsgBox(ex.Message)
+            selectedshape.Fill.Patterned(MsoPatternType.msoPattern10Percent)
+            selectedshape.Fill.BackColor.RGB = Color.FromArgb(0, 255, 0, 0).ToArgb
+        Catch ex As NullReferenceException
+            MsgBox("Please select shape first")
         End Try
+    End Sub
+    Private Sub btn_patternBacks_Click(sender As Object, e As EventArgs) Handles btn_patternBacks.Click
+        ChooseColor(selectedshape.Fill.BackColor)
+    End Sub
+    Private Sub btn_PatternFores_Click(sender As Object, e As EventArgs) Handles btn_PatternFores.Click
+        ChooseColor(selectedshape.Fill.ForeColor)
     End Sub
     'No Fill
     Private Sub Rbtn_NoFill_Click(sender As Object, e As EventArgs) Handles Rbtn_NoFill.Click
