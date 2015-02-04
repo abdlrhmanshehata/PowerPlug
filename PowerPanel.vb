@@ -799,6 +799,46 @@ Public Class PowerPanel
     End Sub
 
     '----------------------------------FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL ---------------------------------------'
+    Function NoErros() As Boolean
+        Dim NoError As Boolean = True
+        Try
+            If Not selectedshape.HasTextFrame Then
+                MsgBox("Please Select a valid shape")
+                NoError = False
+            End If
+        Catch ex As NullReferenceException
+            PleaseSelect()
+            NoError = False
+        End Try
+
+        Return NoError
+    End Function
+    Private Sub chkbx_Fill_CheckedChanged(sender As Object, e As EventArgs) Handles chkbx_Fill.CheckedChanged
+        If NoErros() Then
+            ExpandCollapse(chkbx_Fill, Scont_Fill, 350, 50)
+        End If
+    End Sub
+    Private Sub Manuallycheck(ByVal Rbtn As RadioButton)
+        Dim mycollection As New List(Of RadioButton)
+        mycollection.Add(Rbtn_Gradient)
+        mycollection.Add(Rbtn_NoFill)
+        mycollection.Add(Rbtn_SolidFill)
+        mycollection.Add(Rbtn_BackgroundFill)
+        mycollection.Add(Rbtn_PatternFilling)
+        mycollection.Add(Rbtn_TextureFill)
+        For Each control As RadioButton In mycollection
+            control.Checked = False
+            Try
+                ExpandCollapse(control, control.Parent.Parent, 128, 26)
+            Catch ex As Exception
+            End Try
+        Next
+        Rbtn.Checked = True
+    End Sub
+    Sub PleaseSelect()
+        MsgBox("Please Select Shape First")
+    End Sub
+    'Solid Fill
     Sub ChooseColor(TheColor As PowerPoint.ColorFormat)
         Dim r, g, b As Integer
         ColorDialog_SolidFill.ShowDialog()
@@ -809,41 +849,17 @@ Public Class PowerPanel
             TheColor.RGB = Color.FromArgb(0, b, g, r).ToArgb
         End With
     End Sub
-    Private Sub chkbx_Fill_CheckedChanged(sender As Object, e As EventArgs) Handles chkbx_Fill.CheckedChanged
-        ExpandCollapse(chkbx_Fill, Scont_Fill, 250, 50)
-    End Sub
-    Private Sub Manuallycheck(ByVal Rbtn As RadioButton)
-        Dim mycollection As New List(Of RadioButton)
-        mycollection.Add(Rbtn_Gradient)
-        mycollection.Add(Rbtn_NoFill)
-        mycollection.Add(Rbtn_SolidFill)
-        mycollection.Add(Rbtn_BackgroundFill)
-        mycollection.Add(Rbtn_PatternFilling)
-        For Each control As RadioButton In mycollection
-            control.Checked = False
-            Try
-                ExpandCollapse(control, control.Parent.Parent, 128, 50)
-            Catch ex As Exception
-            End Try
-        Next
-        Rbtn.Checked = True
-    End Sub
-
-    'Solid Fill
     Private Sub Rbtn_SolidFill_Click(sender As Object, e As EventArgs) Handles Rbtn_SolidFill.Click
-        Manuallycheck(Rbtn_SolidFill)
-        ExpandCollapse(Rbtn_SolidFill, Scont_SolidFill, 128, 50)
-        Try
+        If NoErros() Then
             selectedshape.Fill.Solid()
-        Catch ex As Exception
-        End Try
+            Manuallycheck(Rbtn_SolidFill)
+            ExpandCollapse(Rbtn_SolidFill, Scont_SolidFill, 130, 30)
+        End If
     End Sub
     Private Sub btn_SolidFillColor_Click(sender As Object, e As EventArgs) Handles btn_SolidFillColor.Click
-        Try
+        If NoErros() Then
             ChooseColor(selectedshape.Fill.ForeColor)
-        Catch nullref As NullReferenceException
-            MsgBox("Please select shape first")
-        End Try
+        End If
     End Sub
     Private Sub num_Transparency_ValueChanged(sender As Object, e As EventArgs) Handles num_Transparency.ValueChanged
         Dim Transp As Double
@@ -851,15 +867,102 @@ Public Class PowerPanel
         selectedshape.Fill.Transparency = Transp
     End Sub
     'Pattern Fill
+    Function GetPatternType(ByVal index As Integer) As MsoPatternType
+        Dim PatternType As MsoPatternType
+        Select Case index
+            Case 1 To 12
+                PatternType = index
+            Case 15, 16
+                PatternType = index
+            Case 13, 14, 17, 18, 21, 22
+                PatternType = index + 8
+            Case 19
+                PatternType = MsoPatternType.msoPatternLightVertical
+            Case 20
+                PatternType = MsoPatternType.msoPatternLightHorizontal
+            Case 23
+                PatternType = MsoPatternType.msoPatternDarkVertical
+            Case 24
+                PatternType = MsoPatternType.msoPatternDarkHorizontal
+            Case 25
+                PatternType = MsoPatternType.msoPatternDashedDownwardDiagonal
+            Case 26
+                PatternType = MsoPatternType.msoPatternDashedUpwardDiagonal
+            Case 27
+                PatternType = MsoPatternType.msoPatternDashedHorizontal
+            Case 28
+                PatternType = MsoPatternType.msoPatternDashedVertical
+            Case 29
+                PatternType = MsoPatternType.msoPatternSmallConfetti
+            Case 30
+                PatternType = MsoPatternType.msoPatternLargeConfetti
+            Case 31
+                PatternType = MsoPatternType.msoPatternZigZag
+            Case 32
+                PatternType = MsoPatternType.msoPatternWave
+            Case 33
+                PatternType = MsoPatternType.msoPatternDiagonalBrick
+            Case 34
+                PatternType = MsoPatternType.msoPatternHorizontalBrick
+            Case 35
+                PatternType = MsoPatternType.msoPatternWeave
+            Case 36
+                PatternType = MsoPatternType.msoPatternPlaid
+            Case 37
+                PatternType = MsoPatternType.msoPatternDivot
+            Case 38
+                PatternType = MsoPatternType.msoPatternDottedGrid
+            Case 39
+                PatternType = MsoPatternType.msoPatternDottedDiamond
+            Case 40
+                PatternType = MsoPatternType.msoPatternShingle
+            Case 41
+                PatternType = MsoPatternType.msoPatternTrellis
+            Case 42
+                PatternType = MsoPatternType.msoPatternSphere
+            Case 43
+                PatternType = MsoPatternType.msoPatternSmallGrid
+            Case 44
+                PatternType = MsoPatternType.msoPatternLargeGrid
+            Case 45
+                PatternType = MsoPatternType.msoPatternSmallCheckerBoard
+            Case 46
+                PatternType = MsoPatternType.msoPatternLargeCheckerBoard
+            Case 47
+                PatternType = MsoPatternType.msoPatternOutlinedDiamond
+            Case 48
+                PatternType = MsoPatternType.msoPatternSolidDiamond
+        End Select
+        Return PatternType
+    End Function
+    Function ExtractNumber(Text As String) As Integer
+        Dim number As Integer
+        Dim stringnumber As String = ""
+        For Each bit As String In Text
+            If IsNumeric(bit) Then
+                stringnumber += bit
+            End If
+        Next
+        number = Integer.Parse(stringnumber)
+        Return number
+    End Function
+    Sub ChangePattern()
+        For Each rbtn As RadioButton In TLP_Patternimage.Controls
+            Dim index As Integer = ExtractNumber(rbtn.Name)
+            AddHandler rbtn.Click, Sub()
+                                       selectedshape.Fill.Patterned(GetPatternType(index))
+                                   End Sub
+        Next
+    End Sub
+
     Private Sub Rbtn_PatternFilling_Click(sender As Object, e As EventArgs) Handles Rbtn_PatternFilling.Click
-        Try
+        If NoErros() Then
             Manuallycheck(Rbtn_PatternFilling)
-            ExpandCollapse(Rbtn_PatternFilling, Scont_PatternFilling, 400, 50)
-            selectedshape.Fill.Patterned(MsoPatternType.msoPattern10Percent)
-            selectedshape.Fill.BackColor.RGB = Color.FromArgb(0, 255, 0, 0).ToArgb
-        Catch ex As NullReferenceException
-            MsgBox("Please select shape first")
-        End Try
+            ExpandCollapse(Rbtn_PatternFilling, Scont_PatternFilling, 400, 30)
+            ChangePattern()
+            RadioButton1.PerformClick()
+            selectedshape.Fill.ForeColor.RGB = Color.FromArgb(0, 255, 0, 0).ToArgb
+        End If
     End Sub
     Private Sub btn_patternBacks_Click(sender As Object, e As EventArgs) Handles btn_patternBacks.Click
         ChooseColor(selectedshape.Fill.BackColor)
@@ -867,35 +970,38 @@ Public Class PowerPanel
     Private Sub btn_PatternFores_Click(sender As Object, e As EventArgs) Handles btn_PatternFores.Click
         ChooseColor(selectedshape.Fill.ForeColor)
     End Sub
-#Region "RadioButtons"
-
-#End Region
     'No Fill
     Private Sub Rbtn_NoFill_Click(sender As Object, e As EventArgs) Handles Rbtn_NoFill.Click
-        Manuallycheck(Rbtn_NoFill)
         Try
+            Manuallycheck(Rbtn_NoFill)
             selectedshape.Fill.Visible = MsoTriState.msoFalse
-        Catch ex As Exception
+        Catch ex As NullReferenceException
+            PleaseSelect()
         End Try
     End Sub
     'BackGround Fill
     Private Sub Rbtn_BackgroundFill_Click(sender As Object, e As EventArgs) Handles Rbtn_BackgroundFill.Click
-        Manuallycheck(Rbtn_BackgroundFill)
         Try
             selectedshape.Fill.Background()
-        Catch ex As Exception
+            Manuallycheck(Rbtn_BackgroundFill)
+        Catch ex As NullReferenceException
+            PleaseSelect()
         End Try
     End Sub
     'Gradient Fill
     Private Sub Rbtn_Gradient_Click(sender As Object, e As EventArgs) Handles Rbtn_Gradient.Click
-        Try
+        If NoErros() Then
             Manuallycheck(Rbtn_Gradient)
-            ExpandCollapse(Rbtn_Gradient, Scont_GradentFill, 128, 50)
-        Catch ex As Exception
-            MsgBox(ex.Message)
-        End Try
+            ExpandCollapse(Rbtn_Gradient, Scont_GradentFill, 128, 30)
+        End If
     End Sub
-
+    'Texture fill
+    Private Sub Rbtn_TextureFill_Click(sender As Object, e As EventArgs) Handles Rbtn_TextureFill.Click
+        If NoErros() Then
+            Manuallycheck(Rbtn_TextureFill)
+            ExpandCollapse(Rbtn_TextureFill, Scont_TextureFill, 130, 30)
+        End If
+    End Sub
 #End Region
     '==================================================================ALIGNMENT ALIGNMENT ALIGNMENT ALIGNMENT ALIGNMENT ALIGNMENT =========================================================================='
     '===================================================================ALIGNMENT ALIGNMENT ALIGNMENT ALIGNMENT ALIGNMENT ALIGNMENT ================================================================='
@@ -962,6 +1068,4 @@ Public Class PowerPanel
         execute("PowerPointParagraphDialog")
     End Sub
 #End Region
-
-
 End Class
