@@ -95,6 +95,7 @@ Public Class PowerPanel
         getsizepage()
         getnotespage()
 
+        getFillPage()
         SuitableFormat()
         ShowNotes(False)
     End Sub
@@ -108,9 +109,11 @@ Public Class PowerPanel
             scont.Height = min
         End If
     End Sub
-    Public Overridable Sub ExpandCollapse(Rbtn As RadioButton, scont As SplitContainer, max As Integer, min As Integer)
+    Public Overridable Sub ExpandCollapse(Rbtn As RadioButton, max As Integer, min As Integer)
+        Dim Scont As SplitContainer
+        scont = Rbtn.Parent.Parent
         If Rbtn.Checked Then
-            scont.Panel2Collapsed = False
+            Scont.Panel2Collapsed = False
             scont.Height = max
         Else
             scont.Panel2Collapsed = True
@@ -799,6 +802,27 @@ Public Class PowerPanel
     End Sub
 
     '----------------------------------FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL ---------------------------------------'
+    Sub getFillPage()
+        If NoErros() Then
+            Select Case selectedshape.Fill.Type
+                Case 1
+                    Manuallycheck(Rbtn_SolidFill)
+                    ExpandCollapse(Rbtn_SolidFill, 130, 50)
+                    num_Transparency.Value = selectedshape.Fill.Transparency * 100
+                Case 2
+                    Manuallycheck(Rbtn_PatternFilling)
+                    ExpandCollapse(Rbtn_PatternFilling, 400, 50)
+                Case 3
+                    Manuallycheck(Rbtn_Gradient)
+                Case 5
+                    Manuallycheck(Rbtn_BackgroundFill)
+                Case 6 Or 4
+                    Manuallycheck(Rbtn_TextureFill)
+                Case Else
+                    Manuallycheck(Rbtn_NoFill)
+            End Select
+        End If
+    End Sub
     Function NoErros() As Boolean
         Dim NoError As Boolean = True
         Try
@@ -816,6 +840,7 @@ Public Class PowerPanel
     Private Sub chkbx_Fill_CheckedChanged(sender As Object, e As EventArgs) Handles chkbx_Fill.CheckedChanged
         If NoErros() Then
             ExpandCollapse(chkbx_Fill, Scont_Fill, 350, 50)
+            ChangePattern()
         End If
     End Sub
     Private Sub Manuallycheck(ByVal Rbtn As RadioButton)
@@ -828,10 +853,9 @@ Public Class PowerPanel
         mycollection.Add(Rbtn_TextureFill)
         For Each control As RadioButton In mycollection
             control.Checked = False
-            Try
-                ExpandCollapse(control, control.Parent.Parent, 128, 26)
-            Catch ex As Exception
-            End Try
+            If TypeOf (control.Parent) Is SplitterPanel Then
+                ExpandCollapse(control, 400, 50)
+            End If
         Next
         Rbtn.Checked = True
     End Sub
@@ -851,9 +875,9 @@ Public Class PowerPanel
     End Sub
     Private Sub Rbtn_SolidFill_Click(sender As Object, e As EventArgs) Handles Rbtn_SolidFill.Click
         If NoErros() Then
-            selectedshape.Fill.Solid()
             Manuallycheck(Rbtn_SolidFill)
-            ExpandCollapse(Rbtn_SolidFill, Scont_SolidFill, 130, 30)
+            ExpandCollapse(Rbtn_SolidFill, 130, 50)
+            selectedshape.Fill.Solid()
         End If
     End Sub
     Private Sub btn_SolidFillColor_Click(sender As Object, e As EventArgs) Handles btn_SolidFillColor.Click
@@ -954,12 +978,10 @@ Public Class PowerPanel
                                    End Sub
         Next
     End Sub
-
     Private Sub Rbtn_PatternFilling_Click(sender As Object, e As EventArgs) Handles Rbtn_PatternFilling.Click
         If NoErros() Then
             Manuallycheck(Rbtn_PatternFilling)
-            ExpandCollapse(Rbtn_PatternFilling, Scont_PatternFilling, 400, 30)
-            ChangePattern()
+            ExpandCollapse(Rbtn_PatternFilling, 400, 50)
             RadioButton1.PerformClick()
             selectedshape.Fill.ForeColor.RGB = Color.FromArgb(0, 255, 0, 0).ToArgb
         End If
@@ -972,34 +994,30 @@ Public Class PowerPanel
     End Sub
     'No Fill
     Private Sub Rbtn_NoFill_Click(sender As Object, e As EventArgs) Handles Rbtn_NoFill.Click
-        Try
+        If NoErros() Then
             Manuallycheck(Rbtn_NoFill)
             selectedshape.Fill.Visible = MsoTriState.msoFalse
-        Catch ex As NullReferenceException
-            PleaseSelect()
-        End Try
+        End If
     End Sub
     'BackGround Fill
     Private Sub Rbtn_BackgroundFill_Click(sender As Object, e As EventArgs) Handles Rbtn_BackgroundFill.Click
-        Try
+        If NoErros() Then
             selectedshape.Fill.Background()
             Manuallycheck(Rbtn_BackgroundFill)
-        Catch ex As NullReferenceException
-            PleaseSelect()
-        End Try
+        End If
     End Sub
     'Gradient Fill
     Private Sub Rbtn_Gradient_Click(sender As Object, e As EventArgs) Handles Rbtn_Gradient.Click
         If NoErros() Then
             Manuallycheck(Rbtn_Gradient)
-            ExpandCollapse(Rbtn_Gradient, Scont_GradentFill, 128, 30)
+            ExpandCollapse(Rbtn_Gradient, 128, 50)
         End If
     End Sub
     'Texture fill
     Private Sub Rbtn_TextureFill_Click(sender As Object, e As EventArgs) Handles Rbtn_TextureFill.Click
         If NoErros() Then
             Manuallycheck(Rbtn_TextureFill)
-            ExpandCollapse(Rbtn_TextureFill, Scont_TextureFill, 130, 30)
+            ExpandCollapse(Rbtn_TextureFill, 130, 50)
         End If
     End Sub
 #End Region

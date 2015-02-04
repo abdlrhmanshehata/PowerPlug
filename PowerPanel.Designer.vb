@@ -1253,7 +1253,7 @@ Partial Class PowerPanel
         Me.TLP_Rotation.ColumnCount = 3
         Me.TLP_Rotation.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TLP_Rotation.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.00001!))
-        Me.TLP_Rotation.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 45.0!))
+        Me.TLP_Rotation.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 46.0!))
         Me.TLP_Rotation.Controls.Add(Me.Label11, 2, 0)
         Me.TLP_Rotation.Controls.Add(Me.Size_Rotation, 0, 0)
         Me.TLP_Rotation.Controls.Add(Me.num_Rot, 1, 0)
@@ -1270,9 +1270,9 @@ Partial Class PowerPanel
         Me.Label11.AutoSize = True
         Me.Label11.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label11.Font = New System.Drawing.Font("Agency FB", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.Location = New System.Drawing.Point(72, 0)
+        Me.Label11.Location = New System.Drawing.Point(71, 0)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(40, 27)
+        Me.Label11.Size = New System.Drawing.Size(41, 27)
         Me.Label11.TabIndex = 30
         Me.Label11.Text = "o"
         '
@@ -1298,7 +1298,7 @@ Partial Class PowerPanel
         Me.num_Rot.Maximum = New Decimal(New Integer() {100000, 0, 0, 0})
         Me.num_Rot.Minimum = New Decimal(New Integer() {360, 0, 0, -2147483648})
         Me.num_Rot.Name = "num_Rot"
-        Me.num_Rot.Size = New System.Drawing.Size(29, 23)
+        Me.num_Rot.Size = New System.Drawing.Size(28, 23)
         Me.num_Rot.TabIndex = 32
         '
         'TLP_Height
@@ -1306,7 +1306,7 @@ Partial Class PowerPanel
         Me.TLP_Height.ColumnCount = 3
         Me.TLP_Height.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TLP_Height.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.00001!))
-        Me.TLP_Height.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 45.0!))
+        Me.TLP_Height.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 46.0!))
         Me.TLP_Height.Controls.Add(Me.Label1, 2, 0)
         Me.TLP_Height.Controls.Add(Me.Size_Height, 0, 0)
         Me.TLP_Height.Controls.Add(Me.num_Height, 1, 0)
@@ -1323,9 +1323,9 @@ Partial Class PowerPanel
         Me.Label1.AutoSize = True
         Me.Label1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label1.Font = New System.Drawing.Font("Agency FB", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(72, 0)
+        Me.Label1.Location = New System.Drawing.Point(71, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(40, 27)
+        Me.Label1.Size = New System.Drawing.Size(41, 27)
         Me.Label1.TabIndex = 30
         Me.Label1.Text = """"
         '
@@ -1350,7 +1350,7 @@ Partial Class PowerPanel
         Me.num_Height.Location = New System.Drawing.Point(37, 3)
         Me.num_Height.Maximum = New Decimal(New Integer() {100000, 0, 0, 0})
         Me.num_Height.Name = "num_Height"
-        Me.num_Height.Size = New System.Drawing.Size(29, 23)
+        Me.num_Height.Size = New System.Drawing.Size(28, 23)
         Me.num_Height.TabIndex = 32
         '
         'TLP_Width
@@ -1358,7 +1358,7 @@ Partial Class PowerPanel
         Me.TLP_Width.ColumnCount = 3
         Me.TLP_Width.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TLP_Width.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.00001!))
-        Me.TLP_Width.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 45.0!))
+        Me.TLP_Width.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 46.0!))
         Me.TLP_Width.Controls.Add(Me.Label9, 2, 0)
         Me.TLP_Width.Controls.Add(Me.Size_Width, 0, 0)
         Me.TLP_Width.Controls.Add(Me.num_Width, 1, 0)
@@ -1375,9 +1375,9 @@ Partial Class PowerPanel
         Me.Label9.AutoSize = True
         Me.Label9.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label9.Font = New System.Drawing.Font("Agency FB", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(72, 0)
+        Me.Label9.Location = New System.Drawing.Point(71, 0)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(40, 27)
+        Me.Label9.Size = New System.Drawing.Size(41, 27)
         Me.Label9.TabIndex = 30
         Me.Label9.Text = """"
         '
@@ -1402,7 +1402,7 @@ Partial Class PowerPanel
         Me.num_Width.Location = New System.Drawing.Point(37, 3)
         Me.num_Width.Maximum = New Decimal(New Integer() {100000, 0, 0, 0})
         Me.num_Width.Name = "num_Width"
-        Me.num_Width.Size = New System.Drawing.Size(29, 23)
+        Me.num_Width.Size = New System.Drawing.Size(28, 23)
         Me.num_Width.TabIndex = 32
         '
         'Gbox_Scale
@@ -1755,7 +1755,8 @@ Partial Class PowerPanel
         Me.Scont_Fill.Panel2.Controls.Add(Me.Scont_GradentFill)
         Me.Scont_Fill.Panel2.Controls.Add(Me.Scont_SolidFill)
         Me.Scont_Fill.Panel2.Controls.Add(Me.Panel_NoFill)
-        Me.Scont_Fill.Size = New System.Drawing.Size(251, 400)
+        Me.Scont_Fill.Panel2Collapsed = True
+        Me.Scont_Fill.Size = New System.Drawing.Size(268, 50)
         Me.Scont_Fill.TabIndex = 0
         '
         'chkbx_Fill
@@ -1771,7 +1772,7 @@ Partial Class PowerPanel
         Me.chkbx_Fill.Font = New System.Drawing.Font("Agency FB", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.chkbx_Fill.Location = New System.Drawing.Point(0, 0)
         Me.chkbx_Fill.Name = "chkbx_Fill"
-        Me.chkbx_Fill.Size = New System.Drawing.Size(251, 50)
+        Me.chkbx_Fill.Size = New System.Drawing.Size(268, 50)
         Me.chkbx_Fill.TabIndex = 0
         Me.chkbx_Fill.Text = "F i l l"
         Me.chkbx_Fill.UseVisualStyleBackColor = True
@@ -1780,9 +1781,9 @@ Partial Class PowerPanel
         '
         Me.Panel_BackgroundFill.Controls.Add(Me.Rbtn_BackgroundFill)
         Me.Panel_BackgroundFill.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Panel_BackgroundFill.Location = New System.Drawing.Point(0, 150)
+        Me.Panel_BackgroundFill.Location = New System.Drawing.Point(0, 250)
         Me.Panel_BackgroundFill.Name = "Panel_BackgroundFill"
-        Me.Panel_BackgroundFill.Size = New System.Drawing.Size(251, 30)
+        Me.Panel_BackgroundFill.Size = New System.Drawing.Size(251, 50)
         Me.Panel_BackgroundFill.TabIndex = 4
         '
         'Rbtn_BackgroundFill
@@ -1794,7 +1795,7 @@ Partial Class PowerPanel
         Me.Rbtn_BackgroundFill.Font = New System.Drawing.Font("Agency FB", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Rbtn_BackgroundFill.Location = New System.Drawing.Point(0, 0)
         Me.Rbtn_BackgroundFill.Name = "Rbtn_BackgroundFill"
-        Me.Rbtn_BackgroundFill.Size = New System.Drawing.Size(251, 30)
+        Me.Rbtn_BackgroundFill.Size = New System.Drawing.Size(251, 50)
         Me.Rbtn_BackgroundFill.TabIndex = 3
         Me.Rbtn_BackgroundFill.TabStop = True
         Me.Rbtn_BackgroundFill.Text = "Slide BackGround Fill"
@@ -1804,22 +1805,19 @@ Partial Class PowerPanel
         '
         Me.Scont_PatternFilling.Dock = System.Windows.Forms.DockStyle.Top
         Me.Scont_PatternFilling.FixedPanel = System.Windows.Forms.FixedPanel.Panel1
-        Me.Scont_PatternFilling.Location = New System.Drawing.Point(0, 120)
+        Me.Scont_PatternFilling.Location = New System.Drawing.Point(0, 200)
         Me.Scont_PatternFilling.Name = "Scont_PatternFilling"
         Me.Scont_PatternFilling.Orientation = System.Windows.Forms.Orientation.Horizontal
         '
         'Scont_PatternFilling.Panel1
         '
         Me.Scont_PatternFilling.Panel1.Controls.Add(Me.Rbtn_PatternFilling)
-        Me.Scont_PatternFilling.Panel1MinSize = 15
         '
         'Scont_PatternFilling.Panel2
         '
         Me.Scont_PatternFilling.Panel2.Controls.Add(Me.TLP_Ptrnfill1)
         Me.Scont_PatternFilling.Panel2Collapsed = True
-        Me.Scont_PatternFilling.Panel2MinSize = 15
-        Me.Scont_PatternFilling.Size = New System.Drawing.Size(251, 30)
-        Me.Scont_PatternFilling.SplitterDistance = 15
+        Me.Scont_PatternFilling.Size = New System.Drawing.Size(251, 50)
         Me.Scont_PatternFilling.TabIndex = 3
         '
         'Rbtn_PatternFilling
@@ -1830,7 +1828,7 @@ Partial Class PowerPanel
         Me.Rbtn_PatternFilling.Font = New System.Drawing.Font("Agency FB", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Rbtn_PatternFilling.Location = New System.Drawing.Point(0, 0)
         Me.Rbtn_PatternFilling.Name = "Rbtn_PatternFilling"
-        Me.Rbtn_PatternFilling.Size = New System.Drawing.Size(251, 30)
+        Me.Rbtn_PatternFilling.Size = New System.Drawing.Size(251, 50)
         Me.Rbtn_PatternFilling.TabIndex = 0
         Me.Rbtn_PatternFilling.Text = "Pattern fill"
         Me.Rbtn_PatternFilling.UseVisualStyleBackColor = True
@@ -1847,7 +1845,7 @@ Partial Class PowerPanel
         Me.TLP_Ptrnfill1.RowCount = 2
         Me.TLP_Ptrnfill1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.TLP_Ptrnfill1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 65.0!))
-        Me.TLP_Ptrnfill1.Size = New System.Drawing.Size(150, 46)
+        Me.TLP_Ptrnfill1.Size = New System.Drawing.Size(234, 92)
         Me.TLP_Ptrnfill1.TabIndex = 0
         '
         'TLP_Ptrnfill2
@@ -1860,12 +1858,12 @@ Partial Class PowerPanel
         Me.TLP_Ptrnfill2.Controls.Add(Me.Label7, 0, 1)
         Me.TLP_Ptrnfill2.Controls.Add(Me.btn_patternBacks, 1, 0)
         Me.TLP_Ptrnfill2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TLP_Ptrnfill2.Location = New System.Drawing.Point(3, -16)
+        Me.TLP_Ptrnfill2.Location = New System.Drawing.Point(3, 30)
         Me.TLP_Ptrnfill2.Name = "TLP_Ptrnfill2"
         Me.TLP_Ptrnfill2.RowCount = 2
         Me.TLP_Ptrnfill2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TLP_Ptrnfill2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TLP_Ptrnfill2.Size = New System.Drawing.Size(144, 59)
+        Me.TLP_Ptrnfill2.Size = New System.Drawing.Size(228, 59)
         Me.TLP_Ptrnfill2.TabIndex = 0
         '
         'btn_PatternFores
@@ -1875,7 +1873,7 @@ Partial Class PowerPanel
         Me.btn_PatternFores.Dock = System.Windows.Forms.DockStyle.Right
         Me.btn_PatternFores.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
         Me.btn_PatternFores.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_PatternFores.Location = New System.Drawing.Point(97, 32)
+        Me.btn_PatternFores.Location = New System.Drawing.Point(181, 32)
         Me.btn_PatternFores.Name = "btn_PatternFores"
         Me.btn_PatternFores.Size = New System.Drawing.Size(44, 24)
         Me.btn_PatternFores.TabIndex = 3
@@ -1912,7 +1910,7 @@ Partial Class PowerPanel
         Me.btn_patternBacks.Dock = System.Windows.Forms.DockStyle.Right
         Me.btn_patternBacks.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
         Me.btn_patternBacks.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_patternBacks.Location = New System.Drawing.Point(97, 3)
+        Me.btn_patternBacks.Location = New System.Drawing.Point(181, 3)
         Me.btn_patternBacks.Name = "btn_patternBacks"
         Me.btn_patternBacks.Size = New System.Drawing.Size(44, 23)
         Me.btn_patternBacks.TabIndex = 2
@@ -1988,7 +1986,7 @@ Partial Class PowerPanel
         Me.TLP_Patternimage.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5!))
         Me.TLP_Patternimage.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5!))
         Me.TLP_Patternimage.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5!))
-        Me.TLP_Patternimage.Size = New System.Drawing.Size(144, 1)
+        Me.TLP_Patternimage.Size = New System.Drawing.Size(228, 21)
         Me.TLP_Patternimage.TabIndex = 1
         '
         'RadioButton43
@@ -2002,9 +2000,9 @@ Partial Class PowerPanel
         Me.RadioButton43.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.RadioButton43.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.RadioButton43.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.RadioButton43.Location = New System.Drawing.Point(3, 3)
+        Me.RadioButton43.Location = New System.Drawing.Point(3, 17)
         Me.RadioButton43.Name = "RadioButton43"
-        Me.RadioButton43.Size = New System.Drawing.Size(17, 1)
+        Me.RadioButton43.Size = New System.Drawing.Size(31, 1)
         Me.RadioButton43.TabIndex = 47
         Me.RadioButton43.TabStop = True
         Me.RadioButton43.UseVisualStyleBackColor = True
@@ -2020,9 +2018,9 @@ Partial Class PowerPanel
         Me.RadioButton44.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.RadioButton44.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.RadioButton44.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.RadioButton44.Location = New System.Drawing.Point(26, 3)
+        Me.RadioButton44.Location = New System.Drawing.Point(40, 17)
         Me.RadioButton44.Name = "RadioButton44"
-        Me.RadioButton44.Size = New System.Drawing.Size(17, 1)
+        Me.RadioButton44.Size = New System.Drawing.Size(31, 1)
         Me.RadioButton44.TabIndex = 46
         Me.RadioButton44.TabStop = True
         Me.RadioButton44.UseVisualStyleBackColor = True
@@ -2038,9 +2036,9 @@ Partial Class PowerPanel
         Me.RadioButton45.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.RadioButton45.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.RadioButton45.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.RadioButton45.Location = New System.Drawing.Point(49, 3)
+        Me.RadioButton45.Location = New System.Drawing.Point(77, 17)
         Me.RadioButton45.Name = "RadioButton45"
-        Me.RadioButton45.Size = New System.Drawing.Size(17, 1)
+        Me.RadioButton45.Size = New System.Drawing.Size(31, 1)
         Me.RadioButton45.TabIndex = 45
         Me.RadioButton45.TabStop = True
         Me.RadioButton45.UseVisualStyleBackColor = True
@@ -2056,9 +2054,9 @@ Partial Class PowerPanel
         Me.RadioButton46.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.RadioButton46.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.RadioButton46.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.RadioButton46.Location = New System.Drawing.Point(72, 3)
+        Me.RadioButton46.Location = New System.Drawing.Point(114, 17)
         Me.RadioButton46.Name = "RadioButton46"
-        Me.RadioButton46.Size = New System.Drawing.Size(17, 1)
+        Me.RadioButton46.Size = New System.Drawing.Size(31, 1)
         Me.RadioButton46.TabIndex = 44
         Me.RadioButton46.TabStop = True
         Me.RadioButton46.UseVisualStyleBackColor = True
@@ -2074,9 +2072,9 @@ Partial Class PowerPanel
         Me.RadioButton47.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.RadioButton47.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.RadioButton47.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.RadioButton47.Location = New System.Drawing.Point(95, 3)
+        Me.RadioButton47.Location = New System.Drawing.Point(151, 17)
         Me.RadioButton47.Name = "RadioButton47"
-        Me.RadioButton47.Size = New System.Drawing.Size(17, 1)
+        Me.RadioButton47.Size = New System.Drawing.Size(31, 1)
         Me.RadioButton47.TabIndex = 43
         Me.RadioButton47.TabStop = True
         Me.RadioButton47.UseVisualStyleBackColor = True
@@ -2092,9 +2090,9 @@ Partial Class PowerPanel
         Me.RadioButton48.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.RadioButton48.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.RadioButton48.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.RadioButton48.Location = New System.Drawing.Point(118, 3)
+        Me.RadioButton48.Location = New System.Drawing.Point(188, 17)
         Me.RadioButton48.Name = "RadioButton48"
-        Me.RadioButton48.Size = New System.Drawing.Size(23, 1)
+        Me.RadioButton48.Size = New System.Drawing.Size(37, 1)
         Me.RadioButton48.TabIndex = 42
         Me.RadioButton48.TabStop = True
         Me.RadioButton48.UseVisualStyleBackColor = True
@@ -2110,9 +2108,9 @@ Partial Class PowerPanel
         Me.RadioButton37.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.RadioButton37.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.RadioButton37.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.RadioButton37.Location = New System.Drawing.Point(3, 3)
+        Me.RadioButton37.Location = New System.Drawing.Point(3, 15)
         Me.RadioButton37.Name = "RadioButton37"
-        Me.RadioButton37.Size = New System.Drawing.Size(17, 1)
+        Me.RadioButton37.Size = New System.Drawing.Size(31, 1)
         Me.RadioButton37.TabIndex = 41
         Me.RadioButton37.TabStop = True
         Me.RadioButton37.UseVisualStyleBackColor = True
@@ -2128,9 +2126,9 @@ Partial Class PowerPanel
         Me.RadioButton38.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.RadioButton38.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.RadioButton38.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.RadioButton38.Location = New System.Drawing.Point(26, 3)
+        Me.RadioButton38.Location = New System.Drawing.Point(40, 15)
         Me.RadioButton38.Name = "RadioButton38"
-        Me.RadioButton38.Size = New System.Drawing.Size(17, 1)
+        Me.RadioButton38.Size = New System.Drawing.Size(31, 1)
         Me.RadioButton38.TabIndex = 40
         Me.RadioButton38.TabStop = True
         Me.RadioButton38.UseVisualStyleBackColor = True
@@ -2146,9 +2144,9 @@ Partial Class PowerPanel
         Me.RadioButton39.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.RadioButton39.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.RadioButton39.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.RadioButton39.Location = New System.Drawing.Point(49, 3)
+        Me.RadioButton39.Location = New System.Drawing.Point(77, 15)
         Me.RadioButton39.Name = "RadioButton39"
-        Me.RadioButton39.Size = New System.Drawing.Size(17, 1)
+        Me.RadioButton39.Size = New System.Drawing.Size(31, 1)
         Me.RadioButton39.TabIndex = 39
         Me.RadioButton39.TabStop = True
         Me.RadioButton39.UseVisualStyleBackColor = True
@@ -2164,9 +2162,9 @@ Partial Class PowerPanel
         Me.RadioButton40.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.RadioButton40.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.RadioButton40.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.RadioButton40.Location = New System.Drawing.Point(72, 3)
+        Me.RadioButton40.Location = New System.Drawing.Point(114, 15)
         Me.RadioButton40.Name = "RadioButton40"
-        Me.RadioButton40.Size = New System.Drawing.Size(17, 1)
+        Me.RadioButton40.Size = New System.Drawing.Size(31, 1)
         Me.RadioButton40.TabIndex = 38
         Me.RadioButton40.TabStop = True
         Me.RadioButton40.UseVisualStyleBackColor = True
@@ -2182,9 +2180,9 @@ Partial Class PowerPanel
         Me.RadioButton41.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.RadioButton41.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.RadioButton41.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.RadioButton41.Location = New System.Drawing.Point(95, 3)
+        Me.RadioButton41.Location = New System.Drawing.Point(151, 15)
         Me.RadioButton41.Name = "RadioButton41"
-        Me.RadioButton41.Size = New System.Drawing.Size(17, 1)
+        Me.RadioButton41.Size = New System.Drawing.Size(31, 1)
         Me.RadioButton41.TabIndex = 37
         Me.RadioButton41.TabStop = True
         Me.RadioButton41.UseVisualStyleBackColor = True
@@ -2200,9 +2198,9 @@ Partial Class PowerPanel
         Me.RadioButton42.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.RadioButton42.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.RadioButton42.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.RadioButton42.Location = New System.Drawing.Point(118, 3)
+        Me.RadioButton42.Location = New System.Drawing.Point(188, 15)
         Me.RadioButton42.Name = "RadioButton42"
-        Me.RadioButton42.Size = New System.Drawing.Size(23, 1)
+        Me.RadioButton42.Size = New System.Drawing.Size(37, 1)
         Me.RadioButton42.TabIndex = 36
         Me.RadioButton42.TabStop = True
         Me.RadioButton42.UseVisualStyleBackColor = True
@@ -2218,9 +2216,9 @@ Partial Class PowerPanel
         Me.RadioButton31.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.RadioButton31.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.RadioButton31.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.RadioButton31.Location = New System.Drawing.Point(3, 3)
+        Me.RadioButton31.Location = New System.Drawing.Point(3, 13)
         Me.RadioButton31.Name = "RadioButton31"
-        Me.RadioButton31.Size = New System.Drawing.Size(17, 1)
+        Me.RadioButton31.Size = New System.Drawing.Size(31, 1)
         Me.RadioButton31.TabIndex = 35
         Me.RadioButton31.TabStop = True
         Me.RadioButton31.UseVisualStyleBackColor = True
@@ -2236,9 +2234,9 @@ Partial Class PowerPanel
         Me.RadioButton32.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.RadioButton32.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.RadioButton32.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.RadioButton32.Location = New System.Drawing.Point(26, 3)
+        Me.RadioButton32.Location = New System.Drawing.Point(40, 13)
         Me.RadioButton32.Name = "RadioButton32"
-        Me.RadioButton32.Size = New System.Drawing.Size(17, 1)
+        Me.RadioButton32.Size = New System.Drawing.Size(31, 1)
         Me.RadioButton32.TabIndex = 34
         Me.RadioButton32.TabStop = True
         Me.RadioButton32.UseVisualStyleBackColor = True
@@ -2254,9 +2252,9 @@ Partial Class PowerPanel
         Me.RadioButton33.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.RadioButton33.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.RadioButton33.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.RadioButton33.Location = New System.Drawing.Point(49, 3)
+        Me.RadioButton33.Location = New System.Drawing.Point(77, 13)
         Me.RadioButton33.Name = "RadioButton33"
-        Me.RadioButton33.Size = New System.Drawing.Size(17, 1)
+        Me.RadioButton33.Size = New System.Drawing.Size(31, 1)
         Me.RadioButton33.TabIndex = 33
         Me.RadioButton33.TabStop = True
         Me.RadioButton33.UseVisualStyleBackColor = True
@@ -2272,9 +2270,9 @@ Partial Class PowerPanel
         Me.RadioButton34.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.RadioButton34.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.RadioButton34.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.RadioButton34.Location = New System.Drawing.Point(72, 3)
+        Me.RadioButton34.Location = New System.Drawing.Point(114, 13)
         Me.RadioButton34.Name = "RadioButton34"
-        Me.RadioButton34.Size = New System.Drawing.Size(17, 1)
+        Me.RadioButton34.Size = New System.Drawing.Size(31, 1)
         Me.RadioButton34.TabIndex = 32
         Me.RadioButton34.TabStop = True
         Me.RadioButton34.UseVisualStyleBackColor = True
@@ -2290,9 +2288,9 @@ Partial Class PowerPanel
         Me.RadioButton35.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.RadioButton35.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.RadioButton35.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.RadioButton35.Location = New System.Drawing.Point(95, 3)
+        Me.RadioButton35.Location = New System.Drawing.Point(151, 13)
         Me.RadioButton35.Name = "RadioButton35"
-        Me.RadioButton35.Size = New System.Drawing.Size(17, 1)
+        Me.RadioButton35.Size = New System.Drawing.Size(31, 1)
         Me.RadioButton35.TabIndex = 31
         Me.RadioButton35.TabStop = True
         Me.RadioButton35.UseVisualStyleBackColor = True
@@ -2308,9 +2306,9 @@ Partial Class PowerPanel
         Me.RadioButton36.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.RadioButton36.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.RadioButton36.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.RadioButton36.Location = New System.Drawing.Point(118, 3)
+        Me.RadioButton36.Location = New System.Drawing.Point(188, 13)
         Me.RadioButton36.Name = "RadioButton36"
-        Me.RadioButton36.Size = New System.Drawing.Size(23, 1)
+        Me.RadioButton36.Size = New System.Drawing.Size(37, 1)
         Me.RadioButton36.TabIndex = 30
         Me.RadioButton36.TabStop = True
         Me.RadioButton36.UseVisualStyleBackColor = True
@@ -2326,9 +2324,9 @@ Partial Class PowerPanel
         Me.RadioButton25.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.RadioButton25.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.RadioButton25.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.RadioButton25.Location = New System.Drawing.Point(3, 3)
+        Me.RadioButton25.Location = New System.Drawing.Point(3, 11)
         Me.RadioButton25.Name = "RadioButton25"
-        Me.RadioButton25.Size = New System.Drawing.Size(17, 1)
+        Me.RadioButton25.Size = New System.Drawing.Size(31, 1)
         Me.RadioButton25.TabIndex = 29
         Me.RadioButton25.TabStop = True
         Me.RadioButton25.UseVisualStyleBackColor = True
@@ -2344,9 +2342,9 @@ Partial Class PowerPanel
         Me.RadioButton26.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.RadioButton26.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.RadioButton26.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.RadioButton26.Location = New System.Drawing.Point(26, 3)
+        Me.RadioButton26.Location = New System.Drawing.Point(40, 11)
         Me.RadioButton26.Name = "RadioButton26"
-        Me.RadioButton26.Size = New System.Drawing.Size(17, 1)
+        Me.RadioButton26.Size = New System.Drawing.Size(31, 1)
         Me.RadioButton26.TabIndex = 28
         Me.RadioButton26.TabStop = True
         Me.RadioButton26.UseVisualStyleBackColor = True
@@ -2362,9 +2360,9 @@ Partial Class PowerPanel
         Me.RadioButton27.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.RadioButton27.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.RadioButton27.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.RadioButton27.Location = New System.Drawing.Point(49, 3)
+        Me.RadioButton27.Location = New System.Drawing.Point(77, 11)
         Me.RadioButton27.Name = "RadioButton27"
-        Me.RadioButton27.Size = New System.Drawing.Size(17, 1)
+        Me.RadioButton27.Size = New System.Drawing.Size(31, 1)
         Me.RadioButton27.TabIndex = 27
         Me.RadioButton27.TabStop = True
         Me.RadioButton27.UseVisualStyleBackColor = True
@@ -2380,9 +2378,9 @@ Partial Class PowerPanel
         Me.RadioButton28.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.RadioButton28.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.RadioButton28.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.RadioButton28.Location = New System.Drawing.Point(72, 3)
+        Me.RadioButton28.Location = New System.Drawing.Point(114, 11)
         Me.RadioButton28.Name = "RadioButton28"
-        Me.RadioButton28.Size = New System.Drawing.Size(17, 1)
+        Me.RadioButton28.Size = New System.Drawing.Size(31, 1)
         Me.RadioButton28.TabIndex = 26
         Me.RadioButton28.TabStop = True
         Me.RadioButton28.UseVisualStyleBackColor = True
@@ -2398,9 +2396,9 @@ Partial Class PowerPanel
         Me.RadioButton29.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.RadioButton29.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.RadioButton29.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.RadioButton29.Location = New System.Drawing.Point(95, 3)
+        Me.RadioButton29.Location = New System.Drawing.Point(151, 11)
         Me.RadioButton29.Name = "RadioButton29"
-        Me.RadioButton29.Size = New System.Drawing.Size(17, 1)
+        Me.RadioButton29.Size = New System.Drawing.Size(31, 1)
         Me.RadioButton29.TabIndex = 25
         Me.RadioButton29.TabStop = True
         Me.RadioButton29.UseVisualStyleBackColor = True
@@ -2416,9 +2414,9 @@ Partial Class PowerPanel
         Me.RadioButton30.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.RadioButton30.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.RadioButton30.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.RadioButton30.Location = New System.Drawing.Point(118, 3)
+        Me.RadioButton30.Location = New System.Drawing.Point(188, 11)
         Me.RadioButton30.Name = "RadioButton30"
-        Me.RadioButton30.Size = New System.Drawing.Size(23, 1)
+        Me.RadioButton30.Size = New System.Drawing.Size(37, 1)
         Me.RadioButton30.TabIndex = 24
         Me.RadioButton30.TabStop = True
         Me.RadioButton30.UseVisualStyleBackColor = True
@@ -2434,9 +2432,9 @@ Partial Class PowerPanel
         Me.RadioButton19.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.RadioButton19.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.RadioButton19.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.RadioButton19.Location = New System.Drawing.Point(3, 3)
+        Me.RadioButton19.Location = New System.Drawing.Point(3, 9)
         Me.RadioButton19.Name = "RadioButton19"
-        Me.RadioButton19.Size = New System.Drawing.Size(17, 1)
+        Me.RadioButton19.Size = New System.Drawing.Size(31, 1)
         Me.RadioButton19.TabIndex = 23
         Me.RadioButton19.TabStop = True
         Me.RadioButton19.UseVisualStyleBackColor = True
@@ -2452,9 +2450,9 @@ Partial Class PowerPanel
         Me.RadioButton20.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.RadioButton20.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.RadioButton20.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.RadioButton20.Location = New System.Drawing.Point(26, 3)
+        Me.RadioButton20.Location = New System.Drawing.Point(40, 9)
         Me.RadioButton20.Name = "RadioButton20"
-        Me.RadioButton20.Size = New System.Drawing.Size(17, 1)
+        Me.RadioButton20.Size = New System.Drawing.Size(31, 1)
         Me.RadioButton20.TabIndex = 22
         Me.RadioButton20.TabStop = True
         Me.RadioButton20.UseVisualStyleBackColor = True
@@ -2470,9 +2468,9 @@ Partial Class PowerPanel
         Me.RadioButton21.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.RadioButton21.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.RadioButton21.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.RadioButton21.Location = New System.Drawing.Point(49, 3)
+        Me.RadioButton21.Location = New System.Drawing.Point(77, 9)
         Me.RadioButton21.Name = "RadioButton21"
-        Me.RadioButton21.Size = New System.Drawing.Size(17, 1)
+        Me.RadioButton21.Size = New System.Drawing.Size(31, 1)
         Me.RadioButton21.TabIndex = 21
         Me.RadioButton21.TabStop = True
         Me.RadioButton21.UseVisualStyleBackColor = True
@@ -2488,9 +2486,9 @@ Partial Class PowerPanel
         Me.RadioButton22.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.RadioButton22.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.RadioButton22.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.RadioButton22.Location = New System.Drawing.Point(72, 3)
+        Me.RadioButton22.Location = New System.Drawing.Point(114, 9)
         Me.RadioButton22.Name = "RadioButton22"
-        Me.RadioButton22.Size = New System.Drawing.Size(17, 1)
+        Me.RadioButton22.Size = New System.Drawing.Size(31, 1)
         Me.RadioButton22.TabIndex = 20
         Me.RadioButton22.TabStop = True
         Me.RadioButton22.UseVisualStyleBackColor = True
@@ -2506,9 +2504,9 @@ Partial Class PowerPanel
         Me.RadioButton23.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.RadioButton23.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.RadioButton23.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.RadioButton23.Location = New System.Drawing.Point(95, 3)
+        Me.RadioButton23.Location = New System.Drawing.Point(151, 9)
         Me.RadioButton23.Name = "RadioButton23"
-        Me.RadioButton23.Size = New System.Drawing.Size(17, 1)
+        Me.RadioButton23.Size = New System.Drawing.Size(31, 1)
         Me.RadioButton23.TabIndex = 19
         Me.RadioButton23.TabStop = True
         Me.RadioButton23.UseVisualStyleBackColor = True
@@ -2524,9 +2522,9 @@ Partial Class PowerPanel
         Me.RadioButton24.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.RadioButton24.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.RadioButton24.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.RadioButton24.Location = New System.Drawing.Point(118, 3)
+        Me.RadioButton24.Location = New System.Drawing.Point(188, 9)
         Me.RadioButton24.Name = "RadioButton24"
-        Me.RadioButton24.Size = New System.Drawing.Size(23, 1)
+        Me.RadioButton24.Size = New System.Drawing.Size(37, 1)
         Me.RadioButton24.TabIndex = 18
         Me.RadioButton24.TabStop = True
         Me.RadioButton24.UseVisualStyleBackColor = True
@@ -2542,9 +2540,9 @@ Partial Class PowerPanel
         Me.RadioButton13.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.RadioButton13.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.RadioButton13.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.RadioButton13.Location = New System.Drawing.Point(3, 3)
+        Me.RadioButton13.Location = New System.Drawing.Point(3, 7)
         Me.RadioButton13.Name = "RadioButton13"
-        Me.RadioButton13.Size = New System.Drawing.Size(17, 1)
+        Me.RadioButton13.Size = New System.Drawing.Size(31, 1)
         Me.RadioButton13.TabIndex = 17
         Me.RadioButton13.TabStop = True
         Me.RadioButton13.UseVisualStyleBackColor = True
@@ -2560,9 +2558,9 @@ Partial Class PowerPanel
         Me.RadioButton14.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.RadioButton14.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.RadioButton14.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.RadioButton14.Location = New System.Drawing.Point(26, 3)
+        Me.RadioButton14.Location = New System.Drawing.Point(40, 7)
         Me.RadioButton14.Name = "RadioButton14"
-        Me.RadioButton14.Size = New System.Drawing.Size(17, 1)
+        Me.RadioButton14.Size = New System.Drawing.Size(31, 1)
         Me.RadioButton14.TabIndex = 16
         Me.RadioButton14.TabStop = True
         Me.RadioButton14.UseVisualStyleBackColor = True
@@ -2578,9 +2576,9 @@ Partial Class PowerPanel
         Me.RadioButton15.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.RadioButton15.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.RadioButton15.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.RadioButton15.Location = New System.Drawing.Point(49, 3)
+        Me.RadioButton15.Location = New System.Drawing.Point(77, 7)
         Me.RadioButton15.Name = "RadioButton15"
-        Me.RadioButton15.Size = New System.Drawing.Size(17, 1)
+        Me.RadioButton15.Size = New System.Drawing.Size(31, 1)
         Me.RadioButton15.TabIndex = 15
         Me.RadioButton15.TabStop = True
         Me.RadioButton15.UseVisualStyleBackColor = True
@@ -2596,9 +2594,9 @@ Partial Class PowerPanel
         Me.RadioButton16.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.RadioButton16.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.RadioButton16.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.RadioButton16.Location = New System.Drawing.Point(72, 3)
+        Me.RadioButton16.Location = New System.Drawing.Point(114, 7)
         Me.RadioButton16.Name = "RadioButton16"
-        Me.RadioButton16.Size = New System.Drawing.Size(17, 1)
+        Me.RadioButton16.Size = New System.Drawing.Size(31, 1)
         Me.RadioButton16.TabIndex = 14
         Me.RadioButton16.TabStop = True
         Me.RadioButton16.UseVisualStyleBackColor = True
@@ -2614,9 +2612,9 @@ Partial Class PowerPanel
         Me.RadioButton17.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.RadioButton17.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.RadioButton17.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.RadioButton17.Location = New System.Drawing.Point(95, 3)
+        Me.RadioButton17.Location = New System.Drawing.Point(151, 7)
         Me.RadioButton17.Name = "RadioButton17"
-        Me.RadioButton17.Size = New System.Drawing.Size(17, 1)
+        Me.RadioButton17.Size = New System.Drawing.Size(31, 1)
         Me.RadioButton17.TabIndex = 13
         Me.RadioButton17.TabStop = True
         Me.RadioButton17.UseVisualStyleBackColor = True
@@ -2632,9 +2630,9 @@ Partial Class PowerPanel
         Me.RadioButton18.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.RadioButton18.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.RadioButton18.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.RadioButton18.Location = New System.Drawing.Point(118, 3)
+        Me.RadioButton18.Location = New System.Drawing.Point(188, 7)
         Me.RadioButton18.Name = "RadioButton18"
-        Me.RadioButton18.Size = New System.Drawing.Size(23, 1)
+        Me.RadioButton18.Size = New System.Drawing.Size(37, 1)
         Me.RadioButton18.TabIndex = 12
         Me.RadioButton18.TabStop = True
         Me.RadioButton18.UseVisualStyleBackColor = True
@@ -2650,9 +2648,9 @@ Partial Class PowerPanel
         Me.RadioButton7.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.RadioButton7.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.RadioButton7.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.RadioButton7.Location = New System.Drawing.Point(3, 3)
+        Me.RadioButton7.Location = New System.Drawing.Point(3, 5)
         Me.RadioButton7.Name = "RadioButton7"
-        Me.RadioButton7.Size = New System.Drawing.Size(17, 1)
+        Me.RadioButton7.Size = New System.Drawing.Size(31, 1)
         Me.RadioButton7.TabIndex = 11
         Me.RadioButton7.TabStop = True
         Me.RadioButton7.UseVisualStyleBackColor = True
@@ -2668,9 +2666,9 @@ Partial Class PowerPanel
         Me.RadioButton8.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.RadioButton8.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.RadioButton8.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.RadioButton8.Location = New System.Drawing.Point(26, 3)
+        Me.RadioButton8.Location = New System.Drawing.Point(40, 5)
         Me.RadioButton8.Name = "RadioButton8"
-        Me.RadioButton8.Size = New System.Drawing.Size(17, 1)
+        Me.RadioButton8.Size = New System.Drawing.Size(31, 1)
         Me.RadioButton8.TabIndex = 10
         Me.RadioButton8.TabStop = True
         Me.RadioButton8.UseVisualStyleBackColor = True
@@ -2686,9 +2684,9 @@ Partial Class PowerPanel
         Me.RadioButton9.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.RadioButton9.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.RadioButton9.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.RadioButton9.Location = New System.Drawing.Point(49, 3)
+        Me.RadioButton9.Location = New System.Drawing.Point(77, 5)
         Me.RadioButton9.Name = "RadioButton9"
-        Me.RadioButton9.Size = New System.Drawing.Size(17, 1)
+        Me.RadioButton9.Size = New System.Drawing.Size(31, 1)
         Me.RadioButton9.TabIndex = 9
         Me.RadioButton9.TabStop = True
         Me.RadioButton9.UseVisualStyleBackColor = True
@@ -2704,9 +2702,9 @@ Partial Class PowerPanel
         Me.RadioButton10.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.RadioButton10.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.RadioButton10.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.RadioButton10.Location = New System.Drawing.Point(72, 3)
+        Me.RadioButton10.Location = New System.Drawing.Point(114, 5)
         Me.RadioButton10.Name = "RadioButton10"
-        Me.RadioButton10.Size = New System.Drawing.Size(17, 1)
+        Me.RadioButton10.Size = New System.Drawing.Size(31, 1)
         Me.RadioButton10.TabIndex = 8
         Me.RadioButton10.TabStop = True
         Me.RadioButton10.UseVisualStyleBackColor = True
@@ -2722,9 +2720,9 @@ Partial Class PowerPanel
         Me.RadioButton11.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.RadioButton11.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.RadioButton11.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.RadioButton11.Location = New System.Drawing.Point(95, 3)
+        Me.RadioButton11.Location = New System.Drawing.Point(151, 5)
         Me.RadioButton11.Name = "RadioButton11"
-        Me.RadioButton11.Size = New System.Drawing.Size(17, 1)
+        Me.RadioButton11.Size = New System.Drawing.Size(31, 1)
         Me.RadioButton11.TabIndex = 7
         Me.RadioButton11.TabStop = True
         Me.RadioButton11.UseVisualStyleBackColor = True
@@ -2740,9 +2738,9 @@ Partial Class PowerPanel
         Me.RadioButton12.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.RadioButton12.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.RadioButton12.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.RadioButton12.Location = New System.Drawing.Point(118, 3)
+        Me.RadioButton12.Location = New System.Drawing.Point(188, 5)
         Me.RadioButton12.Name = "RadioButton12"
-        Me.RadioButton12.Size = New System.Drawing.Size(23, 1)
+        Me.RadioButton12.Size = New System.Drawing.Size(37, 1)
         Me.RadioButton12.TabIndex = 6
         Me.RadioButton12.TabStop = True
         Me.RadioButton12.UseVisualStyleBackColor = True
@@ -2758,9 +2756,9 @@ Partial Class PowerPanel
         Me.RadioButton6.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.RadioButton6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.RadioButton6.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.RadioButton6.Location = New System.Drawing.Point(118, 3)
+        Me.RadioButton6.Location = New System.Drawing.Point(188, 3)
         Me.RadioButton6.Name = "RadioButton6"
-        Me.RadioButton6.Size = New System.Drawing.Size(23, 1)
+        Me.RadioButton6.Size = New System.Drawing.Size(37, 1)
         Me.RadioButton6.TabIndex = 5
         Me.RadioButton6.TabStop = True
         Me.RadioButton6.UseVisualStyleBackColor = True
@@ -2776,9 +2774,9 @@ Partial Class PowerPanel
         Me.RadioButton5.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.RadioButton5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.RadioButton5.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.RadioButton5.Location = New System.Drawing.Point(95, 3)
+        Me.RadioButton5.Location = New System.Drawing.Point(151, 3)
         Me.RadioButton5.Name = "RadioButton5"
-        Me.RadioButton5.Size = New System.Drawing.Size(17, 1)
+        Me.RadioButton5.Size = New System.Drawing.Size(31, 1)
         Me.RadioButton5.TabIndex = 4
         Me.RadioButton5.TabStop = True
         Me.RadioButton5.UseVisualStyleBackColor = True
@@ -2794,9 +2792,9 @@ Partial Class PowerPanel
         Me.RadioButton4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.RadioButton4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.RadioButton4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.RadioButton4.Location = New System.Drawing.Point(72, 3)
+        Me.RadioButton4.Location = New System.Drawing.Point(114, 3)
         Me.RadioButton4.Name = "RadioButton4"
-        Me.RadioButton4.Size = New System.Drawing.Size(17, 1)
+        Me.RadioButton4.Size = New System.Drawing.Size(31, 1)
         Me.RadioButton4.TabIndex = 3
         Me.RadioButton4.TabStop = True
         Me.RadioButton4.UseVisualStyleBackColor = True
@@ -2812,9 +2810,9 @@ Partial Class PowerPanel
         Me.RadioButton3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.RadioButton3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.RadioButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.RadioButton3.Location = New System.Drawing.Point(49, 3)
+        Me.RadioButton3.Location = New System.Drawing.Point(77, 3)
         Me.RadioButton3.Name = "RadioButton3"
-        Me.RadioButton3.Size = New System.Drawing.Size(17, 1)
+        Me.RadioButton3.Size = New System.Drawing.Size(31, 1)
         Me.RadioButton3.TabIndex = 2
         Me.RadioButton3.TabStop = True
         Me.RadioButton3.UseVisualStyleBackColor = True
@@ -2830,9 +2828,9 @@ Partial Class PowerPanel
         Me.RadioButton2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.RadioButton2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.RadioButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.RadioButton2.Location = New System.Drawing.Point(26, 3)
+        Me.RadioButton2.Location = New System.Drawing.Point(40, 3)
         Me.RadioButton2.Name = "RadioButton2"
-        Me.RadioButton2.Size = New System.Drawing.Size(17, 1)
+        Me.RadioButton2.Size = New System.Drawing.Size(31, 1)
         Me.RadioButton2.TabIndex = 1
         Me.RadioButton2.TabStop = True
         Me.RadioButton2.UseVisualStyleBackColor = True
@@ -2850,7 +2848,7 @@ Partial Class PowerPanel
         Me.RadioButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.RadioButton1.Location = New System.Drawing.Point(3, 3)
         Me.RadioButton1.Name = "RadioButton1"
-        Me.RadioButton1.Size = New System.Drawing.Size(17, 1)
+        Me.RadioButton1.Size = New System.Drawing.Size(31, 1)
         Me.RadioButton1.TabIndex = 0
         Me.RadioButton1.TabStop = True
         Me.RadioButton1.UseVisualStyleBackColor = True
@@ -2859,18 +2857,15 @@ Partial Class PowerPanel
         '
         Me.Scont_TextureFill.Dock = System.Windows.Forms.DockStyle.Top
         Me.Scont_TextureFill.FixedPanel = System.Windows.Forms.FixedPanel.Panel1
-        Me.Scont_TextureFill.Location = New System.Drawing.Point(0, 90)
+        Me.Scont_TextureFill.Location = New System.Drawing.Point(0, 150)
         Me.Scont_TextureFill.Name = "Scont_TextureFill"
         Me.Scont_TextureFill.Orientation = System.Windows.Forms.Orientation.Horizontal
         '
         'Scont_TextureFill.Panel1
         '
         Me.Scont_TextureFill.Panel1.Controls.Add(Me.Rbtn_TextureFill)
-        Me.Scont_TextureFill.Panel1MinSize = 15
         Me.Scont_TextureFill.Panel2Collapsed = True
-        Me.Scont_TextureFill.Panel2MinSize = 15
-        Me.Scont_TextureFill.Size = New System.Drawing.Size(251, 30)
-        Me.Scont_TextureFill.SplitterDistance = 15
+        Me.Scont_TextureFill.Size = New System.Drawing.Size(251, 50)
         Me.Scont_TextureFill.TabIndex = 2
         '
         'Rbtn_TextureFill
@@ -2878,10 +2873,11 @@ Partial Class PowerPanel
         Me.Rbtn_TextureFill.AutoCheck = False
         Me.Rbtn_TextureFill.AutoSize = True
         Me.Rbtn_TextureFill.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Rbtn_TextureFill.Enabled = False
         Me.Rbtn_TextureFill.Font = New System.Drawing.Font("Agency FB", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Rbtn_TextureFill.Location = New System.Drawing.Point(0, 0)
         Me.Rbtn_TextureFill.Name = "Rbtn_TextureFill"
-        Me.Rbtn_TextureFill.Size = New System.Drawing.Size(251, 30)
+        Me.Rbtn_TextureFill.Size = New System.Drawing.Size(251, 50)
         Me.Rbtn_TextureFill.TabIndex = 0
         Me.Rbtn_TextureFill.TabStop = True
         Me.Rbtn_TextureFill.Text = "Picture or texture fill"
@@ -2891,33 +2887,31 @@ Partial Class PowerPanel
         '
         Me.Scont_GradentFill.Dock = System.Windows.Forms.DockStyle.Top
         Me.Scont_GradentFill.FixedPanel = System.Windows.Forms.FixedPanel.Panel1
-        Me.Scont_GradentFill.Location = New System.Drawing.Point(0, 60)
+        Me.Scont_GradentFill.Location = New System.Drawing.Point(0, 100)
         Me.Scont_GradentFill.Name = "Scont_GradentFill"
         Me.Scont_GradentFill.Orientation = System.Windows.Forms.Orientation.Horizontal
         '
         'Scont_GradentFill.Panel1
         '
         Me.Scont_GradentFill.Panel1.Controls.Add(Me.Rbtn_Gradient)
-        Me.Scont_GradentFill.Panel1MinSize = 15
         '
         'Scont_GradentFill.Panel2
         '
         Me.Scont_GradentFill.Panel2.Controls.Add(Me.TLP_GradientFill)
         Me.Scont_GradentFill.Panel2Collapsed = True
-        Me.Scont_GradentFill.Panel2MinSize = 15
-        Me.Scont_GradentFill.Size = New System.Drawing.Size(251, 30)
-        Me.Scont_GradentFill.SplitterDistance = 15
+        Me.Scont_GradentFill.Size = New System.Drawing.Size(251, 50)
         Me.Scont_GradentFill.TabIndex = 2
         '
         'Rbtn_Gradient
         '
         Me.Rbtn_Gradient.AutoSize = True
         Me.Rbtn_Gradient.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Rbtn_Gradient.Enabled = False
         Me.Rbtn_Gradient.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
         Me.Rbtn_Gradient.Font = New System.Drawing.Font("Agency FB", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Rbtn_Gradient.Location = New System.Drawing.Point(0, 0)
         Me.Rbtn_Gradient.Name = "Rbtn_Gradient"
-        Me.Rbtn_Gradient.Size = New System.Drawing.Size(251, 30)
+        Me.Rbtn_Gradient.Size = New System.Drawing.Size(251, 50)
         Me.Rbtn_Gradient.TabIndex = 0
         Me.Rbtn_Gradient.TabStop = True
         Me.Rbtn_Gradient.Text = "Gradient Fill"
@@ -2938,7 +2932,7 @@ Partial Class PowerPanel
         Me.TLP_GradientFill.RowCount = 2
         Me.TLP_GradientFill.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TLP_GradientFill.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TLP_GradientFill.Size = New System.Drawing.Size(150, 46)
+        Me.TLP_GradientFill.Size = New System.Drawing.Size(234, 64)
         Me.TLP_GradientFill.TabIndex = 0
         '
         'Label4
@@ -2948,7 +2942,7 @@ Partial Class PowerPanel
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.Location = New System.Drawing.Point(3, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(85, 23)
+        Me.Label4.Size = New System.Drawing.Size(85, 32)
         Me.Label4.TabIndex = 0
         Me.Label4.Text = "Color :"
         Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -2958,9 +2952,9 @@ Partial Class PowerPanel
         Me.Label5.AutoSize = True
         Me.Label5.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(3, 23)
+        Me.Label5.Location = New System.Drawing.Point(3, 32)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(85, 23)
+        Me.Label5.Size = New System.Drawing.Size(85, 32)
         Me.Label5.TabIndex = 0
         Me.Label5.Text = "Angle :"
         Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -2969,7 +2963,7 @@ Partial Class PowerPanel
         '
         Me.num_TranspGradient.Dock = System.Windows.Forms.DockStyle.Right
         Me.num_TranspGradient.Font = New System.Drawing.Font("Agency FB", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.num_TranspGradient.Location = New System.Drawing.Point(94, 31)
+        Me.num_TranspGradient.Location = New System.Drawing.Point(178, 40)
         Me.num_TranspGradient.Margin = New System.Windows.Forms.Padding(3, 8, 3, 3)
         Me.num_TranspGradient.Name = "num_TranspGradient"
         Me.num_TranspGradient.Size = New System.Drawing.Size(53, 23)
@@ -2983,9 +2977,9 @@ Partial Class PowerPanel
         Me.btn_ColorGradientFill.Dock = System.Windows.Forms.DockStyle.Right
         Me.btn_ColorGradientFill.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
         Me.btn_ColorGradientFill.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_ColorGradientFill.Location = New System.Drawing.Point(95, 3)
+        Me.btn_ColorGradientFill.Location = New System.Drawing.Point(179, 3)
         Me.btn_ColorGradientFill.Name = "btn_ColorGradientFill"
-        Me.btn_ColorGradientFill.Size = New System.Drawing.Size(52, 17)
+        Me.btn_ColorGradientFill.Size = New System.Drawing.Size(52, 26)
         Me.btn_ColorGradientFill.TabIndex = 2
         Me.btn_ColorGradientFill.UseVisualStyleBackColor = True
         '
@@ -2993,22 +2987,19 @@ Partial Class PowerPanel
         '
         Me.Scont_SolidFill.Dock = System.Windows.Forms.DockStyle.Top
         Me.Scont_SolidFill.FixedPanel = System.Windows.Forms.FixedPanel.Panel1
-        Me.Scont_SolidFill.Location = New System.Drawing.Point(0, 30)
+        Me.Scont_SolidFill.Location = New System.Drawing.Point(0, 50)
         Me.Scont_SolidFill.Name = "Scont_SolidFill"
         Me.Scont_SolidFill.Orientation = System.Windows.Forms.Orientation.Horizontal
         '
         'Scont_SolidFill.Panel1
         '
         Me.Scont_SolidFill.Panel1.Controls.Add(Me.Rbtn_SolidFill)
-        Me.Scont_SolidFill.Panel1MinSize = 15
         '
         'Scont_SolidFill.Panel2
         '
         Me.Scont_SolidFill.Panel2.Controls.Add(Me.TLP_SolidFill)
         Me.Scont_SolidFill.Panel2Collapsed = True
-        Me.Scont_SolidFill.Panel2MinSize = 15
-        Me.Scont_SolidFill.Size = New System.Drawing.Size(251, 30)
-        Me.Scont_SolidFill.SplitterDistance = 15
+        Me.Scont_SolidFill.Size = New System.Drawing.Size(251, 50)
         Me.Scont_SolidFill.TabIndex = 1
         '
         'Rbtn_SolidFill
@@ -3019,7 +3010,7 @@ Partial Class PowerPanel
         Me.Rbtn_SolidFill.Font = New System.Drawing.Font("Agency FB", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Rbtn_SolidFill.Location = New System.Drawing.Point(0, 0)
         Me.Rbtn_SolidFill.Name = "Rbtn_SolidFill"
-        Me.Rbtn_SolidFill.Size = New System.Drawing.Size(251, 30)
+        Me.Rbtn_SolidFill.Size = New System.Drawing.Size(251, 50)
         Me.Rbtn_SolidFill.TabIndex = 0
         Me.Rbtn_SolidFill.TabStop = True
         Me.Rbtn_SolidFill.Text = "Solid Fill"
@@ -3040,7 +3031,7 @@ Partial Class PowerPanel
         Me.TLP_SolidFill.RowCount = 2
         Me.TLP_SolidFill.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TLP_SolidFill.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TLP_SolidFill.Size = New System.Drawing.Size(150, 46)
+        Me.TLP_SolidFill.Size = New System.Drawing.Size(234, 70)
         Me.TLP_SolidFill.TabIndex = 0
         '
         'Label2
@@ -3050,7 +3041,7 @@ Partial Class PowerPanel
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.Location = New System.Drawing.Point(3, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(85, 23)
+        Me.Label2.Size = New System.Drawing.Size(85, 35)
         Me.Label2.TabIndex = 0
         Me.Label2.Text = "Color :"
         Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -3060,9 +3051,9 @@ Partial Class PowerPanel
         Me.Label3.AutoSize = True
         Me.Label3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(3, 23)
+        Me.Label3.Location = New System.Drawing.Point(3, 35)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(85, 23)
+        Me.Label3.Size = New System.Drawing.Size(85, 35)
         Me.Label3.TabIndex = 0
         Me.Label3.Text = "Transparency:"
         Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -3071,7 +3062,7 @@ Partial Class PowerPanel
         '
         Me.num_Transparency.Dock = System.Windows.Forms.DockStyle.Right
         Me.num_Transparency.Font = New System.Drawing.Font("Agency FB", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.num_Transparency.Location = New System.Drawing.Point(94, 31)
+        Me.num_Transparency.Location = New System.Drawing.Point(178, 43)
         Me.num_Transparency.Margin = New System.Windows.Forms.Padding(3, 8, 3, 3)
         Me.num_Transparency.Name = "num_Transparency"
         Me.num_Transparency.Size = New System.Drawing.Size(53, 23)
@@ -3085,9 +3076,9 @@ Partial Class PowerPanel
         Me.btn_SolidFillColor.Dock = System.Windows.Forms.DockStyle.Right
         Me.btn_SolidFillColor.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
         Me.btn_SolidFillColor.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_SolidFillColor.Location = New System.Drawing.Point(106, 3)
+        Me.btn_SolidFillColor.Location = New System.Drawing.Point(190, 3)
         Me.btn_SolidFillColor.Name = "btn_SolidFillColor"
-        Me.btn_SolidFillColor.Size = New System.Drawing.Size(41, 17)
+        Me.btn_SolidFillColor.Size = New System.Drawing.Size(41, 29)
         Me.btn_SolidFillColor.TabIndex = 2
         Me.btn_SolidFillColor.UseVisualStyleBackColor = True
         '
@@ -3097,7 +3088,7 @@ Partial Class PowerPanel
         Me.Panel_NoFill.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel_NoFill.Location = New System.Drawing.Point(0, 0)
         Me.Panel_NoFill.Name = "Panel_NoFill"
-        Me.Panel_NoFill.Size = New System.Drawing.Size(251, 30)
+        Me.Panel_NoFill.Size = New System.Drawing.Size(251, 50)
         Me.Panel_NoFill.TabIndex = 5
         '
         'Rbtn_NoFill
@@ -3109,7 +3100,7 @@ Partial Class PowerPanel
         Me.Rbtn_NoFill.Font = New System.Drawing.Font("Agency FB", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Rbtn_NoFill.Location = New System.Drawing.Point(0, 0)
         Me.Rbtn_NoFill.Name = "Rbtn_NoFill"
-        Me.Rbtn_NoFill.Size = New System.Drawing.Size(251, 30)
+        Me.Rbtn_NoFill.Size = New System.Drawing.Size(251, 50)
         Me.Rbtn_NoFill.TabIndex = 3
         Me.Rbtn_NoFill.TabStop = True
         Me.Rbtn_NoFill.Text = "No Fill"
