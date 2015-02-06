@@ -39,10 +39,10 @@
     <OldToolsVersion>4.0</OldToolsVersion>
     <VSTO_TrustAssembliesLocation>true</VSTO_TrustAssembliesLocation>
     <BootstrapperEnabled>true</BootstrapperEnabled>
-    <PublishUrl>F:\Programming\O-Desk Projects\Microsoft Plug-in %28Mr.Robert%29\Versions\Version 10\</PublishUrl>
+    <PublishUrl>F:\Programming\O-Desk Projects\Microsoft Plug-in %28Mr.Robert%29\Versions\Version 11\</PublishUrl>
     <InstallUrl />
     <TargetCulture>en</TargetCulture>
-    <ApplicationVersion>1.0.0.14</ApplicationVersion>
+    <ApplicationVersion>1.0.0.15</ApplicationVersion>
     <AutoIncrementApplicationRevision>true</AutoIncrementApplicationRevision>
     <UpdateEnabled>true</UpdateEnabled>
     <UpdateInterval>7</UpdateInterval>

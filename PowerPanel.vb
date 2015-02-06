@@ -804,37 +804,48 @@ Public Class PowerPanel
     '----------------------------------FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL ---------------------------------------'
     Sub getFillPage()
         If NoErros() Then
-            Select Case selectedshape.Fill.Type
-                Case 1
-                    Manuallycheck(Rbtn_SolidFill)
-                    ExpandCollapse(Rbtn_SolidFill, 130, 50)
-                    num_Transparency.Value = selectedshape.Fill.Transparency * 100
-                Case 2
-                    Manuallycheck(Rbtn_PatternFilling)
-                    ExpandCollapse(Rbtn_PatternFilling, 400, 50)
-                Case 3
-                    Manuallycheck(Rbtn_Gradient)
-                Case 5
-                    Manuallycheck(Rbtn_BackgroundFill)
-                Case 6 Or 4
-                    Manuallycheck(Rbtn_TextureFill)
-                Case Else
-                    Manuallycheck(Rbtn_NoFill)
-            End Select
+            If selectedshape.Fill.Visible = MsoTriState.msoFalse Then
+                Manuallycheck(Rbtn_NoFill)
+            Else
+                Select Case selectedshape.Fill.Type
+                    Case 1
+                        Manuallycheck(Rbtn_SolidFill)
+                        ExpandCollapse(Rbtn_SolidFill, 130, 50)
+                        num_Transparency.Value = selectedshape.Fill.Transparency * 100
+                    Case 2
+                        Manuallycheck(Rbtn_PatternFilling)
+                        ExpandCollapse(Rbtn_PatternFilling, 400, 50)
+                    Case 3
+                        Manuallycheck(Rbtn_Gradient)
+                    Case 5
+                        Manuallycheck(Rbtn_BackgroundFill)
+                    Case 6 Or 4
+                        Manuallycheck(Rbtn_TextureFill)
+                        ExpandCollapse(Rbtn_TextureFill, 400, 50)
+                        If selectedshape.Fill.TextureTile = MsoTriState.msoTrue Then
+                            chkbx_texture.Checked = True
+                        Else
+                            chkbx_texture.Checked = False
+                        End If
+                End Select
+            End If
         End If
     End Sub
     Function NoErros() As Boolean
         Dim NoError As Boolean = True
         Try
+            selectedshape.GetHashCode()
             If Not selectedshape.HasTextFrame Then
                 MsgBox("Please Select a valid shape")
                 NoError = False
             End If
-        Catch ex As NullReferenceException
+        Catch null As NullReferenceException
+            PleaseSelect()
+            NoError = False
+        Catch general As Exception
             PleaseSelect()
             NoError = False
         End Try
-
         Return NoError
     End Function
     Private Sub chkbx_Fill_CheckedChanged(sender As Object, e As EventArgs) Handles chkbx_Fill.CheckedChanged
@@ -1017,7 +1028,58 @@ Public Class PowerPanel
     Private Sub Rbtn_TextureFill_Click(sender As Object, e As EventArgs) Handles Rbtn_TextureFill.Click
         If NoErros() Then
             Manuallycheck(Rbtn_TextureFill)
-            ExpandCollapse(Rbtn_TextureFill, 130, 50)
+            ExpandCollapse(Rbtn_TextureFill, 400, 50)
+            selectedshape.Fill.PresetTextured(MsoPresetTexture.msoTexturePapyrus)
+            chkbx_texture.Checked = True
+        End If
+    End Sub
+    Public Sub TileAsTexture(ByVal index As Boolean)
+        Scont_TxtrVsPctr.Panel1Collapsed = False
+        Scont_TxtrVsPctr.Panel2Collapsed = False
+        If index Then
+            Scont_TxtrVsPctr.Panel1Collapsed = True
+        Else
+            Scont_TxtrVsPctr.Panel2Collapsed = True
+        End If
+    End Sub
+    Private Sub chkbx_texture_CheckedChanged(sender As Object, e As EventArgs) Handles chkbx_texture.CheckedChanged
+        If NoErros() Then
+            If chkbx_texture.Checked Then
+                TileAsTexture(True)
+                selectedshape.Fill.TextureTile = MsoTriState.msoTrue
+            Else
+                TileAsTexture(False)
+                selectedshape.Fill.TextureTile = MsoTriState.msoFalse
+            End If
+        End If
+    End Sub
+    Private Sub num_OffsetX_ValueChanged(sender As Object, e As EventArgs) Handles num_OffsetX.ValueChanged
+        If NoErros() Then
+            selectedshape.Fill.TextureOffsetX = num_OffsetX.Value / 100
+        End If
+    End Sub
+    Private Sub num_offsetY_ValueChanged(sender As Object, e As EventArgs) Handles num_offsetY.ValueChanged
+        If NoErros() Then
+            selectedshape.Fill.TextureOffsetY = num_offsetY.Value / 100
+        End If
+    End Sub
+    Private Sub num_ScaleXFill_ValueChanged(sender As Object, e As EventArgs) Handles num_ScaleXFill.ValueChanged
+        If NoErros() Then
+            selectedshape.Fill.TextureHorizontalScale = num_ScaleXFill.Value / 100
+        End If
+    End Sub
+    Private Sub num_ScaleYFill_ValueChanged(sender As Object, e As EventArgs) Handles num_ScaleYFill.ValueChanged
+        If NoErros() Then
+            selectedshape.Fill.TextureVerticalScale = num_ScaleYFill.Value / 100
+        End If
+    End Sub
+    Private Sub btn_FileTexture_Click(sender As Object, e As EventArgs) Handles btn_FileTexture.Click
+        OpenFileDialog_PictureFill.ShowDialog()
+        Dim filename As String
+        filename = OpenFileDialog_PictureFill.FileName
+        If NoErros() Then
+            selectedshape.Fill.UserPicture(filename)
+            chkbx_texture.Checked = False
         End If
     End Sub
 #End Region
@@ -1086,4 +1148,41 @@ Public Class PowerPanel
         execute("PowerPointParagraphDialog")
     End Sub
 #End Region
+
+    Private Sub SplitContainer1_Panel1_Paint(sender As Object, e As PaintEventArgs) Handles Scont_TxtrVsPctr.Panel1.Paint
+
+    End Sub
+    Private Sub Label16_Click(sender As Object, e As EventArgs) Handles Label16.Click
+
+    End Sub
+    Private Sub Label14_Click(sender As Object, e As EventArgs) Handles Label14.Click
+
+    End Sub
+    Private Sub Label12_Click(sender As Object, e As EventArgs) Handles Label12.Click
+
+    End Sub
+
+  
+   
+
+    Private Sub num_offsetleft_ValueChanged(sender As Object, e As EventArgs) Handles num_offsetleft.ValueChanged
+        If NoErros() Then
+         End If
+    End Sub
+
+  
+    Private Sub btn_ClipboardTexture_Click(sender As Object, e As EventArgs) Handles btn_ClipboardTexture.Click
+        Dim IMG As System.Drawing.Image
+        Dim filename As String = Forms.Application.StartupPath
+        If NoErros() Then
+            If My.Computer.Clipboard.ContainsImage Then
+                IMG = My.Computer.Clipboard.GetImage
+                IMG.Save(filename)
+                selectedshape.Fill.UserPicture(filename)
+            Else
+                MsgBox("Invalid Image")
+                Exit Sub
+            End If
+        End If
+    End Sub
 End Class
