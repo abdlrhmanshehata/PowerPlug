@@ -122,6 +122,7 @@ Partial Class PowerPanel
         Me.TLP_OriginalHeight = New System.Windows.Forms.TableLayoutPanel()
         Me.txt_OriginalHeight = New System.Windows.Forms.TextBox()
         Me.Size_OriginalHeight = New System.Windows.Forms.Label()
+        Me.btn_ShowNotes = New System.Windows.Forms.Button()
         Me.TabPage_FillAndLine = New System.Windows.Forms.TabPage()
         Me.panel_FillAndLine = New System.Windows.Forms.Panel()
         Me.Scont_Fill = New System.Windows.Forms.SplitContainer()
@@ -237,6 +238,7 @@ Partial Class PowerPanel
         Me.btn_SolidFillColor = New System.Windows.Forms.Button()
         Me.Panel_NoFill = New System.Windows.Forms.Panel()
         Me.Rbtn_NoFill = New System.Windows.Forms.RadioButton()
+        Me.btn_ShowNotes2 = New System.Windows.Forms.Button()
         Me.Scont_C = New System.Windows.Forms.SplitContainer()
         Me.TLP_Notes = New System.Windows.Forms.TableLayoutPanel()
         Me.TLP_NotesTools1 = New System.Windows.Forms.TableLayoutPanel()
@@ -260,7 +262,7 @@ Partial Class PowerPanel
         Me.btnAlignLeft = New System.Windows.Forms.CheckBox()
         Me.TLP_SHOWHIDE = New System.Windows.Forms.TableLayoutPanel()
         Me.txtNotes = New System.Windows.Forms.RichTextBox()
-        Me.btn_ShowNotes = New System.Windows.Forms.Button()
+        Me.btn_HideNotes = New System.Windows.Forms.Button()
         Me.ColorDialog_SolidFill = New System.Windows.Forms.ColorDialog()
         Me.ImageList_Pattern = New System.Windows.Forms.ImageList(Me.components)
         Me.OpenFileDialog_PictureFill = New System.Windows.Forms.OpenFileDialog()
@@ -782,6 +784,7 @@ Partial Class PowerPanel
         'Scont_B.Panel2
         '
         Me.Scont_B.Panel2.Controls.Add(Me.Scont_C)
+        Me.Scont_B.Panel2Collapsed = True
         Me.Scont_B.Size = New System.Drawing.Size(276, 495)
         Me.Scont_B.SplitterDistance = 340
         Me.Scont_B.SplitterWidth = 8
@@ -795,7 +798,7 @@ Partial Class PowerPanel
         Me.TabControl_Format.Location = New System.Drawing.Point(0, 0)
         Me.TabControl_Format.Name = "TabControl_Format"
         Me.TabControl_Format.SelectedIndex = 0
-        Me.TabControl_Format.Size = New System.Drawing.Size(276, 340)
+        Me.TabControl_Format.Size = New System.Drawing.Size(276, 495)
         Me.TabControl_Format.TabIndex = 1
         '
         'TabPage_SizeProperties
@@ -805,7 +808,7 @@ Partial Class PowerPanel
         Me.TabPage_SizeProperties.Location = New System.Drawing.Point(4, 22)
         Me.TabPage_SizeProperties.Name = "TabPage_SizeProperties"
         Me.TabPage_SizeProperties.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage_SizeProperties.Size = New System.Drawing.Size(268, 314)
+        Me.TabPage_SizeProperties.Size = New System.Drawing.Size(268, 469)
         Me.TabPage_SizeProperties.TabIndex = 0
         Me.TabPage_SizeProperties.Text = "Size And Properties"
         '
@@ -814,10 +817,11 @@ Partial Class PowerPanel
         Me.Panel_total.AutoScroll = True
         Me.Panel_total.Controls.Add(Me.Scont_TextFormat)
         Me.Panel_total.Controls.Add(Me.Scont_ShapeFormat)
+        Me.Panel_total.Controls.Add(Me.btn_ShowNotes)
         Me.Panel_total.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel_total.Location = New System.Drawing.Point(3, 3)
         Me.Panel_total.Name = "Panel_total"
-        Me.Panel_total.Size = New System.Drawing.Size(262, 308)
+        Me.Panel_total.Size = New System.Drawing.Size(262, 463)
         Me.Panel_total.TabIndex = 0
         '
         'Scont_TextFormat
@@ -825,7 +829,7 @@ Partial Class PowerPanel
         Me.Scont_TextFormat.Dock = System.Windows.Forms.DockStyle.Top
         Me.Scont_TextFormat.FixedPanel = System.Windows.Forms.FixedPanel.Panel1
         Me.Scont_TextFormat.IsSplitterFixed = True
-        Me.Scont_TextFormat.Location = New System.Drawing.Point(0, 50)
+        Me.Scont_TextFormat.Location = New System.Drawing.Point(0, 90)
         Me.Scont_TextFormat.Name = "Scont_TextFormat"
         Me.Scont_TextFormat.Orientation = System.Windows.Forms.Orientation.Horizontal
         '
@@ -1215,7 +1219,7 @@ Partial Class PowerPanel
         Me.Scont_ShapeFormat.Dock = System.Windows.Forms.DockStyle.Top
         Me.Scont_ShapeFormat.FixedPanel = System.Windows.Forms.FixedPanel.Panel1
         Me.Scont_ShapeFormat.IsSplitterFixed = True
-        Me.Scont_ShapeFormat.Location = New System.Drawing.Point(0, 0)
+        Me.Scont_ShapeFormat.Location = New System.Drawing.Point(0, 40)
         Me.Scont_ShapeFormat.Name = "Scont_ShapeFormat"
         Me.Scont_ShapeFormat.Orientation = System.Windows.Forms.Orientation.Horizontal
         '
@@ -1309,7 +1313,7 @@ Partial Class PowerPanel
         Me.TLP_Rotation.ColumnCount = 3
         Me.TLP_Rotation.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TLP_Rotation.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.00001!))
-        Me.TLP_Rotation.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 56.0!))
+        Me.TLP_Rotation.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 63.0!))
         Me.TLP_Rotation.Controls.Add(Me.Label11, 2, 0)
         Me.TLP_Rotation.Controls.Add(Me.Size_Rotation, 0, 0)
         Me.TLP_Rotation.Controls.Add(Me.num_Rot, 1, 0)
@@ -1326,9 +1330,9 @@ Partial Class PowerPanel
         Me.Label11.AutoSize = True
         Me.Label11.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label11.Font = New System.Drawing.Font("Agency FB", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.Location = New System.Drawing.Point(61, 0)
+        Me.Label11.Location = New System.Drawing.Point(54, 0)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(51, 27)
+        Me.Label11.Size = New System.Drawing.Size(58, 27)
         Me.Label11.TabIndex = 30
         Me.Label11.Text = "o"
         '
@@ -1339,7 +1343,7 @@ Partial Class PowerPanel
         Me.Size_Rotation.Font = New System.Drawing.Font("Agency FB", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Size_Rotation.Location = New System.Drawing.Point(3, 0)
         Me.Size_Rotation.Name = "Size_Rotation"
-        Me.Size_Rotation.Size = New System.Drawing.Size(23, 27)
+        Me.Size_Rotation.Size = New System.Drawing.Size(19, 27)
         Me.Size_Rotation.TabIndex = 31
         Me.Size_Rotation.Text = "Rotation:"
         Me.Size_Rotation.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -1350,11 +1354,11 @@ Partial Class PowerPanel
         Me.num_Rot.Dock = System.Windows.Forms.DockStyle.Fill
         Me.num_Rot.Font = New System.Drawing.Font("Agency FB", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.num_Rot.Increment = New Decimal(New Integer() {1, 0, 0, 65536})
-        Me.num_Rot.Location = New System.Drawing.Point(32, 3)
+        Me.num_Rot.Location = New System.Drawing.Point(28, 3)
         Me.num_Rot.Maximum = New Decimal(New Integer() {100000, 0, 0, 0})
         Me.num_Rot.Minimum = New Decimal(New Integer() {360, 0, 0, -2147483648})
         Me.num_Rot.Name = "num_Rot"
-        Me.num_Rot.Size = New System.Drawing.Size(23, 23)
+        Me.num_Rot.Size = New System.Drawing.Size(20, 23)
         Me.num_Rot.TabIndex = 32
         '
         'TLP_Height
@@ -1362,7 +1366,7 @@ Partial Class PowerPanel
         Me.TLP_Height.ColumnCount = 3
         Me.TLP_Height.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TLP_Height.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.00001!))
-        Me.TLP_Height.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 56.0!))
+        Me.TLP_Height.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 63.0!))
         Me.TLP_Height.Controls.Add(Me.Label1, 2, 0)
         Me.TLP_Height.Controls.Add(Me.Size_Height, 0, 0)
         Me.TLP_Height.Controls.Add(Me.num_Height, 1, 0)
@@ -1379,9 +1383,9 @@ Partial Class PowerPanel
         Me.Label1.AutoSize = True
         Me.Label1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label1.Font = New System.Drawing.Font("Agency FB", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(61, 0)
+        Me.Label1.Location = New System.Drawing.Point(54, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(51, 27)
+        Me.Label1.Size = New System.Drawing.Size(58, 27)
         Me.Label1.TabIndex = 30
         Me.Label1.Text = """"
         '
@@ -1392,7 +1396,7 @@ Partial Class PowerPanel
         Me.Size_Height.Font = New System.Drawing.Font("Agency FB", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Size_Height.Location = New System.Drawing.Point(3, 0)
         Me.Size_Height.Name = "Size_Height"
-        Me.Size_Height.Size = New System.Drawing.Size(23, 27)
+        Me.Size_Height.Size = New System.Drawing.Size(19, 27)
         Me.Size_Height.TabIndex = 31
         Me.Size_Height.Text = "Height:"
         Me.Size_Height.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -1403,10 +1407,10 @@ Partial Class PowerPanel
         Me.num_Height.Dock = System.Windows.Forms.DockStyle.Fill
         Me.num_Height.Font = New System.Drawing.Font("Agency FB", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.num_Height.Increment = New Decimal(New Integer() {1, 0, 0, 65536})
-        Me.num_Height.Location = New System.Drawing.Point(32, 3)
+        Me.num_Height.Location = New System.Drawing.Point(28, 3)
         Me.num_Height.Maximum = New Decimal(New Integer() {100000, 0, 0, 0})
         Me.num_Height.Name = "num_Height"
-        Me.num_Height.Size = New System.Drawing.Size(23, 23)
+        Me.num_Height.Size = New System.Drawing.Size(20, 23)
         Me.num_Height.TabIndex = 32
         '
         'TLP_Width
@@ -1414,7 +1418,7 @@ Partial Class PowerPanel
         Me.TLP_Width.ColumnCount = 3
         Me.TLP_Width.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TLP_Width.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.00001!))
-        Me.TLP_Width.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 56.0!))
+        Me.TLP_Width.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 63.0!))
         Me.TLP_Width.Controls.Add(Me.Label9, 2, 0)
         Me.TLP_Width.Controls.Add(Me.Size_Width, 0, 0)
         Me.TLP_Width.Controls.Add(Me.num_Width, 1, 0)
@@ -1431,9 +1435,9 @@ Partial Class PowerPanel
         Me.Label9.AutoSize = True
         Me.Label9.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label9.Font = New System.Drawing.Font("Agency FB", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(61, 0)
+        Me.Label9.Location = New System.Drawing.Point(54, 0)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(51, 27)
+        Me.Label9.Size = New System.Drawing.Size(58, 27)
         Me.Label9.TabIndex = 30
         Me.Label9.Text = """"
         '
@@ -1444,7 +1448,7 @@ Partial Class PowerPanel
         Me.Size_Width.Font = New System.Drawing.Font("Agency FB", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Size_Width.Location = New System.Drawing.Point(3, 0)
         Me.Size_Width.Name = "Size_Width"
-        Me.Size_Width.Size = New System.Drawing.Size(23, 27)
+        Me.Size_Width.Size = New System.Drawing.Size(19, 27)
         Me.Size_Width.TabIndex = 31
         Me.Size_Width.Text = "Width:"
         Me.Size_Width.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -1455,10 +1459,10 @@ Partial Class PowerPanel
         Me.num_Width.Dock = System.Windows.Forms.DockStyle.Fill
         Me.num_Width.Font = New System.Drawing.Font("Agency FB", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.num_Width.Increment = New Decimal(New Integer() {1, 0, 0, 65536})
-        Me.num_Width.Location = New System.Drawing.Point(32, 3)
+        Me.num_Width.Location = New System.Drawing.Point(28, 3)
         Me.num_Width.Maximum = New Decimal(New Integer() {100000, 0, 0, 0})
         Me.num_Width.Name = "num_Width"
-        Me.num_Width.Size = New System.Drawing.Size(23, 23)
+        Me.num_Width.Size = New System.Drawing.Size(20, 23)
         Me.num_Width.TabIndex = 32
         '
         'Gbox_Scale
@@ -1768,6 +1772,16 @@ Partial Class PowerPanel
         Me.Size_OriginalHeight.Text = "Height:"
         Me.Size_OriginalHeight.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
+        'btn_ShowNotes
+        '
+        Me.btn_ShowNotes.Dock = System.Windows.Forms.DockStyle.Top
+        Me.btn_ShowNotes.Location = New System.Drawing.Point(0, 0)
+        Me.btn_ShowNotes.Name = "btn_ShowNotes"
+        Me.btn_ShowNotes.Size = New System.Drawing.Size(262, 40)
+        Me.btn_ShowNotes.TabIndex = 5
+        Me.btn_ShowNotes.Text = "Show Notes"
+        Me.btn_ShowNotes.UseVisualStyleBackColor = True
+        '
         'TabPage_FillAndLine
         '
         Me.TabPage_FillAndLine.BackColor = System.Drawing.SystemColors.Control
@@ -1775,7 +1789,7 @@ Partial Class PowerPanel
         Me.TabPage_FillAndLine.Location = New System.Drawing.Point(4, 22)
         Me.TabPage_FillAndLine.Name = "TabPage_FillAndLine"
         Me.TabPage_FillAndLine.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage_FillAndLine.Size = New System.Drawing.Size(268, 314)
+        Me.TabPage_FillAndLine.Size = New System.Drawing.Size(268, 469)
         Me.TabPage_FillAndLine.TabIndex = 1
         Me.TabPage_FillAndLine.Text = "Fill And Line"
         '
@@ -1783,10 +1797,11 @@ Partial Class PowerPanel
         '
         Me.panel_FillAndLine.AutoScroll = True
         Me.panel_FillAndLine.Controls.Add(Me.Scont_Fill)
+        Me.panel_FillAndLine.Controls.Add(Me.btn_ShowNotes2)
         Me.panel_FillAndLine.Dock = System.Windows.Forms.DockStyle.Fill
         Me.panel_FillAndLine.Location = New System.Drawing.Point(3, 3)
         Me.panel_FillAndLine.Name = "panel_FillAndLine"
-        Me.panel_FillAndLine.Size = New System.Drawing.Size(262, 308)
+        Me.panel_FillAndLine.Size = New System.Drawing.Size(262, 463)
         Me.panel_FillAndLine.TabIndex = 0
         '
         'Scont_Fill
@@ -1794,7 +1809,7 @@ Partial Class PowerPanel
         Me.Scont_Fill.Dock = System.Windows.Forms.DockStyle.Top
         Me.Scont_Fill.FixedPanel = System.Windows.Forms.FixedPanel.Panel1
         Me.Scont_Fill.IsSplitterFixed = True
-        Me.Scont_Fill.Location = New System.Drawing.Point(0, 0)
+        Me.Scont_Fill.Location = New System.Drawing.Point(0, 40)
         Me.Scont_Fill.Name = "Scont_Fill"
         Me.Scont_Fill.Orientation = System.Windows.Forms.Orientation.Horizontal
         '
@@ -1811,7 +1826,7 @@ Partial Class PowerPanel
         Me.Scont_Fill.Panel2.Controls.Add(Me.Scont_GradentFill)
         Me.Scont_Fill.Panel2.Controls.Add(Me.Scont_SolidFill)
         Me.Scont_Fill.Panel2.Controls.Add(Me.Panel_NoFill)
-        Me.Scont_Fill.Size = New System.Drawing.Size(245, 400)
+        Me.Scont_Fill.Size = New System.Drawing.Size(245, 450)
         Me.Scont_Fill.TabIndex = 0
         '
         'chkbx_Fill
@@ -1836,9 +1851,9 @@ Partial Class PowerPanel
         '
         Me.Panel_BackgroundFill.Controls.Add(Me.Rbtn_BackgroundFill)
         Me.Panel_BackgroundFill.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Panel_BackgroundFill.Location = New System.Drawing.Point(0, 250)
+        Me.Panel_BackgroundFill.Location = New System.Drawing.Point(0, 600)
         Me.Panel_BackgroundFill.Name = "Panel_BackgroundFill"
-        Me.Panel_BackgroundFill.Size = New System.Drawing.Size(245, 50)
+        Me.Panel_BackgroundFill.Size = New System.Drawing.Size(228, 50)
         Me.Panel_BackgroundFill.TabIndex = 4
         '
         'Rbtn_BackgroundFill
@@ -1850,7 +1865,7 @@ Partial Class PowerPanel
         Me.Rbtn_BackgroundFill.Font = New System.Drawing.Font("Agency FB", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Rbtn_BackgroundFill.Location = New System.Drawing.Point(0, 0)
         Me.Rbtn_BackgroundFill.Name = "Rbtn_BackgroundFill"
-        Me.Rbtn_BackgroundFill.Size = New System.Drawing.Size(245, 50)
+        Me.Rbtn_BackgroundFill.Size = New System.Drawing.Size(228, 50)
         Me.Rbtn_BackgroundFill.TabIndex = 3
         Me.Rbtn_BackgroundFill.TabStop = True
         Me.Rbtn_BackgroundFill.Text = "Slide BackGround Fill"
@@ -1860,7 +1875,7 @@ Partial Class PowerPanel
         '
         Me.Scont_PatternFilling.Dock = System.Windows.Forms.DockStyle.Top
         Me.Scont_PatternFilling.FixedPanel = System.Windows.Forms.FixedPanel.Panel1
-        Me.Scont_PatternFilling.Location = New System.Drawing.Point(0, 200)
+        Me.Scont_PatternFilling.Location = New System.Drawing.Point(0, 550)
         Me.Scont_PatternFilling.Name = "Scont_PatternFilling"
         Me.Scont_PatternFilling.Orientation = System.Windows.Forms.Orientation.Horizontal
         '
@@ -1872,7 +1887,7 @@ Partial Class PowerPanel
         '
         Me.Scont_PatternFilling.Panel2.Controls.Add(Me.TLP_Ptrnfill1)
         Me.Scont_PatternFilling.Panel2Collapsed = True
-        Me.Scont_PatternFilling.Size = New System.Drawing.Size(245, 50)
+        Me.Scont_PatternFilling.Size = New System.Drawing.Size(228, 50)
         Me.Scont_PatternFilling.TabIndex = 3
         '
         'Rbtn_PatternFilling
@@ -1883,7 +1898,7 @@ Partial Class PowerPanel
         Me.Rbtn_PatternFilling.Font = New System.Drawing.Font("Agency FB", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Rbtn_PatternFilling.Location = New System.Drawing.Point(0, 0)
         Me.Rbtn_PatternFilling.Name = "Rbtn_PatternFilling"
-        Me.Rbtn_PatternFilling.Size = New System.Drawing.Size(245, 50)
+        Me.Rbtn_PatternFilling.Size = New System.Drawing.Size(228, 50)
         Me.Rbtn_PatternFilling.TabIndex = 0
         Me.Rbtn_PatternFilling.Text = "Pattern fill"
         Me.Rbtn_PatternFilling.UseVisualStyleBackColor = True
@@ -2925,8 +2940,7 @@ Partial Class PowerPanel
         'Scont_TextureFill.Panel2
         '
         Me.Scont_TextureFill.Panel2.Controls.Add(Me.TLP_Texture)
-        Me.Scont_TextureFill.Panel2Collapsed = True
-        Me.Scont_TextureFill.Size = New System.Drawing.Size(245, 50)
+        Me.Scont_TextureFill.Size = New System.Drawing.Size(228, 400)
         Me.Scont_TextureFill.TabIndex = 2
         '
         'Rbtn_TextureFill
@@ -2937,7 +2951,7 @@ Partial Class PowerPanel
         Me.Rbtn_TextureFill.Font = New System.Drawing.Font("Agency FB", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Rbtn_TextureFill.Location = New System.Drawing.Point(0, 0)
         Me.Rbtn_TextureFill.Name = "Rbtn_TextureFill"
-        Me.Rbtn_TextureFill.Size = New System.Drawing.Size(245, 50)
+        Me.Rbtn_TextureFill.Size = New System.Drawing.Size(228, 50)
         Me.Rbtn_TextureFill.TabIndex = 0
         Me.Rbtn_TextureFill.TabStop = True
         Me.Rbtn_TextureFill.Text = "Picture or texture fill"
@@ -2962,7 +2976,7 @@ Partial Class PowerPanel
         Me.TLP_Texture.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.TLP_Texture.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32.0!))
         Me.TLP_Texture.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27.0!))
-        Me.TLP_Texture.Size = New System.Drawing.Size(150, 46)
+        Me.TLP_Texture.Size = New System.Drawing.Size(228, 346)
         Me.TLP_Texture.TabIndex = 1
         '
         'Gbox_Texture
@@ -2972,7 +2986,7 @@ Partial Class PowerPanel
         Me.Gbox_Texture.Font = New System.Drawing.Font("Agency FB", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Gbox_Texture.Location = New System.Drawing.Point(4, 4)
         Me.Gbox_Texture.Name = "Gbox_Texture"
-        Me.Gbox_Texture.Size = New System.Drawing.Size(142, 61)
+        Me.Gbox_Texture.Size = New System.Drawing.Size(220, 61)
         Me.Gbox_Texture.TabIndex = 2
         Me.Gbox_Texture.TabStop = False
         Me.Gbox_Texture.Text = "Insert Picture From"
@@ -2991,15 +3005,15 @@ Partial Class PowerPanel
         Me.TLP_InsertTxtureFrom.Name = "TLP_InsertTxtureFrom"
         Me.TLP_InsertTxtureFrom.RowCount = 1
         Me.TLP_InsertTxtureFrom.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TLP_InsertTxtureFrom.Size = New System.Drawing.Size(136, 37)
+        Me.TLP_InsertTxtureFrom.Size = New System.Drawing.Size(214, 37)
         Me.TLP_InsertTxtureFrom.TabIndex = 0
         '
         'btn_ClipboardTexture
         '
         Me.btn_ClipboardTexture.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.btn_ClipboardTexture.Location = New System.Drawing.Point(42, 3)
+        Me.btn_ClipboardTexture.Location = New System.Drawing.Point(65, 3)
         Me.btn_ClipboardTexture.Name = "btn_ClipboardTexture"
-        Me.btn_ClipboardTexture.Size = New System.Drawing.Size(45, 31)
+        Me.btn_ClipboardTexture.Size = New System.Drawing.Size(75, 31)
         Me.btn_ClipboardTexture.TabIndex = 3
         Me.btn_ClipboardTexture.Text = "Clipboard"
         Me.btn_ClipboardTexture.UseVisualStyleBackColor = True
@@ -3009,7 +3023,7 @@ Partial Class PowerPanel
         Me.btn_FileTexture.Dock = System.Windows.Forms.DockStyle.Fill
         Me.btn_FileTexture.Location = New System.Drawing.Point(3, 3)
         Me.btn_FileTexture.Name = "btn_FileTexture"
-        Me.btn_FileTexture.Size = New System.Drawing.Size(33, 31)
+        Me.btn_FileTexture.Size = New System.Drawing.Size(56, 31)
         Me.btn_FileTexture.TabIndex = 2
         Me.btn_FileTexture.Text = "File..."
         Me.btn_FileTexture.UseVisualStyleBackColor = True
@@ -3019,9 +3033,9 @@ Partial Class PowerPanel
         Me.btn_TexturePreset.Appearance = System.Windows.Forms.Appearance.Button
         Me.btn_TexturePreset.AutoSize = True
         Me.btn_TexturePreset.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.btn_TexturePreset.Location = New System.Drawing.Point(93, 3)
+        Me.btn_TexturePreset.Location = New System.Drawing.Point(146, 3)
         Me.btn_TexturePreset.Name = "btn_TexturePreset"
-        Me.btn_TexturePreset.Size = New System.Drawing.Size(40, 31)
+        Me.btn_TexturePreset.Size = New System.Drawing.Size(65, 31)
         Me.btn_TexturePreset.TabIndex = 4
         Me.btn_TexturePreset.Text = "Preset"
         Me.btn_TexturePreset.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -3035,11 +3049,11 @@ Partial Class PowerPanel
         Me.TLP_TranspTexture.Controls.Add(Me.Label8, 0, 0)
         Me.TLP_TranspTexture.Controls.Add(Me.num_TranspTexture, 1, 0)
         Me.TLP_TranspTexture.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TLP_TranspTexture.Location = New System.Drawing.Point(4, -12)
+        Me.TLP_TranspTexture.Location = New System.Drawing.Point(4, 288)
         Me.TLP_TranspTexture.Name = "TLP_TranspTexture"
         Me.TLP_TranspTexture.RowCount = 1
         Me.TLP_TranspTexture.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TLP_TranspTexture.Size = New System.Drawing.Size(142, 26)
+        Me.TLP_TranspTexture.Size = New System.Drawing.Size(220, 26)
         Me.TLP_TranspTexture.TabIndex = 3
         '
         'Label8
@@ -3049,7 +3063,7 @@ Partial Class PowerPanel
         Me.Label8.Font = New System.Drawing.Font("Agency FB", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label8.Location = New System.Drawing.Point(3, 0)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(69, 26)
+        Me.Label8.Size = New System.Drawing.Size(110, 26)
         Me.Label8.TabIndex = 0
         Me.Label8.Text = "Transparency"
         Me.Label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -3057,9 +3071,9 @@ Partial Class PowerPanel
         'num_TranspTexture
         '
         Me.num_TranspTexture.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.num_TranspTexture.Location = New System.Drawing.Point(78, 3)
+        Me.num_TranspTexture.Location = New System.Drawing.Point(119, 3)
         Me.num_TranspTexture.Name = "num_TranspTexture"
-        Me.num_TranspTexture.Size = New System.Drawing.Size(61, 20)
+        Me.num_TranspTexture.Size = New System.Drawing.Size(98, 20)
         Me.num_TranspTexture.TabIndex = 1
         Me.num_TranspTexture.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -3067,7 +3081,7 @@ Partial Class PowerPanel
         '
         Me.chkbx_RotateWithShape.AutoSize = True
         Me.chkbx_RotateWithShape.Font = New System.Drawing.Font("Agency FB", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.chkbx_RotateWithShape.Location = New System.Drawing.Point(4, 21)
+        Me.chkbx_RotateWithShape.Location = New System.Drawing.Point(4, 321)
         Me.chkbx_RotateWithShape.Name = "chkbx_RotateWithShape"
         Me.chkbx_RotateWithShape.Size = New System.Drawing.Size(106, 21)
         Me.chkbx_RotateWithShape.TabIndex = 4
@@ -3094,13 +3108,13 @@ Partial Class PowerPanel
         'Scont_TxtrVsPctr.Panel1
         '
         Me.Scont_TxtrVsPctr.Panel1.Controls.Add(Me.TLP_PictureFill)
+        Me.Scont_TxtrVsPctr.Panel1Collapsed = True
         '
         'Scont_TxtrVsPctr.Panel2
         '
         Me.Scont_TxtrVsPctr.Panel2.Controls.Add(Me.TLP_TextureFill)
-        Me.Scont_TxtrVsPctr.Panel2Collapsed = True
-        Me.Scont_TxtrVsPctr.Size = New System.Drawing.Size(142, 1)
-        Me.Scont_TxtrVsPctr.SplitterDistance = 79
+        Me.Scont_TxtrVsPctr.Size = New System.Drawing.Size(220, 182)
+        Me.Scont_TxtrVsPctr.SplitterDistance = 122
         Me.Scont_TxtrVsPctr.TabIndex = 6
         '
         'TLP_PictureFill
@@ -3125,7 +3139,7 @@ Partial Class PowerPanel
         Me.TLP_PictureFill.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
         Me.TLP_PictureFill.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
         Me.TLP_PictureFill.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
-        Me.TLP_PictureFill.Size = New System.Drawing.Size(142, 1)
+        Me.TLP_PictureFill.Size = New System.Drawing.Size(122, 100)
         Me.TLP_PictureFill.TabIndex = 0
         '
         'Label10
@@ -3134,7 +3148,7 @@ Partial Class PowerPanel
         Me.Label10.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label10.Location = New System.Drawing.Point(5, 2)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(80, 1)
+        Me.Label10.Size = New System.Drawing.Size(80, 22)
         Me.Label10.TabIndex = 0
         Me.Label10.Text = "Offset Left :"
         '
@@ -3142,9 +3156,9 @@ Partial Class PowerPanel
         '
         Me.Label12.AutoSize = True
         Me.Label12.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label12.Location = New System.Drawing.Point(5, 3)
+        Me.Label12.Location = New System.Drawing.Point(5, 26)
         Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(80, 1)
+        Me.Label12.Size = New System.Drawing.Size(80, 22)
         Me.Label12.TabIndex = 1
         Me.Label12.Text = "Offset Right :"
         '
@@ -3152,9 +3166,9 @@ Partial Class PowerPanel
         '
         Me.Label14.AutoSize = True
         Me.Label14.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label14.Location = New System.Drawing.Point(5, 4)
+        Me.Label14.Location = New System.Drawing.Point(5, 50)
         Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(80, 1)
+        Me.Label14.Size = New System.Drawing.Size(80, 22)
         Me.Label14.TabIndex = 2
         Me.Label14.Text = "Offset Top :"
         '
@@ -3162,9 +3176,9 @@ Partial Class PowerPanel
         '
         Me.Label16.AutoSize = True
         Me.Label16.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label16.Location = New System.Drawing.Point(5, 5)
+        Me.Label16.Location = New System.Drawing.Point(5, 74)
         Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(80, 1)
+        Me.Label16.Size = New System.Drawing.Size(80, 24)
         Me.Label16.TabIndex = 3
         Me.Label16.Text = "Offset Bottom :"
         '
@@ -3173,34 +3187,34 @@ Partial Class PowerPanel
         Me.num_offsetleft.Dock = System.Windows.Forms.DockStyle.Fill
         Me.num_offsetleft.Location = New System.Drawing.Point(93, 5)
         Me.num_offsetleft.Name = "num_offsetleft"
-        Me.num_offsetleft.Size = New System.Drawing.Size(44, 20)
+        Me.num_offsetleft.Size = New System.Drawing.Size(24, 20)
         Me.num_offsetleft.TabIndex = 4
         Me.num_offsetleft.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'num_offsetright
         '
         Me.num_offsetright.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.num_offsetright.Location = New System.Drawing.Point(93, 6)
+        Me.num_offsetright.Location = New System.Drawing.Point(93, 29)
         Me.num_offsetright.Name = "num_offsetright"
-        Me.num_offsetright.Size = New System.Drawing.Size(44, 20)
+        Me.num_offsetright.Size = New System.Drawing.Size(24, 20)
         Me.num_offsetright.TabIndex = 5
         Me.num_offsetright.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'num_offsettop
         '
         Me.num_offsettop.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.num_offsettop.Location = New System.Drawing.Point(93, 7)
+        Me.num_offsettop.Location = New System.Drawing.Point(93, 53)
         Me.num_offsettop.Name = "num_offsettop"
-        Me.num_offsettop.Size = New System.Drawing.Size(44, 20)
+        Me.num_offsettop.Size = New System.Drawing.Size(24, 20)
         Me.num_offsettop.TabIndex = 6
         Me.num_offsettop.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'num_offsetbot
         '
         Me.num_offsetbot.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.num_offsetbot.Location = New System.Drawing.Point(93, 8)
+        Me.num_offsetbot.Location = New System.Drawing.Point(93, 77)
         Me.num_offsetbot.Name = "num_offsetbot"
-        Me.num_offsetbot.Size = New System.Drawing.Size(44, 20)
+        Me.num_offsetbot.Size = New System.Drawing.Size(24, 20)
         Me.num_offsetbot.TabIndex = 7
         Me.num_offsetbot.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -3231,7 +3245,7 @@ Partial Class PowerPanel
         Me.TLP_TextureFill.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667!))
         Me.TLP_TextureFill.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667!))
         Me.TLP_TextureFill.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667!))
-        Me.TLP_TextureFill.Size = New System.Drawing.Size(96, 100)
+        Me.TLP_TextureFill.Size = New System.Drawing.Size(220, 182)
         Me.TLP_TextureFill.TabIndex = 0
         '
         'Label17
@@ -3241,7 +3255,7 @@ Partial Class PowerPanel
         Me.Label17.Font = New System.Drawing.Font("Agency FB", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label17.Location = New System.Drawing.Point(3, 0)
         Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(70, 16)
+        Me.Label17.Size = New System.Drawing.Size(70, 30)
         Me.Label17.TabIndex = 0
         Me.Label17.Text = "Offset X :"
         Me.Label17.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -3251,9 +3265,9 @@ Partial Class PowerPanel
         Me.Label18.AutoSize = True
         Me.Label18.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label18.Font = New System.Drawing.Font("Agency FB", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label18.Location = New System.Drawing.Point(3, 16)
+        Me.Label18.Location = New System.Drawing.Point(3, 30)
         Me.Label18.Name = "Label18"
-        Me.Label18.Size = New System.Drawing.Size(70, 16)
+        Me.Label18.Size = New System.Drawing.Size(70, 30)
         Me.Label18.TabIndex = 1
         Me.Label18.Text = "Offset Y :"
         Me.Label18.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -3263,9 +3277,9 @@ Partial Class PowerPanel
         Me.Label21.AutoSize = True
         Me.Label21.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label21.Font = New System.Drawing.Font("Agency FB", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label21.Location = New System.Drawing.Point(3, 32)
+        Me.Label21.Location = New System.Drawing.Point(3, 60)
         Me.Label21.Name = "Label21"
-        Me.Label21.Size = New System.Drawing.Size(70, 16)
+        Me.Label21.Size = New System.Drawing.Size(70, 30)
         Me.Label21.TabIndex = 4
         Me.Label21.Text = "Scale X:"
         Me.Label21.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -3275,9 +3289,9 @@ Partial Class PowerPanel
         Me.Label22.AutoSize = True
         Me.Label22.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label22.Font = New System.Drawing.Font("Agency FB", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label22.Location = New System.Drawing.Point(3, 48)
+        Me.Label22.Location = New System.Drawing.Point(3, 90)
         Me.Label22.Name = "Label22"
-        Me.Label22.Size = New System.Drawing.Size(70, 16)
+        Me.Label22.Size = New System.Drawing.Size(70, 30)
         Me.Label22.TabIndex = 5
         Me.Label22.Text = "Scale Y :"
         Me.Label22.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -3287,9 +3301,9 @@ Partial Class PowerPanel
         Me.Label20.AutoSize = True
         Me.Label20.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label20.Font = New System.Drawing.Font("Agency FB", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label20.Location = New System.Drawing.Point(3, 64)
+        Me.Label20.Location = New System.Drawing.Point(3, 120)
         Me.Label20.Name = "Label20"
-        Me.Label20.Size = New System.Drawing.Size(70, 16)
+        Me.Label20.Size = New System.Drawing.Size(70, 30)
         Me.Label20.TabIndex = 3
         Me.Label20.Text = "Alignment :"
         Me.Label20.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -3299,9 +3313,9 @@ Partial Class PowerPanel
         Me.Label19.AutoSize = True
         Me.Label19.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label19.Font = New System.Drawing.Font("Agency FB", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label19.Location = New System.Drawing.Point(3, 80)
+        Me.Label19.Location = New System.Drawing.Point(3, 150)
         Me.Label19.Name = "Label19"
-        Me.Label19.Size = New System.Drawing.Size(70, 20)
+        Me.Label19.Size = New System.Drawing.Size(70, 32)
         Me.Label19.TabIndex = 2
         Me.Label19.Text = "Mirror :"
         Me.Label19.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -3312,7 +3326,7 @@ Partial Class PowerPanel
         Me.num_OffsetX.Font = New System.Drawing.Font("Agency FB", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.num_OffsetX.Location = New System.Drawing.Point(79, 3)
         Me.num_OffsetX.Name = "num_OffsetX"
-        Me.num_OffsetX.Size = New System.Drawing.Size(14, 22)
+        Me.num_OffsetX.Size = New System.Drawing.Size(138, 22)
         Me.num_OffsetX.TabIndex = 6
         Me.num_OffsetX.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -3320,9 +3334,9 @@ Partial Class PowerPanel
         '
         Me.num_offsetY.Dock = System.Windows.Forms.DockStyle.Fill
         Me.num_offsetY.Font = New System.Drawing.Font("Agency FB", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.num_offsetY.Location = New System.Drawing.Point(79, 19)
+        Me.num_offsetY.Location = New System.Drawing.Point(79, 33)
         Me.num_offsetY.Name = "num_offsetY"
-        Me.num_offsetY.Size = New System.Drawing.Size(14, 22)
+        Me.num_offsetY.Size = New System.Drawing.Size(138, 22)
         Me.num_offsetY.TabIndex = 7
         Me.num_offsetY.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -3330,9 +3344,9 @@ Partial Class PowerPanel
         '
         Me.num_ScaleXFill.Dock = System.Windows.Forms.DockStyle.Fill
         Me.num_ScaleXFill.Font = New System.Drawing.Font("Agency FB", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.num_ScaleXFill.Location = New System.Drawing.Point(79, 35)
+        Me.num_ScaleXFill.Location = New System.Drawing.Point(79, 63)
         Me.num_ScaleXFill.Name = "num_ScaleXFill"
-        Me.num_ScaleXFill.Size = New System.Drawing.Size(14, 22)
+        Me.num_ScaleXFill.Size = New System.Drawing.Size(138, 22)
         Me.num_ScaleXFill.TabIndex = 8
         Me.num_ScaleXFill.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -3340,9 +3354,9 @@ Partial Class PowerPanel
         '
         Me.num_ScaleYFill.Dock = System.Windows.Forms.DockStyle.Fill
         Me.num_ScaleYFill.Font = New System.Drawing.Font("Agency FB", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.num_ScaleYFill.Location = New System.Drawing.Point(79, 51)
+        Me.num_ScaleYFill.Location = New System.Drawing.Point(79, 93)
         Me.num_ScaleYFill.Name = "num_ScaleYFill"
-        Me.num_ScaleYFill.Size = New System.Drawing.Size(14, 22)
+        Me.num_ScaleYFill.Size = New System.Drawing.Size(138, 22)
         Me.num_ScaleYFill.TabIndex = 9
         Me.num_ScaleYFill.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -3351,9 +3365,9 @@ Partial Class PowerPanel
         Me.cbox_AlignmentTexture.Dock = System.Windows.Forms.DockStyle.Fill
         Me.cbox_AlignmentTexture.FormattingEnabled = True
         Me.cbox_AlignmentTexture.Items.AddRange(New Object() {"Top Left", "Top", "Top Right", "Left", "Center", "Right", "Bottom Left", "Bottom", "Bottom Right"})
-        Me.cbox_AlignmentTexture.Location = New System.Drawing.Point(79, 67)
+        Me.cbox_AlignmentTexture.Location = New System.Drawing.Point(79, 123)
         Me.cbox_AlignmentTexture.Name = "cbox_AlignmentTexture"
-        Me.cbox_AlignmentTexture.Size = New System.Drawing.Size(14, 21)
+        Me.cbox_AlignmentTexture.Size = New System.Drawing.Size(138, 21)
         Me.cbox_AlignmentTexture.TabIndex = 10
         '
         'cbox_MirrorTexture
@@ -3361,9 +3375,9 @@ Partial Class PowerPanel
         Me.cbox_MirrorTexture.Dock = System.Windows.Forms.DockStyle.Fill
         Me.cbox_MirrorTexture.FormattingEnabled = True
         Me.cbox_MirrorTexture.Items.AddRange(New Object() {"None", "Horizontal", "Vertical", "Both"})
-        Me.cbox_MirrorTexture.Location = New System.Drawing.Point(79, 83)
+        Me.cbox_MirrorTexture.Location = New System.Drawing.Point(79, 153)
         Me.cbox_MirrorTexture.Name = "cbox_MirrorTexture"
-        Me.cbox_MirrorTexture.Size = New System.Drawing.Size(14, 21)
+        Me.cbox_MirrorTexture.Size = New System.Drawing.Size(138, 21)
         Me.cbox_MirrorTexture.TabIndex = 11
         '
         'Scont_GradentFill
@@ -3382,7 +3396,7 @@ Partial Class PowerPanel
         '
         Me.Scont_GradentFill.Panel2.Controls.Add(Me.TLP_GradientFill)
         Me.Scont_GradentFill.Panel2Collapsed = True
-        Me.Scont_GradentFill.Size = New System.Drawing.Size(245, 50)
+        Me.Scont_GradentFill.Size = New System.Drawing.Size(228, 50)
         Me.Scont_GradentFill.TabIndex = 2
         '
         'Rbtn_Gradient
@@ -3394,7 +3408,7 @@ Partial Class PowerPanel
         Me.Rbtn_Gradient.Font = New System.Drawing.Font("Agency FB", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Rbtn_Gradient.Location = New System.Drawing.Point(0, 0)
         Me.Rbtn_Gradient.Name = "Rbtn_Gradient"
-        Me.Rbtn_Gradient.Size = New System.Drawing.Size(245, 50)
+        Me.Rbtn_Gradient.Size = New System.Drawing.Size(228, 50)
         Me.Rbtn_Gradient.TabIndex = 0
         Me.Rbtn_Gradient.TabStop = True
         Me.Rbtn_Gradient.Text = "Gradient Fill"
@@ -3482,7 +3496,7 @@ Partial Class PowerPanel
         '
         Me.Scont_SolidFill.Panel2.Controls.Add(Me.TLP_SolidFill)
         Me.Scont_SolidFill.Panel2Collapsed = True
-        Me.Scont_SolidFill.Size = New System.Drawing.Size(245, 50)
+        Me.Scont_SolidFill.Size = New System.Drawing.Size(228, 50)
         Me.Scont_SolidFill.TabIndex = 1
         '
         'Rbtn_SolidFill
@@ -3493,7 +3507,7 @@ Partial Class PowerPanel
         Me.Rbtn_SolidFill.Font = New System.Drawing.Font("Agency FB", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Rbtn_SolidFill.Location = New System.Drawing.Point(0, 0)
         Me.Rbtn_SolidFill.Name = "Rbtn_SolidFill"
-        Me.Rbtn_SolidFill.Size = New System.Drawing.Size(245, 50)
+        Me.Rbtn_SolidFill.Size = New System.Drawing.Size(228, 50)
         Me.Rbtn_SolidFill.TabIndex = 0
         Me.Rbtn_SolidFill.TabStop = True
         Me.Rbtn_SolidFill.Text = "Solid Fill"
@@ -3572,7 +3586,7 @@ Partial Class PowerPanel
         Me.Panel_NoFill.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel_NoFill.Location = New System.Drawing.Point(0, 0)
         Me.Panel_NoFill.Name = "Panel_NoFill"
-        Me.Panel_NoFill.Size = New System.Drawing.Size(245, 50)
+        Me.Panel_NoFill.Size = New System.Drawing.Size(228, 50)
         Me.Panel_NoFill.TabIndex = 5
         '
         'Rbtn_NoFill
@@ -3584,11 +3598,21 @@ Partial Class PowerPanel
         Me.Rbtn_NoFill.Font = New System.Drawing.Font("Agency FB", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Rbtn_NoFill.Location = New System.Drawing.Point(0, 0)
         Me.Rbtn_NoFill.Name = "Rbtn_NoFill"
-        Me.Rbtn_NoFill.Size = New System.Drawing.Size(245, 50)
+        Me.Rbtn_NoFill.Size = New System.Drawing.Size(228, 50)
         Me.Rbtn_NoFill.TabIndex = 3
         Me.Rbtn_NoFill.TabStop = True
         Me.Rbtn_NoFill.Text = "No Fill"
         Me.Rbtn_NoFill.UseVisualStyleBackColor = True
+        '
+        'btn_ShowNotes2
+        '
+        Me.btn_ShowNotes2.Dock = System.Windows.Forms.DockStyle.Top
+        Me.btn_ShowNotes2.Location = New System.Drawing.Point(0, 0)
+        Me.btn_ShowNotes2.Name = "btn_ShowNotes2"
+        Me.btn_ShowNotes2.Size = New System.Drawing.Size(245, 40)
+        Me.btn_ShowNotes2.TabIndex = 1
+        Me.btn_ShowNotes2.Text = "Show Notes"
+        Me.btn_ShowNotes2.UseVisualStyleBackColor = True
         '
         'Scont_C
         '
@@ -3606,8 +3630,8 @@ Partial Class PowerPanel
         'Scont_C.Panel2
         '
         Me.Scont_C.Panel2.Controls.Add(Me.TLP_SHOWHIDE)
-        Me.Scont_C.Size = New System.Drawing.Size(276, 147)
-        Me.Scont_C.SplitterDistance = 76
+        Me.Scont_C.Size = New System.Drawing.Size(150, 46)
+        Me.Scont_C.SplitterDistance = 75
         Me.Scont_C.TabIndex = 0
         '
         'TLP_Notes
@@ -3623,7 +3647,7 @@ Partial Class PowerPanel
         Me.TLP_Notes.RowCount = 2
         Me.TLP_Notes.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.66667!))
         Me.TLP_Notes.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 49.33333!))
-        Me.TLP_Notes.Size = New System.Drawing.Size(276, 76)
+        Me.TLP_Notes.Size = New System.Drawing.Size(276, 75)
         Me.TLP_Notes.TabIndex = 1
         '
         'TLP_NotesTools1
@@ -3744,7 +3768,7 @@ Partial Class PowerPanel
         Me.cboxFontFamily.Dock = System.Windows.Forms.DockStyle.Fill
         Me.cboxFontFamily.Font = New System.Drawing.Font("Agency FB", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboxFontFamily.FormattingEnabled = True
-        Me.cboxFontFamily.Items.AddRange(New Object() {"Agency FB", "Agency FB Bold", "Algerian", "Arial Narrow", "Arial Narrow Bold", "Arial Narrow Bold Italic", "Arial Narrow Italic", "Arial Rounded MT Bold", "Arial Unicode MS", "Baskerville Old Face", "Bauhaus 93", "Bell MT", "Bell MT Bold", "Bell MT Italic", "Berlin Sans FB", "Berlin Sans FB Bold", "Berlin Sans FB Demi Bold", "Bernard MT Condensed", "Blackadder ITC", "Bodoni MT", "Bodoni MT Black", "Bodoni MT Black Italic", "Bodoni MT Bold", "Bodoni MT Bold Italic", "Bodoni MT Condensed", "Bodoni MT Condensed Bold", "Bodoni MT Condensed Bold Italic", "Bodoni MT Condensed Italic", "Bodoni MT Italic", "Bodoni MT Poster Compressed", "Book Antiqua", "Book Antiqua Bold", "Book Antiqua Bold Italic", "Book Antiqua Italic", "Bookman Old Style", "Bookman Old Style Bold", "Bookman Old Style Bold Italic", "Bookman Old Style Italic", "Bradley Hand ITC", "Britannic Bold", "Broadway", "Brush Script MT Italic", "Calibri", "Calibri Bold", "Calibri Bold Italic", "Calibri Italic", "Californian FB", "Californian FB Bold", "Californian FB Italic", "Calisto MT", "Calisto MT Bold", "Calisto MT Bold Italic", "Calisto MT Italic", "Cambria & Cambria Math", "Cambria Bold", "Candara", "Candara Bold", "Candara Italic", "Candara Bold Italic", "Centaur", "Century", "Century Gothic", "Century Gothic Bold", "Century Gothic Italic", "Century Schoolbook", "Century Schoolbook Bold", "Century Schoolbook Bold Italic", "Century Schoolbook Italic", "Chiller", "Colonna MT", "Consolas", "Consolas Bold", "Consolas Bold Italic", "Consolas Italic", "Constantia", "Constantia Bold", "Constantia Bold Italic", "Constantia Italic", "Cooper Black", "Copperplate Gothic Bold", "Copperplate Gothic Light", "Corbel", "Corbel Bold", "Corbel Bold Italic", "Corbel Italic", "Curlz MT", "Edwardian Script ITC", "Elephant", "Elephant Italic", "Engraveras", "Eras Bold ITC", "Eras Demi ITC", "Eras Light ITC", "Eras Medium ITC", "Felix Titling", "Footlight MT Light", "Forte", "Franklin", "Gothic Book", "Franklin Gothic Book Italic", "Franklin Gothic Demi", "Franklin Gothic Demi Cond", "Franklin Gothic Demi Italic", "Franklin Gothic Heavy", "Franklin Gothic Heavy Italic", "Franklin Gothic Medium Cond", "Freestyle Script", "French Script MT", "Garamond", "Garamond Bold", "Garamond Italic", "Gigi", "Gill Sans MT", "Gill Sans MT Bold", "Gill Sans MT Bold Italic", "Gill Sans MT Condensed", "Gill Sans MT Ext Condensed Bold", "Gill Sans MT Italic", "Gill Sans Ultra Bold", "Gill Sans Ultra Bold Condensed", "Gloucester MT Extra Condensed", "Goudy Old Style", "Goudy Old Style Bold", "Goudy Old Style Italic", "Goudy Stout", "Haettenschweiler", "Harlow Solid Italic", "Harrington", "High Tower Text", "High Tower Text Italic", "Imprint MT Shadow", "Informal Roman", "Jokerman", "Juice ITC", "Kristen ITC", "Kunstler Script", "Lucida Bright", "Lucida Bright Demibold", "Lucida Bright Demibold Italic", "Lucida Bright Italic", "Lucida Calligraphy Italic", "Lucida Fax Demibold", "Lucida Fax Demibold Italic", "Lucida Fax Italic", "Lucida Fax Regular", "Lucida Handwriting Italic", "Lucida Sans Demibold Italic", "Lucida Sans Demibold Roman", "Lucida Sans Italic", "Lucida Sans Regular", "Lucida Sans Typewriter Bold", "Lucida Sans Typewriter Bold Oblique", "Lucida Sans Typewriter Oblique", "Lucida Sans Typewriter Regular", "Magneto Bold", "Maiandra GD", "Matura MT Script Capitals", "Mistral", "Modern No. 20", "Monotype Corsiva", "MS Mincho", "MS Outlook", "MS Reference Sans Serif", "MS Reference Specialty", "MT Extra", "Niagara Engraved", "Niagara Solid", "OCR A Extended", "Old English Text MT", "Onyx", "Palace Script MT", "Palatino Linotype", "Palatino Linotype Bold", "Palatino Linotype Bold Italic", "Palatino Linotype Italic", "Papyrus", "Parchment", "Perpetua", "Perpetua Bold", "Perpetua Bold Italic", "Perpetua Italic", "Perpetua Titling MT Bold", "Perpetua Titling MT Light", "Playbill", "Poor Richard", "Pristina", "Rage Italic", "Ravie Rockwell", "Rockwell Bold", "Rockwell Bold Italic", "Rockwell Condensed", "Rockwell Condensed Bold", "Rockwell Extra Bold", "Rockwell Italic", "Script MT Bold", "Segoe UI*", "Segoe UI Bold*", "Segoe UI Bold Italic*", "Segoe UI Italic*", "Showcard Gothic", "Snap ITC", "Stencil", "Tempus Sans ITC", "Tw Cen MT", "Tw Cen MT Bold", "Tw Cen MT Bold Italic", "Tw Cen MT Condensed", "Tw Cen MT Condensed Bold", "Tw Cen MT Condensed Extra Bold", "Tw Cen MT Italic", "Viner Hand ITC", "Vivaldi Italic", "Vladimir Script", "Wide Latin", "Wingdings 2", "Wingdings 3"})
+        Me.cboxFontFamily.Items.AddRange(New Object() {"Agency FB", "Agency FB Bold", "Algerian", "Arial Narrow", "Arial Narrow Bold", "Arial Narrow Bold Italic", "Arial Narrow Italic", "Arial Rounded MT Bold", "Arial Unicode MS", "Baskerville Old Face", "Bauhaus 93", "Bell MT", "Bell MT Bold", "Bell MT Italic", "Berlin Sans FB", "Berlin Sans FB Bold", "Berlin Sans FB Demi Bold", "Bernard MT Condensed", "Blackadder ITC", "Bodoni MT", "Bodoni MT Black", "Bodoni MT Black Italic", "Bodoni MT Bold", "Bodoni MT Bold Italic", "Bodoni MT Condensed", "Bodoni MT Condensed Bold", "Bodoni MT Condensed Bold Italic", "Bodoni MT Condensed Italic", "Bodoni MT Italic", "Bodoni MT Poster Compressed", "Book Antiqua", "Book Antiqua Bold", "Book Antiqua Bold Italic", "Book Antiqua Italic", "Bookman Old Style", "Bookman Old Style Bold", "Bookman Old Style Bold Italic", "Bookman Old Style Italic", "Bradley Hand ITC", "Britannic Bold", "Broadway", "Brush Script MT Italic", "Calibri", "Calibri Bold", "Calibri Bold Italic", "Calibri Italic", "Calibri Light (Headings)", "Californian FB", "Californian FB Bold", "Californian FB Italic", "Calisto MT", "Calisto MT Bold", "Calisto MT Bold Italic", "Calisto MT Italic", "Cambria & Cambria Math", "Cambria Bold", "Candara", "Candara Bold", "Candara Italic", "Candara Bold Italic", "Centaur", "Century", "Century Gothic", "Century Gothic Bold", "Century Gothic Italic", "Century Schoolbook", "Century Schoolbook Bold", "Century Schoolbook Bold Italic", "Century Schoolbook Italic", "Chiller", "Colonna MT", "Consolas", "Consolas Bold", "Consolas Bold Italic", "Consolas Italic", "Constantia", "Constantia Bold", "Constantia Bold Italic", "Constantia Italic", "Cooper Black", "Copperplate Gothic Bold", "Copperplate Gothic Light", "Corbel", "Corbel Bold", "Corbel Bold Italic", "Corbel Italic", "Curlz MT", "Edwardian Script ITC", "Elephant", "Elephant Italic", "Engraveras", "Eras Bold ITC", "Eras Demi ITC", "Eras Light ITC", "Eras Medium ITC", "Felix Titling", "Footlight MT Light", "Forte", "Franklin", "Gothic Book", "Franklin Gothic Book Italic", "Franklin Gothic Demi", "Franklin Gothic Demi Cond", "Franklin Gothic Demi Italic", "Franklin Gothic Heavy", "Franklin Gothic Heavy Italic", "Franklin Gothic Medium Cond", "Freestyle Script", "French Script MT", "Garamond", "Garamond Bold", "Garamond Italic", "Gigi", "Gill Sans MT", "Gill Sans MT Bold", "Gill Sans MT Bold Italic", "Gill Sans MT Condensed", "Gill Sans MT Ext Condensed Bold", "Gill Sans MT Italic", "Gill Sans Ultra Bold", "Gill Sans Ultra Bold Condensed", "Gloucester MT Extra Condensed", "Goudy Old Style", "Goudy Old Style Bold", "Goudy Old Style Italic", "Goudy Stout", "Haettenschweiler", "Harlow Solid Italic", "Harrington", "High Tower Text", "High Tower Text Italic", "Imprint MT Shadow", "Informal Roman", "Jokerman", "Juice ITC", "Kristen ITC", "Kunstler Script", "Lucida Bright", "Lucida Bright Demibold", "Lucida Bright Demibold Italic", "Lucida Bright Italic", "Lucida Calligraphy Italic", "Lucida Fax Demibold", "Lucida Fax Demibold Italic", "Lucida Fax Italic", "Lucida Fax Regular", "Lucida Handwriting Italic", "Lucida Sans Demibold Italic", "Lucida Sans Demibold Roman", "Lucida Sans Italic", "Lucida Sans Regular", "Lucida Sans Typewriter Bold", "Lucida Sans Typewriter Bold Oblique", "Lucida Sans Typewriter Oblique", "Lucida Sans Typewriter Regular", "Magneto Bold", "Maiandra GD", "Matura MT Script Capitals", "Mistral", "Modern No. 20", "Monotype Corsiva", "MS Mincho", "MS Outlook", "MS Reference Sans Serif", "MS Reference Specialty", "MT Extra", "Niagara Engraved", "Niagara Solid", "OCR A Extended", "Old English Text MT", "Onyx", "Palace Script MT", "Palatino Linotype", "Palatino Linotype Bold", "Palatino Linotype Bold Italic", "Palatino Linotype Italic", "Papyrus", "Parchment", "Perpetua", "Perpetua Bold", "Perpetua Bold Italic", "Perpetua Italic", "Perpetua Titling MT Bold", "Perpetua Titling MT Light", "Playbill", "Poor Richard", "Pristina", "Rage Italic", "Ravie Rockwell", "Rockwell Bold", "Rockwell Bold Italic", "Rockwell Condensed", "Rockwell Condensed Bold", "Rockwell Extra Bold", "Rockwell Italic", "Script MT Bold", "Segoe UI*", "Segoe UI Bold*", "Segoe UI Bold Italic*", "Segoe UI Italic*", "Showcard Gothic", "Snap ITC", "Stencil", "Tempus Sans ITC", "Tw Cen MT", "Tw Cen MT Bold", "Tw Cen MT Bold Italic", "Tw Cen MT Condensed", "Tw Cen MT Condensed Bold", "Tw Cen MT Condensed Extra Bold", "Tw Cen MT Italic", "Viner Hand ITC", "Vivaldi Italic", "Vladimir Script", "Wide Latin", "Wingdings 2", "Wingdings 3"})
         Me.cboxFontFamily.Location = New System.Drawing.Point(3, 3)
         Me.cboxFontFamily.Name = "cboxFontFamily"
         Me.cboxFontFamily.Size = New System.Drawing.Size(107, 25)
@@ -3778,7 +3802,7 @@ Partial Class PowerPanel
         Me.TLP_NotesTools2.Name = "TLP_NotesTools2"
         Me.TLP_NotesTools2.RowCount = 1
         Me.TLP_NotesTools2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TLP_NotesTools2.Size = New System.Drawing.Size(270, 32)
+        Me.TLP_NotesTools2.Size = New System.Drawing.Size(270, 31)
         Me.TLP_NotesTools2.TabIndex = 0
         '
         'btnUnderline
@@ -3795,7 +3819,7 @@ Partial Class PowerPanel
         Me.btnUnderline.Location = New System.Drawing.Point(54, 0)
         Me.btnUnderline.Margin = New System.Windows.Forms.Padding(0)
         Me.btnUnderline.Name = "btnUnderline"
-        Me.btnUnderline.Size = New System.Drawing.Size(27, 32)
+        Me.btnUnderline.Size = New System.Drawing.Size(27, 31)
         Me.btnUnderline.TabIndex = 6
         Me.btnUnderline.UseVisualStyleBackColor = True
         '
@@ -3813,7 +3837,7 @@ Partial Class PowerPanel
         Me.btn_WrapText.Location = New System.Drawing.Point(243, 0)
         Me.btn_WrapText.Margin = New System.Windows.Forms.Padding(0)
         Me.btn_WrapText.Name = "btn_WrapText"
-        Me.btn_WrapText.Size = New System.Drawing.Size(27, 32)
+        Me.btn_WrapText.Size = New System.Drawing.Size(27, 31)
         Me.btn_WrapText.TabIndex = 9
         Me.btn_WrapText.UseVisualStyleBackColor = True
         '
@@ -3831,7 +3855,7 @@ Partial Class PowerPanel
         Me.btnItalic.Location = New System.Drawing.Point(27, 0)
         Me.btnItalic.Margin = New System.Windows.Forms.Padding(0)
         Me.btnItalic.Name = "btnItalic"
-        Me.btnItalic.Size = New System.Drawing.Size(27, 32)
+        Me.btnItalic.Size = New System.Drawing.Size(27, 31)
         Me.btnItalic.TabIndex = 5
         Me.btnItalic.UseVisualStyleBackColor = True
         '
@@ -3847,7 +3871,7 @@ Partial Class PowerPanel
         Me.btnPaste.Location = New System.Drawing.Point(216, 0)
         Me.btnPaste.Margin = New System.Windows.Forms.Padding(0)
         Me.btnPaste.Name = "btnPaste"
-        Me.btnPaste.Size = New System.Drawing.Size(27, 32)
+        Me.btnPaste.Size = New System.Drawing.Size(27, 31)
         Me.btnPaste.TabIndex = 8
         Me.btnPaste.UseVisualStyleBackColor = True
         '
@@ -3865,7 +3889,7 @@ Partial Class PowerPanel
         Me.btnBold.Location = New System.Drawing.Point(0, 0)
         Me.btnBold.Margin = New System.Windows.Forms.Padding(0)
         Me.btnBold.Name = "btnBold"
-        Me.btnBold.Size = New System.Drawing.Size(27, 32)
+        Me.btnBold.Size = New System.Drawing.Size(27, 31)
         Me.btnBold.TabIndex = 4
         Me.btnBold.UseVisualStyleBackColor = True
         '
@@ -3881,7 +3905,7 @@ Partial Class PowerPanel
         Me.btnCopy.Location = New System.Drawing.Point(189, 0)
         Me.btnCopy.Margin = New System.Windows.Forms.Padding(0)
         Me.btnCopy.Name = "btnCopy"
-        Me.btnCopy.Size = New System.Drawing.Size(27, 32)
+        Me.btnCopy.Size = New System.Drawing.Size(27, 31)
         Me.btnCopy.TabIndex = 7
         Me.btnCopy.UseVisualStyleBackColor = True
         '
@@ -3897,7 +3921,7 @@ Partial Class PowerPanel
         Me.btnCut.Location = New System.Drawing.Point(162, 0)
         Me.btnCut.Margin = New System.Windows.Forms.Padding(0)
         Me.btnCut.Name = "btnCut"
-        Me.btnCut.Size = New System.Drawing.Size(27, 32)
+        Me.btnCut.Size = New System.Drawing.Size(27, 31)
         Me.btnCut.TabIndex = 6
         Me.btnCut.UseVisualStyleBackColor = True
         '
@@ -3915,7 +3939,7 @@ Partial Class PowerPanel
         Me.btnAlignRight.Location = New System.Drawing.Point(135, 0)
         Me.btnAlignRight.Margin = New System.Windows.Forms.Padding(0)
         Me.btnAlignRight.Name = "btnAlignRight"
-        Me.btnAlignRight.Size = New System.Drawing.Size(27, 32)
+        Me.btnAlignRight.Size = New System.Drawing.Size(27, 31)
         Me.btnAlignRight.TabIndex = 4
         Me.btnAlignRight.UseVisualStyleBackColor = True
         '
@@ -3933,7 +3957,7 @@ Partial Class PowerPanel
         Me.btnAlignCenter.Location = New System.Drawing.Point(108, 0)
         Me.btnAlignCenter.Margin = New System.Windows.Forms.Padding(0)
         Me.btnAlignCenter.Name = "btnAlignCenter"
-        Me.btnAlignCenter.Size = New System.Drawing.Size(27, 32)
+        Me.btnAlignCenter.Size = New System.Drawing.Size(27, 31)
         Me.btnAlignCenter.TabIndex = 5
         Me.btnAlignCenter.UseVisualStyleBackColor = True
         '
@@ -3951,7 +3975,7 @@ Partial Class PowerPanel
         Me.btnAlignLeft.Location = New System.Drawing.Point(81, 0)
         Me.btnAlignLeft.Margin = New System.Windows.Forms.Padding(0)
         Me.btnAlignLeft.Name = "btnAlignLeft"
-        Me.btnAlignLeft.Size = New System.Drawing.Size(27, 32)
+        Me.btnAlignLeft.Size = New System.Drawing.Size(27, 31)
         Me.btnAlignLeft.TabIndex = 3
         Me.btnAlignLeft.UseVisualStyleBackColor = True
         '
@@ -3960,14 +3984,14 @@ Partial Class PowerPanel
         Me.TLP_SHOWHIDE.ColumnCount = 1
         Me.TLP_SHOWHIDE.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.TLP_SHOWHIDE.Controls.Add(Me.txtNotes, 0, 1)
-        Me.TLP_SHOWHIDE.Controls.Add(Me.btn_ShowNotes, 0, 0)
+        Me.TLP_SHOWHIDE.Controls.Add(Me.btn_HideNotes, 0, 0)
         Me.TLP_SHOWHIDE.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TLP_SHOWHIDE.Location = New System.Drawing.Point(0, 0)
         Me.TLP_SHOWHIDE.Name = "TLP_SHOWHIDE"
         Me.TLP_SHOWHIDE.RowCount = 2
         Me.TLP_SHOWHIDE.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36.0!))
         Me.TLP_SHOWHIDE.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TLP_SHOWHIDE.Size = New System.Drawing.Size(276, 67)
+        Me.TLP_SHOWHIDE.Size = New System.Drawing.Size(276, 68)
         Me.TLP_SHOWHIDE.TabIndex = 1
         '
         'txtNotes
@@ -3977,19 +4001,19 @@ Partial Class PowerPanel
         Me.txtNotes.Dock = System.Windows.Forms.DockStyle.Fill
         Me.txtNotes.Location = New System.Drawing.Point(3, 39)
         Me.txtNotes.Name = "txtNotes"
-        Me.txtNotes.Size = New System.Drawing.Size(270, 25)
+        Me.txtNotes.Size = New System.Drawing.Size(270, 26)
         Me.txtNotes.TabIndex = 0
         Me.txtNotes.Text = ""
         '
-        'btn_ShowNotes
+        'btn_HideNotes
         '
-        Me.btn_ShowNotes.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.btn_ShowNotes.Location = New System.Drawing.Point(3, 3)
-        Me.btn_ShowNotes.Name = "btn_ShowNotes"
-        Me.btn_ShowNotes.Size = New System.Drawing.Size(270, 30)
-        Me.btn_ShowNotes.TabIndex = 1
-        Me.btn_ShowNotes.Text = "Show Notes"
-        Me.btn_ShowNotes.UseVisualStyleBackColor = True
+        Me.btn_HideNotes.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.btn_HideNotes.Location = New System.Drawing.Point(3, 3)
+        Me.btn_HideNotes.Name = "btn_HideNotes"
+        Me.btn_HideNotes.Size = New System.Drawing.Size(270, 30)
+        Me.btn_HideNotes.TabIndex = 1
+        Me.btn_HideNotes.Text = "Hide Notes"
+        Me.btn_HideNotes.UseVisualStyleBackColor = True
         '
         'ImageList_Pattern
         '
@@ -4387,7 +4411,7 @@ Partial Class PowerPanel
     Friend WithEvents btn_patternBacks As System.Windows.Forms.Button
     Friend WithEvents TLP_Patternimage As System.Windows.Forms.TableLayoutPanel
     Friend WithEvents TLP_SHOWHIDE As System.Windows.Forms.TableLayoutPanel
-    Friend WithEvents btn_ShowNotes As System.Windows.Forms.Button
+    Friend WithEvents btn_HideNotes As System.Windows.Forms.Button
     Friend WithEvents RadioButton43 As System.Windows.Forms.RadioButton
     Friend WithEvents RadioButton44 As System.Windows.Forms.RadioButton
     Friend WithEvents RadioButton45 As System.Windows.Forms.RadioButton
@@ -4474,5 +4498,7 @@ Partial Class PowerPanel
     Friend WithEvents OpenFileDialog_PictureFill As System.Windows.Forms.OpenFileDialog
     Friend WithEvents ImageList_Texture As System.Windows.Forms.ImageList
     Friend WithEvents btn_TexturePreset As System.Windows.Forms.CheckBox
+    Friend WithEvents btn_ShowNotes As System.Windows.Forms.Button
+    Friend WithEvents btn_ShowNotes2 As System.Windows.Forms.Button
 
 End Class

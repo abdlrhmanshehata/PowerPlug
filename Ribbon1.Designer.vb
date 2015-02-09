@@ -41,18 +41,11 @@
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container()
-        Me.timer = New System.Windows.Forms.Timer(Me.components)
         Me.Tab1 = Me.Factory.CreateRibbonTab
         Me.Group1 = Me.Factory.CreateRibbonGroup
         Me.ShowPlug = Me.Factory.CreateRibbonToggleButton
         Me.Tab1.SuspendLayout()
         Me.Group1.SuspendLayout()
-        '
-        'timer
-        '
-        Me.timer.Enabled = True
-        Me.timer.Interval = 1000
         '
         'Tab1
         '
@@ -90,7 +83,6 @@
     Friend WithEvents Tab1 As Microsoft.Office.Tools.Ribbon.RibbonTab
     Friend WithEvents Group1 As Microsoft.Office.Tools.Ribbon.RibbonGroup
     Friend WithEvents ShowPlug As Microsoft.Office.Tools.Ribbon.RibbonToggleButton
-    Friend WithEvents timer As System.Windows.Forms.Timer
 End Class
 
 Partial Class ThisRibbonCollection

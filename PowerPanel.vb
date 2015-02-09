@@ -14,7 +14,7 @@ Public Class PowerPanel
     Dim relativestate As MsoTriState
     Dim originallength, originalwidth As Integer
     Public WithEvents MyTextureList As ListView
-
+    Dim Filename_TextureImg As String
     '=====================================================GENERAL GENERAL GENERAL GENERAL GENERAL GENERAL GENERAL GENERAL ============================================================='
     '=====================================================GENERAL GENERAL GENERAL GENERAL GENERAL GENERAL GENERAL GENERAL ============================================================='
 
@@ -62,9 +62,9 @@ Public Class PowerPanel
         Catch ex As Exception
         End Try
     End Sub
-    Sub EnableFormatButton(ButtonToEnable As CheckBox)
+    Sub EnableFormatButton(ButtonToEnable As CheckBox, Panel As Panel)
         If ButtonToEnable.Checked = False Then
-            For Each scont As SplitContainer In Panel_Total.Controls.OfType(Of SplitContainer)()
+            For Each scont As SplitContainer In Panel.Controls.OfType(Of SplitContainer)()
                 For Each chkbx As CheckBox In scont.Panel1.Controls.OfType(Of CheckBox)()
                     chkbx.Checked = False
                 Next
@@ -75,18 +75,21 @@ Public Class PowerPanel
     Sub SuitableFormat()
         Try
             If selectedshape.TextFrame.TextRange.Text.Length > 0 Then
-                EnableFormatButton(chkbx_TextFormat)
+                EnableFormatButton(chkbx_TextFormat, Panel_total)
             Else
-                EnableFormatButton(chkbx_ShapeFormat)
+                EnableFormatButton(chkbx_ShapeFormat, Panel_total)
+                EnableFormatButton(chkbx_Fill, panel_FillAndLine)
             End If
         Catch ex As Exception
         End Try
     End Sub
     Sub ShowNotes(ByVal show As Boolean)
         If show Then
-            Scont_B.SplitterDistance = 110
+            Scont_B.Panel1Collapsed = True
+            Scont_B.Panel2Collapsed = False
         Else
-            Scont_B.SplitterDistance = 340
+            Scont_B.Panel2Collapsed = True
+            Scont_B.Panel1Collapsed = False
         End If
     End Sub
     Private Sub objapp_WindowSelectionChange(Sel As Selection) Handles objapp.WindowSelectionChange
@@ -100,7 +103,6 @@ Public Class PowerPanel
 
         getFillPage()
         SuitableFormat()
-        ShowNotes(False)
     End Sub
 
     Public Overridable Sub ExpandCollapse(chkbx As CheckBox, scont As SplitContainer, max As Integer, min As Integer)
@@ -129,14 +131,11 @@ Public Class PowerPanel
     Private Sub chkbx_TextFormat_CheckedChanged(sender As Object, e As EventArgs) Handles chkbx_TextFormat.CheckedChanged
         ExpandCollapse(chkbx_TextFormat, Scont_TextFormat, 300, 50)
     End Sub
-    Private Sub btn_ShowNotes_Click(sender As Object, e As EventArgs) Handles btn_ShowNotes.Click
-        If btn_ShowNotes.Text = "Show Notes" Then
-            ShowNotes(True)
-            btn_ShowNotes.Text = "Hide Notes"
-        Else
-            ShowNotes(False)
-            btn_ShowNotes.Text = "Show Notes"
-        End If
+    Private Sub btn_HideNotes_Click(sender As Object, e As EventArgs) Handles btn_HideNotes.Click
+        ShowNotes(False)
+    End Sub
+    Private Sub btn_ShowNotes_Click(sender As Object, e As EventArgs) Handles btn_ShowNotes.Click, btn_ShowNotes2.Click
+        ShowNotes(True)
     End Sub
 #End Region
 
@@ -812,6 +811,10 @@ Public Class PowerPanel
 #End Region
     '----------------------------------FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL ---------------------------------------'
 #Region "Fill"
+    Sub test()
+
+
+    End Sub
     Sub getFillPage()
         If NoErros() Then
             If selectedshape.Fill.Visible = MsoTriState.msoFalse Then
@@ -842,7 +845,8 @@ Public Class PowerPanel
         Try
             selectedshape.GetHashCode()
             If Not selectedshape.HasTextFrame Then
-                MsgBox("Please Select a valid shape")
+                NoError = False
+            ElseIf selectedshape Is Nothing Then
                 NoError = False
             End If
         Catch null As NullReferenceException
@@ -877,7 +881,6 @@ Public Class PowerPanel
         Rbtn.Checked = True
     End Sub
     Sub PleaseSelect()
-        MsgBox("Please Select Shape First")
     End Sub
     'Solid Fill
     Sub ChooseColor(TheColor As PowerPoint.ColorFormat)
@@ -1183,28 +1186,16 @@ Public Class PowerPanel
         End If
     End Sub
 
-    Private Sub btn_FileTexture_Click(sender As Object, e As EventArgs) Handles btn_FileTexture.Click
+    Public Sub btn_FileTexture_Click() Handles btn_FileTexture.Click
         OpenFileDialog_PictureFill.ShowDialog()
-        Dim filename As String
-        filename = OpenFileDialog_PictureFill.FileName
+        Filename_TextureImg = OpenFileDialog_PictureFill.FileName
         If NoErros() Then
-            selectedshape.Fill.UserPicture(filename)
+            selectedshape.Fill.UserPicture(Filename_TextureImg)
             chkbx_texture.Checked = False
         End If
     End Sub
     Private Sub btn_ClipboardTexture_Click(sender As Object, e As EventArgs) Handles btn_ClipboardTexture.Click
-        'Dim IMG As System.Drawing.Image
-        'Dim filename As String = Forms.Application.StartupPath
-        'If NoErros() Then
-        '    If My.Computer.Clipboard.ContainsImage Then
-        '        IMG = My.Computer.Clipboard.GetImage
-        '        IMG.Save(filename)
-        '        selectedshape.Fill.UserPicture(filename)
-        '    Else
-        '        MsgBox("Invalid Image")
-        '        Exit Sub
-        '    End If
-        'End If
+       
     End Sub
     Private Sub btn_TexturePreset_CheckedChanged(sender As Object, e As EventArgs) Handles btn_TexturePreset.CheckedChanged
         If btn_TexturePreset.Checked Then
@@ -1262,6 +1253,20 @@ Public Class PowerPanel
                 .TextureAlignment = cbox_AlignmentTexture.SelectedIndex
             End With
         End If
+    End Sub
+    Private Sub cbox_MirrorTexture_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles cbox_MirrorTexture.SelectionChangeCommitted
+        Dim img As New Drawing.Bitmap(Filename_TextureImg)
+        Select Case cbox_MirrorTexture.SelectedIndex
+            Case 0
+                img.RotateFlip(RotateFlipType.RotateNoneFlipNone)
+            Case 1
+                img.RotateFlip(RotateFlipType.RotateNoneFlipX)
+            Case 2
+                img.RotateFlip(RotateFlipType.RotateNoneFlipY)
+            Case 3
+                img.RotateFlip(RotateFlipType.RotateNoneFlipXY)
+        End Select
+    
     End Sub
 #End Region
 #End Region
@@ -1333,6 +1338,6 @@ Public Class PowerPanel
     End Sub
 #End Region
 
-
-
+  
+  
 End Class
