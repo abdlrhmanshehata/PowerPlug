@@ -91,6 +91,7 @@ Public Class PowerPanel
             Scont_B.Panel2Collapsed = True
             Scont_B.Panel1Collapsed = False
         End If
+        Scont_C.SplitterDistance = 75
     End Sub
     Private Sub objapp_WindowSelectionChange(Sel As Selection) Handles objapp.WindowSelectionChange
         getcurrentindex()
@@ -811,10 +812,6 @@ Public Class PowerPanel
 #End Region
     '----------------------------------FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL ---------------------------------------'
 #Region "Fill"
-    Sub test()
-
-
-    End Sub
     Sub getFillPage()
         If NoErros() Then
             If selectedshape.Fill.Visible = MsoTriState.msoFalse Then
@@ -832,7 +829,7 @@ Public Class PowerPanel
                         Manuallycheck(Rbtn_Gradient)
                     Case 5
                         Manuallycheck(Rbtn_BackgroundFill)
-                    Case 6 Or 4
+                    Case 4, 6
                         Manuallycheck(Rbtn_TextureFill)
                         ExpandCollapse(Rbtn_TextureFill, 400, 50)
                         gettexture()
@@ -860,7 +857,7 @@ Public Class PowerPanel
     End Function
     Private Sub chkbx_Fill_CheckedChanged(sender As Object, e As EventArgs) Handles chkbx_Fill.CheckedChanged
         If NoErros() Then
-            ExpandCollapse(chkbx_Fill, Scont_Fill, 350, 50)
+            ExpandCollapse(chkbx_Fill, Scont_Fill, 450, 50)
             ChangePattern()
         End If
     End Sub
@@ -1036,6 +1033,19 @@ Public Class PowerPanel
         End If
     End Sub
     'Texture fill
+    Overridable Function GetImagePath(filedialog As OpenFileDialog) As String
+        filedialog.ShowDialog()
+        Dim filename As String = filedialog.FileName
+        Dim Destination As String = Globals.ThisAddIn.Application.StartupPath + "\Test.png"
+        Dim img As New Bitmap(filename)
+        img.Save(Destination, Imaging.ImageFormat.Png)
+        Return Destination
+    End Function
+    Overridable Function GetImagePath(Image As Image) As String
+        Dim Destination As String = "F:\games" + "\Test.png"
+        Image.Save(Destination, Imaging.ImageFormat.Png)
+        Return Destination
+    End Function
     Public Function RelativePosition(Child As Control) As Drawing.Point
         Dim control As Control
         Dim FinalLocation As New Drawing.Point
@@ -1103,22 +1113,30 @@ Public Class PowerPanel
     Sub gettexture()
         With selectedshape.Fill
             If NoErros() Then
+                
                 If .TextureTile = MsoTriState.msoTrue Then
                     chkbx_texture.Checked = True
                     num_OffsetX.Value = .TextureOffsetX
                     num_offsetY.Value = .TextureOffsetY
                     num_ScaleXFill.Value = .TextureHorizontalScale
                     num_ScaleYFill.Value = .TextureVerticalScale
+                    cbox_AlignmentTexture.SelectedIndex = .TextureAlignment
+                    num_Transparency.Value = .Transparency * 100
                 Else
-                    chkbx_texture.Checked = False
+                    With selectedshape.PictureFormat.Crop
+                        chkbx_texture.Checked = False
+                        num_offsetleft.Value = .PictureOffsetX * 100 / .PictureWidth
+                        num_offsetright.Value = -.PictureOffsetX * 100 / .PictureWidth
+                        num_offsettop.Value = .PictureOffsetY * 100 / .PictureHeight
+                        num_offsetbot.Value = -.PictureOffsetY * 100 / .ShapeHeight
+                    End With
                 End If
+                 
                 If .RotateWithObject = MsoTriState.msoTrue Then
                     chkbx_RotateWithShape.Checked = True
                 Else
                     chkbx_RotateWithShape.Checked = True
                 End If
-                num_Transparency.Value = .Transparency * 100
-                cbox_AlignmentTexture.SelectedIndex = .TextureAlignment
             End If
         End With
     End Sub
@@ -1139,7 +1157,7 @@ Public Class PowerPanel
     Private Sub Rbtn_TextureFill_Click(sender As Object, e As EventArgs) Handles Rbtn_TextureFill.Click
         If NoErros() Then
             Manuallycheck(Rbtn_TextureFill)
-            ExpandCollapse(Rbtn_TextureFill, 400, 50)
+            ExpandCollapse(Rbtn_TextureFill, 360, 50)
             SetDefaultTexture()
             gettexture()
         End If
@@ -1190,12 +1208,22 @@ Public Class PowerPanel
         OpenFileDialog_PictureFill.ShowDialog()
         Filename_TextureImg = OpenFileDialog_PictureFill.FileName
         If NoErros() Then
-            selectedshape.Fill.UserPicture(Filename_TextureImg)
-            chkbx_texture.Checked = False
+            Try
+                selectedshape.Fill.UserPicture(Filename_TextureImg)
+                chkbx_texture.Checked = False
+                gettexture()
+            Catch ex As Exception
+            End Try
         End If
     End Sub
     Private Sub btn_ClipboardTexture_Click(sender As Object, e As EventArgs) Handles btn_ClipboardTexture.Click
-       
+        If My.Computer.Clipboard.ContainsImage Then
+            Dim ClipBoardImg As Image = My.Computer.Clipboard.GetImage
+            Dim Path As String = GetImagePath(ClipBoardImg)
+            If NoErros() Then
+                selectedshape.Fill.UserPicture(Path)
+            End If
+        End If
     End Sub
     Private Sub btn_TexturePreset_CheckedChanged(sender As Object, e As EventArgs) Handles btn_TexturePreset.CheckedChanged
         If btn_TexturePreset.Checked Then
@@ -1204,34 +1232,40 @@ Public Class PowerPanel
             RemovelistView()
         End If
     End Sub
-
-    Private Sub num_offsetleft_ValueChanged(sender As Object, e As EventArgs) Handles num_offsetleft.ValueChanged
+    Enum Offset As Integer
+        Left = 1
+        Right = 2
+        Top = 3
+        Bottom = 4
+    End Enum
+    Sub OffsetValue(Offset As Offset)
         If NoErros() Then
             With selectedshape.PictureFormat.Crop
-                .PictureOffsetX = num_offsetleft.Value * .PictureWidth / 100
+                Dim offsetvalue As Double
+                Select Case Offset
+                    Case PowerPanel.Offset.Left, PowerPanel.Offset.Right
+                        offsetvalue = num_offsetleft.Value + num_offsetright.Value
+                        .PictureWidth = .ShapeWidth * (1 - 0.01 * offsetvalue)
+                        .PictureOffsetX = (num_offsetleft.Value - num_offsetright.Value) * 0.5 * .ShapeWidth * 0.01
+                    Case PowerPanel.Offset.Top, PowerPanel.Offset.Bottom
+                        offsetvalue = num_offsetbot.Value + num_offsettop.Value
+                        .PictureHeight = .ShapeHeight * (1 - 0.01 * offsetvalue)
+                        .PictureOffsetY = (num_offsettop.Value - num_offsetbot.Value) * 0.5 * .ShapeHeight * 0.01
+                End Select
             End With
         End If
+    End Sub
+    Private Sub num_offsetleft_ValueChanged(sender As Object, e As EventArgs) Handles num_offsetleft.ValueChanged
+        OffsetValue(Offset.Left)
     End Sub
     Private Sub num_offsetright_ValueChanged(sender As Object, e As EventArgs) Handles num_offsetright.ValueChanged
-        If NoErros() Then
-            With selectedshape.PictureFormat.Crop
-                .PictureOffsetX = -num_offsetright.Value * .PictureWidth / 100
-            End With
-        End If
+        OffsetValue(Offset.Right)
     End Sub
     Private Sub num_offsettop_ValueChanged(sender As Object, e As EventArgs) Handles num_offsettop.ValueChanged
-        If NoErros() Then
-            With selectedshape.PictureFormat.Crop
-                .PictureOffsetY = num_offsettop.Value * .PictureHeight / 100
-            End With
-        End If
+        OffsetValue(Offset.Top)
     End Sub
     Private Sub num_offsetbot_ValueChanged(sender As Object, e As EventArgs) Handles num_offsetbot.ValueChanged
-        If NoErros() Then
-            With selectedshape.PictureFormat.Crop
-                .PictureOffsetY = -num_offsetbot.Value * .PictureHeight / 100
-            End With
-        End If
+        OffsetValue(Offset.Bottom)
     End Sub
 
 
@@ -1250,24 +1284,14 @@ Public Class PowerPanel
     Private Sub cbox_AlignmentTexture_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles cbox_AlignmentTexture.SelectionChangeCommitted
         If NoErros() Then
             With selectedshape.Fill
-                .TextureAlignment = cbox_AlignmentTexture.SelectedIndex
+                Try
+                    .TextureAlignment = cbox_AlignmentTexture.SelectedIndex
+                Catch ex As Exception
+                End Try
             End With
         End If
     End Sub
-    Private Sub cbox_MirrorTexture_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles cbox_MirrorTexture.SelectionChangeCommitted
-        Dim img As New Drawing.Bitmap(Filename_TextureImg)
-        Select Case cbox_MirrorTexture.SelectedIndex
-            Case 0
-                img.RotateFlip(RotateFlipType.RotateNoneFlipNone)
-            Case 1
-                img.RotateFlip(RotateFlipType.RotateNoneFlipX)
-            Case 2
-                img.RotateFlip(RotateFlipType.RotateNoneFlipY)
-            Case 3
-                img.RotateFlip(RotateFlipType.RotateNoneFlipXY)
-        End Select
     
-    End Sub
 #End Region
 #End Region
 
@@ -1340,4 +1364,6 @@ Public Class PowerPanel
 
   
   
+
 End Class
+
